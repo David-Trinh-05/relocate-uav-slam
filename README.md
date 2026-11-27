@@ -52,3 +52,7 @@ The build patch replaces the three legacy post-increments of a `bool` with assig
 ## Week 2 replay and visual ambiguity
 
 Mask both camera images while replaying the same camera timestamps and IMU, then inspect the live tracker decisions. The [week 2 report](docs/week2.md) includes the reproduction commands, the measured EuRoC outcomes, and an independently rendered two-corridor ambiguity case.
+
+## Week 3 fixed-map benchmark
+
+The [benchmark guide](docs/week3.md) defines 18 synthetic stereo–inertial outages across three visibility scenarios. Each method uses the same incident manifest and 42-keyframe map. Separate development and held-out flights keep threshold tuning out of the final comparison.

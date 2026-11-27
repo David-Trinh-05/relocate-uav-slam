@@ -54,6 +54,11 @@ def yaw_rotation(degrees):
     return np.array([[cosine, 0, sine], [0, 1, 0], [-sine, 0, cosine]])
 
 
+def pixel_rays():
+    y, x = np.indices((HEIGHT, WIDTH))
+    return np.stack([(x - K[0, 2]) / FOCAL, (y - K[1, 2]) / FOCAL, np.ones_like(x)], axis=-1)
+
+
 def render(textures, panels, room, local_origin, rotation, camera_rays):
     directions = camera_rays @ rotation.T
     depth = np.full((HEIGHT, WIDTH), np.inf)
@@ -112,8 +117,7 @@ def generate(output):
     textures, panels = make_textures()
     detector = cv.ORB_create(nfeatures=1400)
     matcher = cv.BFMatcher(cv.NORM_HAMMING, crossCheck=True)
-    y, x = np.indices((HEIGHT, WIDTH))
-    rays = np.stack([(x - K[0, 2]) / FOCAL, (y - K[1, 2]) / FOCAL, np.ones_like(x)], axis=-1)
+    rays = pixel_rays()
     frames = []
     preview = []
 

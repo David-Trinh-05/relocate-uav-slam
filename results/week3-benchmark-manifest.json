@@ -1,0 +1,537 @@
+{
+  "schema_version": 1,
+  "map_version": "corridors-v1",
+  "calibration": {
+    "camera_intrinsics": [
+      [
+        345.0,
+        0.0,
+        239.5
+      ],
+      [
+        0.0,
+        345.0,
+        159.5
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "image_size": [
+      480,
+      320
+    ],
+    "right_from_left_translation_m": [
+      -0.11,
+      0,
+      0
+    ],
+    "gravity_world_m_s2": [
+      0.0,
+      9.80665,
+      0.0
+    ],
+    "camera_period_ns": 50000000,
+    "imu_period_ns": 5000000,
+    "imu_body_frame": "left_camera"
+  },
+  "map": {
+    "path": "map/index.json",
+    "sha256": "47f135d18678109580f48e0626e609a03095aead5915d1842af5693bc815083c"
+  },
+  "blank_image": {
+    "path": "blank.png",
+    "sha256": "9fdd5bdeb4a95a67152306a30ce202287b6b49c8d9403308f1191be6aa76e3be"
+  },
+  "observation_window_ns": 5000000000,
+  "incidents": [
+    {
+      "incident_id": "development-immediate-01-outage",
+      "flight_id": "development-immediate-01",
+      "split": "development",
+      "scenario": "immediate",
+      "motion_seed": 302,
+      "target_region": "B",
+      "map_version": "corridors-v1",
+      "map_sha256": "47f135d18678109580f48e0626e609a03095aead5915d1842af5693bc815083c",
+      "mask_start_ns": 6041500000000,
+      "first_unmasked_ns": 6042000000000,
+      "deadline_ns": 6047000000000,
+      "first_visual_cue_ns": 6042000000000,
+      "frames": {
+        "path": "queries/development-immediate-01/frames.csv",
+        "sha256": "2f8af9712e74cdc653ffbb8b38356cc3e03a771589205e7aea581448723cff40"
+      },
+      "imu": {
+        "path": "queries/development-immediate-01/imu.csv",
+        "sha256": "0cbd5cf431210eb63a7977127f04d3a5b4074ae8d435591045d87333f669d637"
+      },
+      "ground_truth": {
+        "path": "ground_truth/development-immediate-01.csv",
+        "sha256": "27eb25fad99e73668de0dd5df64535747b7b4ec33329d843479884160027f6a9"
+      },
+      "clean_images_sha256": "ccb1ca3750e9066a368abefe3ec1812170c529f4b757a7b21dfe3e9fd78159ed"
+    },
+    {
+      "incident_id": "development-immediate-02-outage",
+      "flight_id": "development-immediate-02",
+      "split": "development",
+      "scenario": "immediate",
+      "motion_seed": 303,
+      "target_region": "A",
+      "map_version": "corridors-v1",
+      "map_sha256": "47f135d18678109580f48e0626e609a03095aead5915d1842af5693bc815083c",
+      "mask_start_ns": 6061500000000,
+      "first_unmasked_ns": 6062500000000,
+      "deadline_ns": 6067500000000,
+      "first_visual_cue_ns": 6062500000000,
+      "frames": {
+        "path": "queries/development-immediate-02/frames.csv",
+        "sha256": "f6d5204ff0860e12763c609839535e0ab02af863e8e1340e823099fbe08fe088"
+      },
+      "imu": {
+        "path": "queries/development-immediate-02/imu.csv",
+        "sha256": "bf4528dbf7b793d8c248225d63260ef86aa1d4089d2309599fadbb0bc1a061c8"
+      },
+      "ground_truth": {
+        "path": "ground_truth/development-immediate-02.csv",
+        "sha256": "af1460e828abc2448310fe388ae30e06d3640d782195137dd6116951bcbd937a"
+      },
+      "clean_images_sha256": "53a77166facc48543397d8d9ad8f80bcfdaf83071162991e07e0838dcc4355bd"
+    },
+    {
+      "incident_id": "development-immediate-03-outage",
+      "flight_id": "development-immediate-03",
+      "split": "development",
+      "scenario": "immediate",
+      "motion_seed": 304,
+      "target_region": "B",
+      "map_version": "corridors-v1",
+      "map_sha256": "47f135d18678109580f48e0626e609a03095aead5915d1842af5693bc815083c",
+      "mask_start_ns": 6081500000000,
+      "first_unmasked_ns": 6083500000000,
+      "deadline_ns": 6088500000000,
+      "first_visual_cue_ns": 6083500000000,
+      "frames": {
+        "path": "queries/development-immediate-03/frames.csv",
+        "sha256": "59cb0a3cd12c994782301dd7d24dde7a30c0f1c92b74aee5326c089422e176c3"
+      },
+      "imu": {
+        "path": "queries/development-immediate-03/imu.csv",
+        "sha256": "6a77d9dee9a1775733d947a21d291f7ad2564fe53cb87813cb80184f0a143d7d"
+      },
+      "ground_truth": {
+        "path": "ground_truth/development-immediate-03.csv",
+        "sha256": "e8e773dd6b7b8d9d0b839c70976b9eb35f995ae9e048778a41dd9c558e1d8df2"
+      },
+      "clean_images_sha256": "56996cacd871466a8e4d2717257d43f1b339a8e78aea7fc98c225a4694da294c"
+    },
+    {
+      "incident_id": "development-delayed-01-outage",
+      "flight_id": "development-delayed-01",
+      "split": "development",
+      "scenario": "delayed",
+      "motion_seed": 305,
+      "target_region": "A",
+      "map_version": "corridors-v1",
+      "map_sha256": "47f135d18678109580f48e0626e609a03095aead5915d1842af5693bc815083c",
+      "mask_start_ns": 6101500000000,
+      "first_unmasked_ns": 6102000000000,
+      "deadline_ns": 6107000000000,
+      "first_visual_cue_ns": 6103400000000,
+      "frames": {
+        "path": "queries/development-delayed-01/frames.csv",
+        "sha256": "4b89f76cc2646be00fcb3bac6ecf93096b16731819961a3d0961c4332b2fa4e3"
+      },
+      "imu": {
+        "path": "queries/development-delayed-01/imu.csv",
+        "sha256": "7bc7bf838568b180fcc243ec49a361020d1dd56a304e969f62344299993fed53"
+      },
+      "ground_truth": {
+        "path": "ground_truth/development-delayed-01.csv",
+        "sha256": "ed214a4fa791eed790569c068150c63162351ba5c8f7b9a58702494cad97d914"
+      },
+      "clean_images_sha256": "6bf9bc5cbc9f6660ec261c32f85b7f75c1d16486ba41d5a24c0e141caa7cffc6"
+    },
+    {
+      "incident_id": "development-delayed-02-outage",
+      "flight_id": "development-delayed-02",
+      "split": "development",
+      "scenario": "delayed",
+      "motion_seed": 306,
+      "target_region": "B",
+      "map_version": "corridors-v1",
+      "map_sha256": "47f135d18678109580f48e0626e609a03095aead5915d1842af5693bc815083c",
+      "mask_start_ns": 6121500000000,
+      "first_unmasked_ns": 6122500000000,
+      "deadline_ns": 6127500000000,
+      "first_visual_cue_ns": 6124050000000,
+      "frames": {
+        "path": "queries/development-delayed-02/frames.csv",
+        "sha256": "0f4766fc4a9020ba69696eb4ad14bb9a88bb69304879d579efc3354645d5a4f7"
+      },
+      "imu": {
+        "path": "queries/development-delayed-02/imu.csv",
+        "sha256": "575a33898b17d76db0c3bc07fb73e2b467aa698372320ef07f7fe92c3ce673cd"
+      },
+      "ground_truth": {
+        "path": "ground_truth/development-delayed-02.csv",
+        "sha256": "a2d144cd0bc09156da2e55054291c4d0a9acd7ce423284855e0403f1b2342a97"
+      },
+      "clean_images_sha256": "b67af6f8a1b464e73d60088ef4622d64f5aa0c2a1b22b3b78a818a6ef61745e0"
+    },
+    {
+      "incident_id": "development-delayed-03-outage",
+      "flight_id": "development-delayed-03",
+      "split": "development",
+      "scenario": "delayed",
+      "motion_seed": 307,
+      "target_region": "A",
+      "map_version": "corridors-v1",
+      "map_sha256": "47f135d18678109580f48e0626e609a03095aead5915d1842af5693bc815083c",
+      "mask_start_ns": 6141500000000,
+      "first_unmasked_ns": 6143500000000,
+      "deadline_ns": 6148500000000,
+      "first_visual_cue_ns": 6145350000000,
+      "frames": {
+        "path": "queries/development-delayed-03/frames.csv",
+        "sha256": "b70f4ee3d10bc93f8b8d9539a0970eaed725876457b53fe80470d91a9825e2ef"
+      },
+      "imu": {
+        "path": "queries/development-delayed-03/imu.csv",
+        "sha256": "9a330cb9c7552d8cb5a190a217595aa1988f4d9fd4ee17241a25b8de099fad74"
+      },
+      "ground_truth": {
+        "path": "ground_truth/development-delayed-03.csv",
+        "sha256": "adf27aa4ca278e30ed0ecee854031f4a69415b3815f37a38f5a335391a24c772"
+      },
+      "clean_images_sha256": "a44e9ef5e0b8bef304115be066202ad00582c2062522879a042bc5b509b6b139"
+    },
+    {
+      "incident_id": "development-unresolved-01-outage",
+      "flight_id": "development-unresolved-01",
+      "split": "development",
+      "scenario": "unresolved",
+      "motion_seed": 308,
+      "target_region": "B",
+      "map_version": "corridors-v1",
+      "map_sha256": "47f135d18678109580f48e0626e609a03095aead5915d1842af5693bc815083c",
+      "mask_start_ns": 6161500000000,
+      "first_unmasked_ns": 6162000000000,
+      "deadline_ns": 6167000000000,
+      "first_visual_cue_ns": null,
+      "frames": {
+        "path": "queries/development-unresolved-01/frames.csv",
+        "sha256": "aac4b4aa49c72eed3130280cee71308ca2d2e02c414ebc4dfc80249d1346ad12"
+      },
+      "imu": {
+        "path": "queries/development-unresolved-01/imu.csv",
+        "sha256": "8694caa2eef2b0bca89f174c059855c35a60113b6175d83172ffdc25553efed0"
+      },
+      "ground_truth": {
+        "path": "ground_truth/development-unresolved-01.csv",
+        "sha256": "46a20971f6c7e013f536b5b3aa942664bc13575218bc0e35055c4e8c47298a46"
+      },
+      "clean_images_sha256": "2ca5272a608c1478703197a493430f1eb87a976c2a2d43a30f1924371ea7629e"
+    },
+    {
+      "incident_id": "development-unresolved-02-outage",
+      "flight_id": "development-unresolved-02",
+      "split": "development",
+      "scenario": "unresolved",
+      "motion_seed": 309,
+      "target_region": "A",
+      "map_version": "corridors-v1",
+      "map_sha256": "47f135d18678109580f48e0626e609a03095aead5915d1842af5693bc815083c",
+      "mask_start_ns": 6181500000000,
+      "first_unmasked_ns": 6182500000000,
+      "deadline_ns": 6187500000000,
+      "first_visual_cue_ns": null,
+      "frames": {
+        "path": "queries/development-unresolved-02/frames.csv",
+        "sha256": "4d78d15f5acfe499669c74e0332f62cdbfe3eadb06b78b0f8abdd790a5e98140"
+      },
+      "imu": {
+        "path": "queries/development-unresolved-02/imu.csv",
+        "sha256": "b654274152bf15d333537a6317765f4ba8189ee9ae870726b48293cae6aff9c0"
+      },
+      "ground_truth": {
+        "path": "ground_truth/development-unresolved-02.csv",
+        "sha256": "d38e1185cb3989548d875e1a44ea15a8ababf6587e7f4d9dff2f0d6725d00ca3"
+      },
+      "clean_images_sha256": "4e4a104f1962a6c28ca6336be1d8770ee83a24fab7c83c895ba15b52041805f4"
+    },
+    {
+      "incident_id": "development-unresolved-03-outage",
+      "flight_id": "development-unresolved-03",
+      "split": "development",
+      "scenario": "unresolved",
+      "motion_seed": 310,
+      "target_region": "B",
+      "map_version": "corridors-v1",
+      "map_sha256": "47f135d18678109580f48e0626e609a03095aead5915d1842af5693bc815083c",
+      "mask_start_ns": 6201500000000,
+      "first_unmasked_ns": 6203500000000,
+      "deadline_ns": 6208500000000,
+      "first_visual_cue_ns": null,
+      "frames": {
+        "path": "queries/development-unresolved-03/frames.csv",
+        "sha256": "c089b6d7048e40d639496c7db667de6c409a6ae0e7a44bae74d8d00a189e80a4"
+      },
+      "imu": {
+        "path": "queries/development-unresolved-03/imu.csv",
+        "sha256": "9d3d297c9dd1e31b0d281090e50f40d9920344f0cfc7e91deb702c4195fdc5c4"
+      },
+      "ground_truth": {
+        "path": "ground_truth/development-unresolved-03.csv",
+        "sha256": "af446745487db82300569df50c71d9f9348a6e9592c8545317e80528c00dbe4b"
+      },
+      "clean_images_sha256": "da430e5ec7102dad6da53b78f3f979dff16e21089a619b5ebbfc96dd78588d4c"
+    },
+    {
+      "incident_id": "held_out-immediate-01-outage",
+      "flight_id": "held_out-immediate-01",
+      "split": "held_out",
+      "scenario": "immediate",
+      "motion_seed": 311,
+      "target_region": "A",
+      "map_version": "corridors-v1",
+      "map_sha256": "47f135d18678109580f48e0626e609a03095aead5915d1842af5693bc815083c",
+      "mask_start_ns": 6221500000000,
+      "first_unmasked_ns": 6222000000000,
+      "deadline_ns": 6227000000000,
+      "first_visual_cue_ns": 6222000000000,
+      "frames": {
+        "path": "queries/held_out-immediate-01/frames.csv",
+        "sha256": "150b8e6b79f4c0f92c09fc08c1698372a03b50ec1494baccb5e4b85680264092"
+      },
+      "imu": {
+        "path": "queries/held_out-immediate-01/imu.csv",
+        "sha256": "fd558509e18584ac82896eb53390e30617dbf0f0ee371acd0e1a4f55b7f40aed"
+      },
+      "ground_truth": {
+        "path": "ground_truth/held_out-immediate-01.csv",
+        "sha256": "f024aef70546d170a450f2bd61976a043bf5e2bee7d4d171cdd2c44918bf6fb6"
+      },
+      "clean_images_sha256": "e7c5579fb8c80edcccaab65844316ad6a730736a2e430f828a9202184a24eec7"
+    },
+    {
+      "incident_id": "held_out-immediate-02-outage",
+      "flight_id": "held_out-immediate-02",
+      "split": "held_out",
+      "scenario": "immediate",
+      "motion_seed": 312,
+      "target_region": "B",
+      "map_version": "corridors-v1",
+      "map_sha256": "47f135d18678109580f48e0626e609a03095aead5915d1842af5693bc815083c",
+      "mask_start_ns": 6241500000000,
+      "first_unmasked_ns": 6242500000000,
+      "deadline_ns": 6247500000000,
+      "first_visual_cue_ns": 6242500000000,
+      "frames": {
+        "path": "queries/held_out-immediate-02/frames.csv",
+        "sha256": "0ec1e0ec4a0f82910eef8a5ab813148f95cf31cbdc85f213210927df60875da2"
+      },
+      "imu": {
+        "path": "queries/held_out-immediate-02/imu.csv",
+        "sha256": "06dbb678102ecca51557cf9b5d928d5a6d9d74111e18e6f6160b559bafbd8972"
+      },
+      "ground_truth": {
+        "path": "ground_truth/held_out-immediate-02.csv",
+        "sha256": "ab71843d988a3885859c29177e1c280a502f6334123e7ebb134c2b41279812e2"
+      },
+      "clean_images_sha256": "4112fc485dce56ec0dc777ab6237ebc957ad53a21a23e4420e9f07cf6e82c9ca"
+    },
+    {
+      "incident_id": "held_out-immediate-03-outage",
+      "flight_id": "held_out-immediate-03",
+      "split": "held_out",
+      "scenario": "immediate",
+      "motion_seed": 313,
+      "target_region": "A",
+      "map_version": "corridors-v1",
+      "map_sha256": "47f135d18678109580f48e0626e609a03095aead5915d1842af5693bc815083c",
+      "mask_start_ns": 6261500000000,
+      "first_unmasked_ns": 6263500000000,
+      "deadline_ns": 6268500000000,
+      "first_visual_cue_ns": 6263500000000,
+      "frames": {
+        "path": "queries/held_out-immediate-03/frames.csv",
+        "sha256": "604afb6ccdc5da39d1b5bbe69afe883588ef18c8000496f231d27f6135b206db"
+      },
+      "imu": {
+        "path": "queries/held_out-immediate-03/imu.csv",
+        "sha256": "ad4906818529f54ece923a704daa681927c646eecd5234daa48e282f2e094b45"
+      },
+      "ground_truth": {
+        "path": "ground_truth/held_out-immediate-03.csv",
+        "sha256": "574997a1251a60958753d5d61cf5b2f88554a968a59dbb4ecd4be7169ddc726b"
+      },
+      "clean_images_sha256": "bb300980a83820558328c468832638705819dcbecacf53c9c5feccd29ab71fe2"
+    },
+    {
+      "incident_id": "held_out-delayed-01-outage",
+      "flight_id": "held_out-delayed-01",
+      "split": "held_out",
+      "scenario": "delayed",
+      "motion_seed": 314,
+      "target_region": "B",
+      "map_version": "corridors-v1",
+      "map_sha256": "47f135d18678109580f48e0626e609a03095aead5915d1842af5693bc815083c",
+      "mask_start_ns": 6281500000000,
+      "first_unmasked_ns": 6282000000000,
+      "deadline_ns": 6287000000000,
+      "first_visual_cue_ns": 6283950000000,
+      "frames": {
+        "path": "queries/held_out-delayed-01/frames.csv",
+        "sha256": "2b24ec175e8103342345bbe25ac540f9784f416ba0ebbece70c500dbf1e8344c"
+      },
+      "imu": {
+        "path": "queries/held_out-delayed-01/imu.csv",
+        "sha256": "ad0c4f15600311dea66d4e62a4cec307e0b349540a06e947071c5c2c586b9c3e"
+      },
+      "ground_truth": {
+        "path": "ground_truth/held_out-delayed-01.csv",
+        "sha256": "ad6654657fb3023e7e346499992522a2e5829fec611524d5500603f69f1bfcee"
+      },
+      "clean_images_sha256": "fcffaf92d9dbd338da6486dea750e0463f2556b753b42401a66c193f680a818d"
+    },
+    {
+      "incident_id": "held_out-delayed-02-outage",
+      "flight_id": "held_out-delayed-02",
+      "split": "held_out",
+      "scenario": "delayed",
+      "motion_seed": 315,
+      "target_region": "A",
+      "map_version": "corridors-v1",
+      "map_sha256": "47f135d18678109580f48e0626e609a03095aead5915d1842af5693bc815083c",
+      "mask_start_ns": 6301500000000,
+      "first_unmasked_ns": 6302500000000,
+      "deadline_ns": 6307500000000,
+      "first_visual_cue_ns": 6304450000000,
+      "frames": {
+        "path": "queries/held_out-delayed-02/frames.csv",
+        "sha256": "c6d6534bce7722bd09b665f95d061ebda13d487d56871341af5f5a9bb3252c17"
+      },
+      "imu": {
+        "path": "queries/held_out-delayed-02/imu.csv",
+        "sha256": "d80b1a1e9fbb37f940cfa3e9a06ccc7969b523000b123c73f60624a01def291b"
+      },
+      "ground_truth": {
+        "path": "ground_truth/held_out-delayed-02.csv",
+        "sha256": "c200ca253c96103bf1760bb0f7eec5c094f61d46344eaf790574d789a626cd2d"
+      },
+      "clean_images_sha256": "8aae859587420bcf8bd1af06fbf64d48fed4aa8be5056c0c0e35d8e27cbb93bf"
+    },
+    {
+      "incident_id": "held_out-delayed-03-outage",
+      "flight_id": "held_out-delayed-03",
+      "split": "held_out",
+      "scenario": "delayed",
+      "motion_seed": 316,
+      "target_region": "B",
+      "map_version": "corridors-v1",
+      "map_sha256": "47f135d18678109580f48e0626e609a03095aead5915d1842af5693bc815083c",
+      "mask_start_ns": 6321500000000,
+      "first_unmasked_ns": 6323500000000,
+      "deadline_ns": 6328500000000,
+      "first_visual_cue_ns": 6325600000000,
+      "frames": {
+        "path": "queries/held_out-delayed-03/frames.csv",
+        "sha256": "6faef22326b0b4128576cbfc078910cb603932d039d61aac9f3070dbc2a6a9dd"
+      },
+      "imu": {
+        "path": "queries/held_out-delayed-03/imu.csv",
+        "sha256": "0fcc9ca91b476a098d4df2cd88f56722eb2db1dae19c9bb3f5747ee0177ef0a5"
+      },
+      "ground_truth": {
+        "path": "ground_truth/held_out-delayed-03.csv",
+        "sha256": "f0bc4b1c3f4db90c9d293ce83835c65d2adb19f96d794734d95cfb9dfe417465"
+      },
+      "clean_images_sha256": "6b2b35593a8d96e16363cfcf6ec5c17a95ef2a29435a3a21d2461978685b18cb"
+    },
+    {
+      "incident_id": "held_out-unresolved-01-outage",
+      "flight_id": "held_out-unresolved-01",
+      "split": "held_out",
+      "scenario": "unresolved",
+      "motion_seed": 317,
+      "target_region": "A",
+      "map_version": "corridors-v1",
+      "map_sha256": "47f135d18678109580f48e0626e609a03095aead5915d1842af5693bc815083c",
+      "mask_start_ns": 6341500000000,
+      "first_unmasked_ns": 6342000000000,
+      "deadline_ns": 6347000000000,
+      "first_visual_cue_ns": null,
+      "frames": {
+        "path": "queries/held_out-unresolved-01/frames.csv",
+        "sha256": "5c8780431fb4cbfa9c3fcafa5d245552866f473b35db6cd16c28acc95f307b30"
+      },
+      "imu": {
+        "path": "queries/held_out-unresolved-01/imu.csv",
+        "sha256": "a42ef11a3c637d0fdeea64c832b59976d1b117f484c1669104a5675f190a44bc"
+      },
+      "ground_truth": {
+        "path": "ground_truth/held_out-unresolved-01.csv",
+        "sha256": "8ae4ecd0915dc69eddbe9cd8cff837afe540e6c119ed72fa03c9441c68f6b78b"
+      },
+      "clean_images_sha256": "4915cbb5ed6408612ed127a11b84a20379adcce604e44f2bbae55d3b2ddef088"
+    },
+    {
+      "incident_id": "held_out-unresolved-02-outage",
+      "flight_id": "held_out-unresolved-02",
+      "split": "held_out",
+      "scenario": "unresolved",
+      "motion_seed": 318,
+      "target_region": "B",
+      "map_version": "corridors-v1",
+      "map_sha256": "47f135d18678109580f48e0626e609a03095aead5915d1842af5693bc815083c",
+      "mask_start_ns": 6361500000000,
+      "first_unmasked_ns": 6362500000000,
+      "deadline_ns": 6367500000000,
+      "first_visual_cue_ns": null,
+      "frames": {
+        "path": "queries/held_out-unresolved-02/frames.csv",
+        "sha256": "e2b91eea6bfd81e0503d37734103cd9c706d783e3b03e6ebab82bc73a171e6f2"
+      },
+      "imu": {
+        "path": "queries/held_out-unresolved-02/imu.csv",
+        "sha256": "6e930184fe295b8f61d715b29f0a1099bf43592950fc418111432e7ea60478ae"
+      },
+      "ground_truth": {
+        "path": "ground_truth/held_out-unresolved-02.csv",
+        "sha256": "ab88e0115d969e3f6ac4ba5448463b50dc9484d29cf2f25e89c45685c4eb145c"
+      },
+      "clean_images_sha256": "acdff0ffba63a24778886f42c8301a6f0c8d356c55a3a39544f5f1c00a6d8663"
+    },
+    {
+      "incident_id": "held_out-unresolved-03-outage",
+      "flight_id": "held_out-unresolved-03",
+      "split": "held_out",
+      "scenario": "unresolved",
+      "motion_seed": 319,
+      "target_region": "A",
+      "map_version": "corridors-v1",
+      "map_sha256": "47f135d18678109580f48e0626e609a03095aead5915d1842af5693bc815083c",
+      "mask_start_ns": 6381500000000,
+      "first_unmasked_ns": 6383500000000,
+      "deadline_ns": 6388500000000,
+      "first_visual_cue_ns": null,
+      "frames": {
+        "path": "queries/held_out-unresolved-03/frames.csv",
+        "sha256": "766d9327a774d7d3d5b6c83281fefb88354f7ee2aff6d5205c65c73ad752e7dd"
+      },
+      "imu": {
+        "path": "queries/held_out-unresolved-03/imu.csv",
+        "sha256": "24e9d04234bad60493dd6806908c4de966faf7ca88e27f6a80f3f33fcf190c2c"
+      },
+      "ground_truth": {
+        "path": "ground_truth/held_out-unresolved-03.csv",
+        "sha256": "8dd62a9e748eddae677adfac8530a8bea9e9fc767050acd7ca47ae4fc050a3ca"
+      },
+      "clean_images_sha256": "50762ca9ac7827e43f7ee66c6ecb741488b54e10b12040d94a145330d9d496ad"
+    }
+  ]
+}
