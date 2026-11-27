@@ -1,0 +1,398 @@
+{
+  "method": "ORB-SLAM3 Tracking::Relocalization",
+  "split": "held_out",
+  "manifest_sha256": "26dd1a949a3e622a981d27e529e014ee15824114ca9f4946b4b90c1756fc0251",
+  "map_sha256": "47f135d18678109580f48e0626e609a03095aead5915d1842af5693bc815083c",
+  "vocabulary_sha256": "f8dd027f7a6cb88129821341194d7f2c75b77b3394257ddd0d2229863d1a3570",
+  "atlas_keyframes": 42,
+  "atlas_landmarks": 45239,
+  "outcomes": {
+    "correct": 6,
+    "false": 3
+  },
+  "cases": [
+    {
+      "incident_id": "held_out-immediate-01-outage",
+      "scenario": "immediate",
+      "target_region": "A",
+      "outcome": "correct",
+      "published_region": "A",
+      "publication_frame": 0,
+      "recovery_ms": 0.0,
+      "visual_cue_ms": 0.0,
+      "position_error_m": 0.00901,
+      "rotation_error_deg": 0.2242,
+      "native": {
+        "attempts": 1,
+        "keyframe_candidates": 2,
+        "first_target_candidate_ms": 0.0,
+        "accepted_keyframe": "A-1-175",
+        "accepted_inliers": 209,
+        "candidates_at_publication": [
+          {
+            "keyframe": "A-1-175",
+            "region": "A",
+            "bow_matches": 232
+          },
+          {
+            "keyframe": "B-1-175",
+            "region": "B",
+            "bow_matches": 156
+          }
+        ],
+        "target_retrieved_at_publication": true
+      }
+    },
+    {
+      "incident_id": "held_out-immediate-02-outage",
+      "scenario": "immediate",
+      "target_region": "B",
+      "outcome": "correct",
+      "published_region": "B",
+      "publication_frame": 4,
+      "recovery_ms": 200.0,
+      "visual_cue_ms": 0.0,
+      "position_error_m": 0.01,
+      "rotation_error_deg": 0.2497,
+      "native": {
+        "attempts": 5,
+        "keyframe_candidates": 6,
+        "first_target_candidate_ms": 0.0,
+        "accepted_keyframe": "B-1-175",
+        "accepted_inliers": 206,
+        "candidates_at_publication": [
+          {
+            "keyframe": "B-1-175",
+            "region": "B",
+            "bow_matches": 256
+          }
+        ],
+        "target_retrieved_at_publication": true
+      }
+    },
+    {
+      "incident_id": "held_out-immediate-03-outage",
+      "scenario": "immediate",
+      "target_region": "A",
+      "outcome": "correct",
+      "published_region": "A",
+      "publication_frame": 0,
+      "recovery_ms": 0.0,
+      "visual_cue_ms": 0.0,
+      "position_error_m": 0.01323,
+      "rotation_error_deg": 0.2679,
+      "native": {
+        "attempts": 1,
+        "keyframe_candidates": 1,
+        "first_target_candidate_ms": 0.0,
+        "accepted_keyframe": "A-1-175",
+        "accepted_inliers": 168,
+        "candidates_at_publication": [
+          {
+            "keyframe": "A-1-175",
+            "region": "A",
+            "bow_matches": 202
+          }
+        ],
+        "target_retrieved_at_publication": true
+      }
+    },
+    {
+      "incident_id": "held_out-delayed-01-outage",
+      "scenario": "delayed",
+      "target_region": "B",
+      "outcome": "false",
+      "published_region": "A",
+      "publication_frame": 0,
+      "recovery_ms": 0.0,
+      "visual_cue_ms": 1950.0,
+      "position_error_m": 5.99385,
+      "rotation_error_deg": 0.1211,
+      "native": {
+        "attempts": 1,
+        "keyframe_candidates": 6,
+        "first_target_candidate_ms": 0.0,
+        "accepted_keyframe": "A-1-025",
+        "accepted_inliers": 52,
+        "candidates_at_publication": [
+          {
+            "keyframe": "A-1-025",
+            "region": "A",
+            "bow_matches": 52
+          },
+          {
+            "keyframe": "B-1-025",
+            "region": "B",
+            "bow_matches": 52
+          },
+          {
+            "keyframe": "A-1-055",
+            "region": "A",
+            "bow_matches": 34
+          },
+          {
+            "keyframe": "B-1-055",
+            "region": "B",
+            "bow_matches": 34
+          },
+          {
+            "keyframe": "A-2-000",
+            "region": "A",
+            "bow_matches": 30
+          },
+          {
+            "keyframe": "B-2-000",
+            "region": "B",
+            "bow_matches": 30
+          }
+        ],
+        "target_retrieved_at_publication": true
+      }
+    },
+    {
+      "incident_id": "held_out-delayed-02-outage",
+      "scenario": "delayed",
+      "target_region": "A",
+      "outcome": "correct",
+      "published_region": "A",
+      "publication_frame": 0,
+      "recovery_ms": 0.0,
+      "visual_cue_ms": 1950.0,
+      "position_error_m": 0.00785,
+      "rotation_error_deg": 0.1143,
+      "native": {
+        "attempts": 1,
+        "keyframe_candidates": 7,
+        "first_target_candidate_ms": 0.0,
+        "accepted_keyframe": "A-1-000",
+        "accepted_inliers": 264,
+        "candidates_at_publication": [
+          {
+            "keyframe": "A-2-175",
+            "region": "A",
+            "bow_matches": 3
+          },
+          {
+            "keyframe": "A-0-055",
+            "region": "A",
+            "bow_matches": 20
+          },
+          {
+            "keyframe": "B-0-055",
+            "region": "B",
+            "bow_matches": 20
+          },
+          {
+            "keyframe": "A-1-000",
+            "region": "A",
+            "bow_matches": 35
+          },
+          {
+            "keyframe": "B-1-000",
+            "region": "B",
+            "bow_matches": 35
+          },
+          {
+            "keyframe": "A-0-000",
+            "region": "A",
+            "bow_matches": 32
+          },
+          {
+            "keyframe": "B-0-000",
+            "region": "B",
+            "bow_matches": 32
+          }
+        ],
+        "target_retrieved_at_publication": true
+      }
+    },
+    {
+      "incident_id": "held_out-delayed-03-outage",
+      "scenario": "delayed",
+      "target_region": "B",
+      "outcome": "false",
+      "published_region": "A",
+      "publication_frame": 0,
+      "recovery_ms": 0.0,
+      "visual_cue_ms": 2100.0,
+      "position_error_m": 6.01521,
+      "rotation_error_deg": 0.1952,
+      "native": {
+        "attempts": 1,
+        "keyframe_candidates": 2,
+        "first_target_candidate_ms": 0.0,
+        "accepted_keyframe": "A-1-000",
+        "accepted_inliers": 52,
+        "candidates_at_publication": [
+          {
+            "keyframe": "A-1-000",
+            "region": "A",
+            "bow_matches": 58
+          },
+          {
+            "keyframe": "B-1-000",
+            "region": "B",
+            "bow_matches": 58
+          }
+        ],
+        "target_retrieved_at_publication": true
+      }
+    },
+    {
+      "incident_id": "held_out-unresolved-01-outage",
+      "scenario": "unresolved",
+      "target_region": "A",
+      "outcome": "correct",
+      "published_region": "A",
+      "publication_frame": 0,
+      "recovery_ms": 0.0,
+      "visual_cue_ms": null,
+      "position_error_m": 0.00471,
+      "rotation_error_deg": 0.0824,
+      "native": {
+        "attempts": 1,
+        "keyframe_candidates": 2,
+        "first_target_candidate_ms": 0.0,
+        "accepted_keyframe": "A-1-000",
+        "accepted_inliers": 53,
+        "candidates_at_publication": [
+          {
+            "keyframe": "A-1-000",
+            "region": "A",
+            "bow_matches": 53
+          },
+          {
+            "keyframe": "B-1-000",
+            "region": "B",
+            "bow_matches": 53
+          }
+        ],
+        "target_retrieved_at_publication": true
+      }
+    },
+    {
+      "incident_id": "held_out-unresolved-02-outage",
+      "scenario": "unresolved",
+      "target_region": "B",
+      "outcome": "false",
+      "published_region": "A",
+      "publication_frame": 0,
+      "recovery_ms": 0.0,
+      "visual_cue_ms": null,
+      "position_error_m": 6.00587,
+      "rotation_error_deg": 0.1103,
+      "native": {
+        "attempts": 1,
+        "keyframe_candidates": 12,
+        "first_target_candidate_ms": 0.0,
+        "accepted_keyframe": "A-1-000",
+        "accepted_inliers": 294,
+        "candidates_at_publication": [
+          {
+            "keyframe": "A-1-000",
+            "region": "A",
+            "bow_matches": 50
+          },
+          {
+            "keyframe": "B-1-000",
+            "region": "B",
+            "bow_matches": 50
+          },
+          {
+            "keyframe": "A-2-055",
+            "region": "A",
+            "bow_matches": 20
+          },
+          {
+            "keyframe": "B-2-055",
+            "region": "B",
+            "bow_matches": 20
+          },
+          {
+            "keyframe": "A-2-000",
+            "region": "A",
+            "bow_matches": 26
+          },
+          {
+            "keyframe": "B-2-000",
+            "region": "B",
+            "bow_matches": 26
+          },
+          {
+            "keyframe": "A-2-115",
+            "region": "A",
+            "bow_matches": 4
+          },
+          {
+            "keyframe": "B-2-115",
+            "region": "B",
+            "bow_matches": 4
+          },
+          {
+            "keyframe": "A-2-025",
+            "region": "A",
+            "bow_matches": 34
+          },
+          {
+            "keyframe": "B-2-025",
+            "region": "B",
+            "bow_matches": 34
+          },
+          {
+            "keyframe": "A-0-000",
+            "region": "A",
+            "bow_matches": 16
+          },
+          {
+            "keyframe": "B-0-000",
+            "region": "B",
+            "bow_matches": 16
+          }
+        ],
+        "target_retrieved_at_publication": true
+      }
+    },
+    {
+      "incident_id": "held_out-unresolved-03-outage",
+      "scenario": "unresolved",
+      "target_region": "A",
+      "outcome": "correct",
+      "published_region": "A",
+      "publication_frame": 0,
+      "recovery_ms": 0.0,
+      "visual_cue_ms": null,
+      "position_error_m": 0.00693,
+      "rotation_error_deg": 0.0279,
+      "native": {
+        "attempts": 1,
+        "keyframe_candidates": 4,
+        "first_target_candidate_ms": 0.0,
+        "accepted_keyframe": "A-1-000",
+        "accepted_inliers": 54,
+        "candidates_at_publication": [
+          {
+            "keyframe": "A-1-000",
+            "region": "A",
+            "bow_matches": 61
+          },
+          {
+            "keyframe": "B-1-000",
+            "region": "B",
+            "bow_matches": 61
+          },
+          {
+            "keyframe": "A-2-025",
+            "region": "A",
+            "bow_matches": 39
+          },
+          {
+            "keyframe": "B-2-025",
+            "region": "B",
+            "bow_matches": 39
+          }
+        ],
+        "target_retrieved_at_publication": true
+      }
+    }
+  ]
+}

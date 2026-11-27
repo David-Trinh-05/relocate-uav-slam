@@ -2,7 +2,7 @@
 
 Multi-hypothesis relocalization for UAV visual–inertial SLAM. The evaluation asks whether keeping several plausible map locations reduces false relocalizations when two places look alike.
 
-The [held-out comparison](docs/week5.md) uses the same synthetic stereo/IMU inputs and fixed map across three policies. It measures pose outcomes, sensor-time latency, and the amount of keyframe matching each policy performs.
+On nine held-out synthetic outages, the upstream ORB-SLAM3 relocalization routine published three wrong poses. ReLocate recovered correctly in two of those cases and withheld a pose in the third. Both were evaluated on the same frozen corridor snapshot and incident list. [Native baseline and paired results](docs/week6.md)
 
 ## Week 1 baseline
 
@@ -66,3 +66,7 @@ The [relocalizer and development results](docs/week4.md) show how independent A/
 ## Week 5 held-out comparison
 
 The [comparison report](docs/week5.md) includes the three policies, the paired held-out results, and commands to reproduce the experiment without building ORB-SLAM3.
+
+## Week 6 ORB-SLAM3 baseline
+
+The [native comparison](docs/week6.md) imports the 42 reference keyframes into ORB-SLAM3 Atlas and runs `Tracking::Relocalization()` with the native ORB vocabulary, candidate retrieval and pose verification. Per-frame traces show whether the correct region was retrieved when the baseline published a wrong pose.

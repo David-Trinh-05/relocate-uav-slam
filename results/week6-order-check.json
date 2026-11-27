@@ -1,0 +1,60 @@
+{
+  "map_sha256": "47f135d18678109580f48e0626e609a03095aead5915d1842af5693bc815083c",
+  "seed_per_incident": 42,
+  "cases": [
+    {
+      "incident_id": "held_out-delayed-01-outage",
+      "target_region": "B",
+      "A_first": {
+        "published_region": "A",
+        "outcome": "false",
+        "publication_frame": 0,
+        "position_error_m": 5.99385,
+        "rotation_error_deg": 0.1211
+      },
+      "B_first": {
+        "published_region": "B",
+        "outcome": "correct",
+        "publication_frame": 0,
+        "position_error_m": 0.00828,
+        "rotation_error_deg": 0.1211
+      }
+    },
+    {
+      "incident_id": "held_out-delayed-03-outage",
+      "target_region": "B",
+      "A_first": {
+        "published_region": "A",
+        "outcome": "false",
+        "publication_frame": 0,
+        "position_error_m": 6.01521,
+        "rotation_error_deg": 0.1952
+      },
+      "B_first": {
+        "published_region": "B",
+        "outcome": "correct",
+        "publication_frame": 0,
+        "position_error_m": 0.01704,
+        "rotation_error_deg": 0.1952
+      }
+    },
+    {
+      "incident_id": "held_out-unresolved-02-outage",
+      "target_region": "B",
+      "A_first": {
+        "published_region": "A",
+        "outcome": "false",
+        "publication_frame": 0,
+        "position_error_m": 6.00587,
+        "rotation_error_deg": 0.1103
+      },
+      "B_first": {
+        "published_region": "B",
+        "outcome": "correct",
+        "publication_frame": 0,
+        "position_error_m": 0.00679,
+        "rotation_error_deg": 0.1102
+      }
+    }
+  ]
+}

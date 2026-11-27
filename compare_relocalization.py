@@ -109,14 +109,60 @@ def compare(benchmark, split, directories):
     }
 
 
+def include_native(report, native):
+    require(native["method"] == "ORB-SLAM3 Tracking::Relocalization" and all(
+        native[key] == report[key] for key in ("split", "manifest_sha256", "map_sha256")
+    ), "native result uses a different method, split or snapshot")
+    multi = report["policies"]["multi-temporal"]["cases"]
+    require(len(native["cases"]) == report["incident_count"], "incomplete native results")
+    outcomes, transitions = Counter(), Counter()
+    by_scenario = {}
+    latencies = []
+    paired = []
+    for baseline, proposal in zip(native["cases"], multi, strict=True):
+        require((baseline["incident_id"], baseline["scenario"]) == (proposal["incident_id"], proposal["scenario"]),
+                "native result uses different incident IDs or ordering")
+        first, second = baseline["outcome"], proposal["outcome"]
+        require(first in OUTCOMES, "unexpected native outcome")
+        outcomes[first] += 1
+        by_scenario.setdefault(baseline["scenario"], Counter())[first] += 1
+        transitions[f"{first}_to_{second}"] += 1
+        if first == "correct":
+            latencies.append(baseline["recovery_ms"])
+        recovered = baseline.get("recovery_ms")
+        cue = baseline.get("visual_cue_ms")
+        paired.append({
+            "incident_id": baseline["incident_id"], "scenario": baseline["scenario"],
+            "native_outcome": first, "multi_outcome": second, "native_publication_ms": recovered,
+            "multi_publication_ms": proposal["recovery_ms"],
+            "native_published_before_visual_cue": recovered is not None and (cue is None or recovered < cue),
+            "native_target_retrieved_at_publication": baseline["native"].get("target_retrieved_at_publication"),
+            "native_position_error_m": baseline.get("position_error_m"),
+        })
+    report["orb_slam3_relocalization"] = {
+        "atlas_keyframes": native["atlas_keyframes"], "atlas_landmarks": native["atlas_landmarks"],
+        **{outcome: outcomes[outcome] for outcome in OUTCOMES},
+        "correct_latency_p50_ms": float(np.median(latencies)) if latencies else None,
+        "correct_latency_p95_ms": float(np.percentile(latencies, 95)) if latencies else None,
+        "by_scenario": {scenario: {outcome: counts[outcome] for outcome in OUTCOMES}
+                        for scenario, counts in by_scenario.items()},
+        "publications_before_visual_cue": sum(row["native_published_before_visual_cue"] for row in paired),
+        "transitions_to_multi_temporal": dict(transitions), "paired_cases": paired,
+    }
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("benchmark", type=Path)
     parser.add_argument("runs", type=Path, nargs=3)
     parser.add_argument("--split", choices=("development", "held_out"), default="held_out")
+    parser.add_argument("--native", type=Path, help="optional summary.json from run_orb_baseline.py")
     args = parser.parse_args()
     try:
-        print(json.dumps(compare(args.benchmark, args.split, args.runs), indent=2))
+        report = compare(args.benchmark, args.split, args.runs)
+        if args.native is not None:
+            include_native(report, json.loads(args.native.read_text()))
+        print(json.dumps(report, indent=2))
     except (KeyError, OSError, TypeError, ValueError) as error:
         parser.exit(1, f"Comparison failed: {error}\n")
 

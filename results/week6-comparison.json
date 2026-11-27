@@ -1,0 +1,503 @@
+{
+  "split": "held_out",
+  "incident_count": 9,
+  "manifest_sha256": "26dd1a949a3e622a981d27e529e014ee15824114ca9f4946b4b90c1756fc0251",
+  "map_sha256": "47f135d18678109580f48e0626e609a03095aead5915d1842af5693bc815083c",
+  "policies": {
+    "single-frame": {
+      "correct": 6,
+      "false": 0,
+      "timeout": 3,
+      "correct_latency_p50_ms": 625.0,
+      "correct_latency_p95_ms": 2125.0,
+      "publications_before_visual_cue": 1,
+      "observed_frames": 418,
+      "keyframe_comparisons": 11421,
+      "keyframe_comparisons_per_frame": 27.323,
+      "by_scenario": {
+        "immediate": {
+          "correct": 3,
+          "false": 0,
+          "timeout": 0
+        },
+        "delayed": {
+          "correct": 3,
+          "false": 0,
+          "timeout": 0
+        },
+        "unresolved": {
+          "correct": 0,
+          "false": 0,
+          "timeout": 3
+        }
+      },
+      "cases": [
+        {
+          "incident_id": "held_out-immediate-01-outage",
+          "scenario": "immediate",
+          "outcome": "correct",
+          "published_region": "A",
+          "recovery_ms": 0.0,
+          "published_before_visual_cue": false,
+          "observed_frames": 1,
+          "keyframe_comparisons": 42
+        },
+        {
+          "incident_id": "held_out-immediate-02-outage",
+          "scenario": "immediate",
+          "outcome": "correct",
+          "published_region": "B",
+          "recovery_ms": 0.0,
+          "published_before_visual_cue": false,
+          "observed_frames": 1,
+          "keyframe_comparisons": 42
+        },
+        {
+          "incident_id": "held_out-immediate-03-outage",
+          "scenario": "immediate",
+          "outcome": "correct",
+          "published_region": "A",
+          "recovery_ms": 0.0,
+          "published_before_visual_cue": false,
+          "observed_frames": 1,
+          "keyframe_comparisons": 42
+        },
+        {
+          "incident_id": "held_out-delayed-01-outage",
+          "scenario": "delayed",
+          "outcome": "correct",
+          "published_region": "B",
+          "recovery_ms": 2050.0,
+          "published_before_visual_cue": false,
+          "observed_frames": 42,
+          "keyframe_comparisons": 1149
+        },
+        {
+          "incident_id": "held_out-delayed-02-outage",
+          "scenario": "delayed",
+          "outcome": "correct",
+          "published_region": "A",
+          "recovery_ms": 2150.0,
+          "published_before_visual_cue": false,
+          "observed_frames": 44,
+          "keyframe_comparisons": 1203
+        },
+        {
+          "incident_id": "held_out-delayed-03-outage",
+          "scenario": "delayed",
+          "outcome": "correct",
+          "published_region": "B",
+          "recovery_ms": 1250.0,
+          "published_before_visual_cue": true,
+          "observed_frames": 26,
+          "keyframe_comparisons": 717
+        },
+        {
+          "incident_id": "held_out-unresolved-01-outage",
+          "scenario": "unresolved",
+          "outcome": "timeout",
+          "published_region": null,
+          "recovery_ms": null,
+          "published_before_visual_cue": false,
+          "observed_frames": 101,
+          "keyframe_comparisons": 2742
+        },
+        {
+          "incident_id": "held_out-unresolved-02-outage",
+          "scenario": "unresolved",
+          "outcome": "timeout",
+          "published_region": null,
+          "recovery_ms": null,
+          "published_before_visual_cue": false,
+          "observed_frames": 101,
+          "keyframe_comparisons": 2742
+        },
+        {
+          "incident_id": "held_out-unresolved-03-outage",
+          "scenario": "unresolved",
+          "outcome": "timeout",
+          "published_region": null,
+          "recovery_ms": null,
+          "published_before_visual_cue": false,
+          "observed_frames": 101,
+          "keyframe_comparisons": 2742
+        }
+      ]
+    },
+    "single-temporal": {
+      "correct": 6,
+      "false": 0,
+      "timeout": 3,
+      "correct_latency_p50_ms": 1125.0,
+      "correct_latency_p95_ms": 2325.0,
+      "publications_before_visual_cue": 0,
+      "observed_frames": 450,
+      "keyframe_comparisons": 12285,
+      "keyframe_comparisons_per_frame": 27.3,
+      "by_scenario": {
+        "immediate": {
+          "correct": 3,
+          "false": 0,
+          "timeout": 0
+        },
+        "delayed": {
+          "correct": 3,
+          "false": 0,
+          "timeout": 0
+        },
+        "unresolved": {
+          "correct": 0,
+          "false": 0,
+          "timeout": 3
+        }
+      },
+      "cases": [
+        {
+          "incident_id": "held_out-immediate-01-outage",
+          "scenario": "immediate",
+          "outcome": "correct",
+          "published_region": "A",
+          "recovery_ms": 100.0,
+          "published_before_visual_cue": false,
+          "observed_frames": 3,
+          "keyframe_comparisons": 96
+        },
+        {
+          "incident_id": "held_out-immediate-02-outage",
+          "scenario": "immediate",
+          "outcome": "correct",
+          "published_region": "B",
+          "recovery_ms": 100.0,
+          "published_before_visual_cue": false,
+          "observed_frames": 3,
+          "keyframe_comparisons": 96
+        },
+        {
+          "incident_id": "held_out-immediate-03-outage",
+          "scenario": "immediate",
+          "outcome": "correct",
+          "published_region": "A",
+          "recovery_ms": 100.0,
+          "published_before_visual_cue": false,
+          "observed_frames": 3,
+          "keyframe_comparisons": 96
+        },
+        {
+          "incident_id": "held_out-delayed-01-outage",
+          "scenario": "delayed",
+          "outcome": "correct",
+          "published_region": "B",
+          "recovery_ms": 2150.0,
+          "published_before_visual_cue": false,
+          "observed_frames": 44,
+          "keyframe_comparisons": 1203
+        },
+        {
+          "incident_id": "held_out-delayed-02-outage",
+          "scenario": "delayed",
+          "outcome": "correct",
+          "published_region": "A",
+          "recovery_ms": 2250.0,
+          "published_before_visual_cue": false,
+          "observed_frames": 46,
+          "keyframe_comparisons": 1257
+        },
+        {
+          "incident_id": "held_out-delayed-03-outage",
+          "scenario": "delayed",
+          "outcome": "correct",
+          "published_region": "B",
+          "recovery_ms": 2350.0,
+          "published_before_visual_cue": false,
+          "observed_frames": 48,
+          "keyframe_comparisons": 1311
+        },
+        {
+          "incident_id": "held_out-unresolved-01-outage",
+          "scenario": "unresolved",
+          "outcome": "timeout",
+          "published_region": null,
+          "recovery_ms": null,
+          "published_before_visual_cue": false,
+          "observed_frames": 101,
+          "keyframe_comparisons": 2742
+        },
+        {
+          "incident_id": "held_out-unresolved-02-outage",
+          "scenario": "unresolved",
+          "outcome": "timeout",
+          "published_region": null,
+          "recovery_ms": null,
+          "published_before_visual_cue": false,
+          "observed_frames": 101,
+          "keyframe_comparisons": 2742
+        },
+        {
+          "incident_id": "held_out-unresolved-03-outage",
+          "scenario": "unresolved",
+          "outcome": "timeout",
+          "published_region": null,
+          "recovery_ms": null,
+          "published_before_visual_cue": false,
+          "observed_frames": 101,
+          "keyframe_comparisons": 2742
+        }
+      ]
+    },
+    "multi-temporal": {
+      "correct": 6,
+      "false": 0,
+      "timeout": 3,
+      "correct_latency_p50_ms": 1125.0,
+      "correct_latency_p95_ms": 2325.0,
+      "publications_before_visual_cue": 0,
+      "observed_frames": 450,
+      "keyframe_comparisons": 5766,
+      "keyframe_comparisons_per_frame": 12.813,
+      "by_scenario": {
+        "immediate": {
+          "correct": 3,
+          "false": 0,
+          "timeout": 0
+        },
+        "delayed": {
+          "correct": 3,
+          "false": 0,
+          "timeout": 0
+        },
+        "unresolved": {
+          "correct": 0,
+          "false": 0,
+          "timeout": 3
+        }
+      },
+      "cases": [
+        {
+          "incident_id": "held_out-immediate-01-outage",
+          "scenario": "immediate",
+          "outcome": "correct",
+          "published_region": "A",
+          "recovery_ms": 100.0,
+          "published_before_visual_cue": false,
+          "observed_frames": 3,
+          "keyframe_comparisons": 96
+        },
+        {
+          "incident_id": "held_out-immediate-02-outage",
+          "scenario": "immediate",
+          "outcome": "correct",
+          "published_region": "B",
+          "recovery_ms": 100.0,
+          "published_before_visual_cue": false,
+          "observed_frames": 3,
+          "keyframe_comparisons": 96
+        },
+        {
+          "incident_id": "held_out-immediate-03-outage",
+          "scenario": "immediate",
+          "outcome": "correct",
+          "published_region": "A",
+          "recovery_ms": 100.0,
+          "published_before_visual_cue": false,
+          "observed_frames": 3,
+          "keyframe_comparisons": 102
+        },
+        {
+          "incident_id": "held_out-delayed-01-outage",
+          "scenario": "delayed",
+          "outcome": "correct",
+          "published_region": "B",
+          "recovery_ms": 2150.0,
+          "published_before_visual_cue": false,
+          "observed_frames": 44,
+          "keyframe_comparisons": 558
+        },
+        {
+          "incident_id": "held_out-delayed-02-outage",
+          "scenario": "delayed",
+          "outcome": "correct",
+          "published_region": "A",
+          "recovery_ms": 2250.0,
+          "published_before_visual_cue": false,
+          "observed_frames": 46,
+          "keyframe_comparisons": 582
+        },
+        {
+          "incident_id": "held_out-delayed-03-outage",
+          "scenario": "delayed",
+          "outcome": "correct",
+          "published_region": "B",
+          "recovery_ms": 2350.0,
+          "published_before_visual_cue": false,
+          "observed_frames": 48,
+          "keyframe_comparisons": 606
+        },
+        {
+          "incident_id": "held_out-unresolved-01-outage",
+          "scenario": "unresolved",
+          "outcome": "timeout",
+          "published_region": null,
+          "recovery_ms": null,
+          "published_before_visual_cue": false,
+          "observed_frames": 101,
+          "keyframe_comparisons": 1242
+        },
+        {
+          "incident_id": "held_out-unresolved-02-outage",
+          "scenario": "unresolved",
+          "outcome": "timeout",
+          "published_region": null,
+          "recovery_ms": null,
+          "published_before_visual_cue": false,
+          "observed_frames": 101,
+          "keyframe_comparisons": 1242
+        },
+        {
+          "incident_id": "held_out-unresolved-03-outage",
+          "scenario": "unresolved",
+          "outcome": "timeout",
+          "published_region": null,
+          "recovery_ms": null,
+          "published_before_visual_cue": false,
+          "observed_frames": 101,
+          "keyframe_comparisons": 1242
+        }
+      ]
+    }
+  },
+  "temporal_policy_changes": [],
+  "orb_slam3_relocalization": {
+    "atlas_keyframes": 42,
+    "atlas_landmarks": 45239,
+    "correct": 6,
+    "false": 3,
+    "timeout": 0,
+    "correct_latency_p50_ms": 0.0,
+    "correct_latency_p95_ms": 150.0,
+    "by_scenario": {
+      "immediate": {
+        "correct": 3,
+        "false": 0,
+        "timeout": 0
+      },
+      "delayed": {
+        "correct": 1,
+        "false": 2,
+        "timeout": 0
+      },
+      "unresolved": {
+        "correct": 2,
+        "false": 1,
+        "timeout": 0
+      }
+    },
+    "publications_before_visual_cue": 6,
+    "transitions_to_multi_temporal": {
+      "correct_to_correct": 4,
+      "false_to_correct": 2,
+      "correct_to_timeout": 2,
+      "false_to_timeout": 1
+    },
+    "paired_cases": [
+      {
+        "incident_id": "held_out-immediate-01-outage",
+        "scenario": "immediate",
+        "native_outcome": "correct",
+        "multi_outcome": "correct",
+        "native_publication_ms": 0.0,
+        "multi_publication_ms": 100.0,
+        "native_published_before_visual_cue": false,
+        "native_target_retrieved_at_publication": true,
+        "native_position_error_m": 0.00901
+      },
+      {
+        "incident_id": "held_out-immediate-02-outage",
+        "scenario": "immediate",
+        "native_outcome": "correct",
+        "multi_outcome": "correct",
+        "native_publication_ms": 200.0,
+        "multi_publication_ms": 100.0,
+        "native_published_before_visual_cue": false,
+        "native_target_retrieved_at_publication": true,
+        "native_position_error_m": 0.01
+      },
+      {
+        "incident_id": "held_out-immediate-03-outage",
+        "scenario": "immediate",
+        "native_outcome": "correct",
+        "multi_outcome": "correct",
+        "native_publication_ms": 0.0,
+        "multi_publication_ms": 100.0,
+        "native_published_before_visual_cue": false,
+        "native_target_retrieved_at_publication": true,
+        "native_position_error_m": 0.01323
+      },
+      {
+        "incident_id": "held_out-delayed-01-outage",
+        "scenario": "delayed",
+        "native_outcome": "false",
+        "multi_outcome": "correct",
+        "native_publication_ms": 0.0,
+        "multi_publication_ms": 2150.0,
+        "native_published_before_visual_cue": true,
+        "native_target_retrieved_at_publication": true,
+        "native_position_error_m": 5.99385
+      },
+      {
+        "incident_id": "held_out-delayed-02-outage",
+        "scenario": "delayed",
+        "native_outcome": "correct",
+        "multi_outcome": "correct",
+        "native_publication_ms": 0.0,
+        "multi_publication_ms": 2250.0,
+        "native_published_before_visual_cue": true,
+        "native_target_retrieved_at_publication": true,
+        "native_position_error_m": 0.00785
+      },
+      {
+        "incident_id": "held_out-delayed-03-outage",
+        "scenario": "delayed",
+        "native_outcome": "false",
+        "multi_outcome": "correct",
+        "native_publication_ms": 0.0,
+        "multi_publication_ms": 2350.0,
+        "native_published_before_visual_cue": true,
+        "native_target_retrieved_at_publication": true,
+        "native_position_error_m": 6.01521
+      },
+      {
+        "incident_id": "held_out-unresolved-01-outage",
+        "scenario": "unresolved",
+        "native_outcome": "correct",
+        "multi_outcome": "timeout",
+        "native_publication_ms": 0.0,
+        "multi_publication_ms": null,
+        "native_published_before_visual_cue": true,
+        "native_target_retrieved_at_publication": true,
+        "native_position_error_m": 0.00471
+      },
+      {
+        "incident_id": "held_out-unresolved-02-outage",
+        "scenario": "unresolved",
+        "native_outcome": "false",
+        "multi_outcome": "timeout",
+        "native_publication_ms": 0.0,
+        "multi_publication_ms": null,
+        "native_published_before_visual_cue": true,
+        "native_target_retrieved_at_publication": true,
+        "native_position_error_m": 6.00587
+      },
+      {
+        "incident_id": "held_out-unresolved-03-outage",
+        "scenario": "unresolved",
+        "native_outcome": "correct",
+        "multi_outcome": "timeout",
+        "native_publication_ms": 0.0,
+        "multi_publication_ms": null,
+        "native_published_before_visual_cue": true,
+        "native_target_retrieved_at_publication": true,
+        "native_position_error_m": 0.00693
+      }
+    ]
+  }
+}
