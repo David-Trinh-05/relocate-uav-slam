@@ -2,6 +2,8 @@
 
 Multi-hypothesis relocalization for UAV visual–inertial SLAM. The evaluation asks whether keeping several plausible map locations reduces false relocalizations when two places look alike.
 
+The [held-out comparison](docs/week5.md) uses the same synthetic stereo/IMU inputs and fixed map across three policies. It measures pose outcomes, sensor-time latency, and the amount of keyframe matching each policy performs.
+
 ## Week 1 baseline
 
 The baseline runs the upstream stereo–inertial EuRoC example on `V1_01_easy`. It checks the input timeline and trajectory exports so the next experiment can focus on relocalization events. The [evaluation protocol](docs/evaluation.md) defines how those events will be scored on a fixed map.
@@ -60,3 +62,7 @@ The [benchmark guide](docs/week3.md) defines 18 synthetic stereo–inertial outa
 ## Week 4 multi-hypothesis relocalization
 
 The [relocalizer and development results](docs/week4.md) show how independent A/B poses are tracked using stereo reprojection and gyro measurements. The runner publishes a pose after three consecutive frames favor the same region, and records the evidence behind each decision.
+
+## Week 5 held-out comparison
+
+The [comparison report](docs/week5.md) includes the three policies, the paired held-out results, and commands to reproduce the experiment without building ORB-SLAM3.

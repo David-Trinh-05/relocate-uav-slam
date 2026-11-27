@@ -58,11 +58,15 @@ def evaluate_run(directory, manifest_hash, map_hash, split, cases, camera_period
             if outcome == "correct":
                 latencies.append(result["recovery_ms"])
         comparisons = sum(region["keyframes_compared"] for row in trace for region in row["region_search"].values())
-        totals.update({outcome: 1, "observed_frames": len(trace), "keyframe_comparisons": comparisons})
+        cue = incident["first_visual_cue_ns"]
+        before_cue = bool(publications) and (cue is None or end < cue)
+        totals.update({outcome: 1, "observed_frames": len(trace), "keyframe_comparisons": comparisons,
+                       "publications_before_visual_cue": int(before_cue)})
         by_scenario.setdefault(scenario, Counter())[outcome] += 1
         per_case.append({
             "incident_id": incident_id, "scenario": scenario, "outcome": outcome,
             "published_region": result.get("published_region"), "recovery_ms": result.get("recovery_ms"),
+            "published_before_visual_cue": before_cue,
             "observed_frames": len(trace), "keyframe_comparisons": comparisons,
         })
 
@@ -70,6 +74,7 @@ def evaluate_run(directory, manifest_hash, map_hash, split, cases, camera_period
         "correct": totals["correct"], "false": totals["false"], "timeout": totals["timeout"],
         "correct_latency_p50_ms": float(np.median(latencies)) if latencies else None,
         "correct_latency_p95_ms": float(np.percentile(latencies, 95)) if latencies else None,
+        "publications_before_visual_cue": totals["publications_before_visual_cue"],
         "observed_frames": totals["observed_frames"], "keyframe_comparisons": totals["keyframe_comparisons"],
         "keyframe_comparisons_per_frame": round(totals["keyframe_comparisons"] / totals["observed_frames"], 3),
         "by_scenario": {scenario: {outcome: counts[outcome] for outcome in OUTCOMES}
