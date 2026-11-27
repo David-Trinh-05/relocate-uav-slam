@@ -1,0 +1,661 @@
+{
+  "manifest_sha256": "26dd1a949a3e622a981d27e529e014ee15824114ca9f4946b4b90c1756fc0251",
+  "map_sha256": "47f135d18678109580f48e0626e609a03095aead5915d1842af5693bc815083c",
+  "split": "held_out",
+  "camera_frame_period_ms": 50.0,
+  "host": {
+    "cpu": "13th Gen Intel(R) Core(TM) i7-13700H",
+    "logical_cpus": 20,
+    "kernel": "7.0.0-43-generic",
+    "cpu0_governor": "powersave",
+    "python": "3.12.3",
+    "opencv_python": "5.0.0",
+    "opencv_system": "4.6.0",
+    "numpy": "2.5.3",
+    "scipy": "1.18.1",
+    "openblas_num_threads": "1",
+    "omp_num_threads": "1"
+  },
+  "runs": [
+    {
+      "run": "week7-native",
+      "method": "ORB-SLAM3 Tracking::Relocalization",
+      "timing": {
+        "processed_frames": 13,
+        "service_wall": {
+          "p50_ms": 22.2391,
+          "p95_ms": 32.5077
+        },
+        "process_cpu": {
+          "p50_ms": 28.897,
+          "p95_ms": 45.258
+        },
+        "queue_delay": {
+          "p50_ms": 0.0015,
+          "p95_ms": 0.1431
+        },
+        "capture_to_ready": {
+          "p50_ms": 22.2403,
+          "p95_ms": 32.6508
+        },
+        "service_over_frame_period": 0,
+        "ready_after_frame_period": 0,
+        "frames_with_waiting_queue_after_processing": 0,
+        "max_waiting_frames": 0
+      },
+      "publications_after_wall_deadline": 0,
+      "episodes": [
+        {
+          "incident_id": "held_out-immediate-01-outage",
+          "outcome": "correct",
+          "frames": 1,
+          "max_waiting_frames": 0,
+          "sensor_wait_ms": 0.0,
+          "final_frame_queue_ms": 0.0015,
+          "final_frame_service_ms": 17.8934,
+          "wall_until_decision_ms": 17.895,
+          "sensor_time_from_cue_to_pose_ms": 0.0,
+          "publication_after_wall_deadline": false
+        },
+        {
+          "incident_id": "held_out-immediate-02-outage",
+          "outcome": "correct",
+          "frames": 5,
+          "max_waiting_frames": 0,
+          "sensor_wait_ms": 200.0,
+          "final_frame_queue_ms": 0.0865,
+          "final_frame_service_ms": 24.1003,
+          "wall_until_decision_ms": 224.1868,
+          "sensor_time_from_cue_to_pose_ms": 200.0,
+          "publication_after_wall_deadline": false
+        },
+        {
+          "incident_id": "held_out-immediate-03-outage",
+          "outcome": "correct",
+          "frames": 1,
+          "max_waiting_frames": 0,
+          "sensor_wait_ms": 0.0,
+          "final_frame_queue_ms": 0.0026,
+          "final_frame_service_ms": 17.8505,
+          "wall_until_decision_ms": 17.8531,
+          "sensor_time_from_cue_to_pose_ms": 0.0,
+          "publication_after_wall_deadline": false
+        },
+        {
+          "incident_id": "held_out-delayed-01-outage",
+          "outcome": "false",
+          "frames": 1,
+          "max_waiting_frames": 0,
+          "sensor_wait_ms": 0.0,
+          "final_frame_queue_ms": 0.0013,
+          "final_frame_service_ms": 22.2391,
+          "wall_until_decision_ms": 22.2403,
+          "sensor_time_from_cue_to_pose_ms": -1950.0,
+          "publication_after_wall_deadline": false
+        },
+        {
+          "incident_id": "held_out-delayed-02-outage",
+          "outcome": "correct",
+          "frames": 1,
+          "max_waiting_frames": 0,
+          "sensor_wait_ms": 0.0,
+          "final_frame_queue_ms": 0.0015,
+          "final_frame_service_ms": 26.4676,
+          "wall_until_decision_ms": 26.4692,
+          "sensor_time_from_cue_to_pose_ms": -1950.0,
+          "publication_after_wall_deadline": false
+        },
+        {
+          "incident_id": "held_out-delayed-03-outage",
+          "outcome": "false",
+          "frames": 1,
+          "max_waiting_frames": 0,
+          "sensor_wait_ms": 0.0,
+          "final_frame_queue_ms": 0.0011,
+          "final_frame_service_ms": 16.6216,
+          "wall_until_decision_ms": 16.6227,
+          "sensor_time_from_cue_to_pose_ms": -2100.0,
+          "publication_after_wall_deadline": false
+        },
+        {
+          "incident_id": "held_out-unresolved-01-outage",
+          "outcome": "correct",
+          "frames": 1,
+          "max_waiting_frames": 0,
+          "sensor_wait_ms": 0.0,
+          "final_frame_queue_ms": 0.0014,
+          "final_frame_service_ms": 18.1705,
+          "wall_until_decision_ms": 18.1719,
+          "sensor_time_from_cue_to_pose_ms": null,
+          "publication_after_wall_deadline": false
+        },
+        {
+          "incident_id": "held_out-unresolved-02-outage",
+          "outcome": "false",
+          "frames": 1,
+          "max_waiting_frames": 0,
+          "sensor_wait_ms": 0.0,
+          "final_frame_queue_ms": 0.0018,
+          "final_frame_service_ms": 28.3918,
+          "wall_until_decision_ms": 28.3936,
+          "sensor_time_from_cue_to_pose_ms": null,
+          "publication_after_wall_deadline": false
+        },
+        {
+          "incident_id": "held_out-unresolved-03-outage",
+          "outcome": "correct",
+          "frames": 1,
+          "max_waiting_frames": 0,
+          "sensor_wait_ms": 0.0,
+          "final_frame_queue_ms": 0.0012,
+          "final_frame_service_ms": 16.6788,
+          "wall_until_decision_ms": 16.68,
+          "sensor_time_from_cue_to_pose_ms": null,
+          "publication_after_wall_deadline": false
+        }
+      ],
+      "failure_analysis": {
+        "frames_without_target_region_in_retrieval": 0,
+        "false_poses_with_target_region_retrieved": 3,
+        "false_publications": [
+          {
+            "incident_id": "held_out-delayed-01-outage",
+            "target_region": "B",
+            "published_region": "A",
+            "publication_frame": 0,
+            "position_error_m": 5.99385,
+            "target_region_retrieved": true,
+            "accepted_inliers": 52
+          },
+          {
+            "incident_id": "held_out-delayed-03-outage",
+            "target_region": "B",
+            "published_region": "A",
+            "publication_frame": 0,
+            "position_error_m": 6.01521,
+            "target_region_retrieved": true,
+            "accepted_inliers": 52
+          },
+          {
+            "incident_id": "held_out-unresolved-02-outage",
+            "target_region": "B",
+            "published_region": "A",
+            "publication_frame": 0,
+            "position_error_m": 6.00587,
+            "target_region_retrieved": true,
+            "accepted_inliers": 294
+          }
+        ]
+      }
+    },
+    {
+      "run": "week7-single-temporal",
+      "method": "single-temporal",
+      "timing": {
+        "processed_frames": 450,
+        "service_wall": {
+          "p50_ms": 245.5833,
+          "p95_ms": 247.8247
+        },
+        "process_cpu": {
+          "p50_ms": 246.21,
+          "p95_ms": 248.4788
+        },
+        "queue_delay": {
+          "p50_ms": 6748.9822,
+          "p95_ms": 18325.6818
+        },
+        "capture_to_ready": {
+          "p50_ms": 6938.7566,
+          "p95_ms": 18570.4206
+        },
+        "service_over_frame_period": 450,
+        "ready_after_frame_period": 450,
+        "frames_with_waiting_queue_after_processing": 447,
+        "max_waiting_frames": 81
+      },
+      "publications_after_wall_deadline": 3,
+      "episodes": [
+        {
+          "incident_id": "held_out-immediate-01-outage",
+          "outcome": "correct",
+          "frames": 3,
+          "max_waiting_frames": 14,
+          "sensor_wait_ms": 100.0,
+          "final_frame_queue_ms": 485.7136,
+          "final_frame_service_ms": 242.586,
+          "wall_until_decision_ms": 828.2996,
+          "sensor_time_from_cue_to_pose_ms": 100.0,
+          "publication_after_wall_deadline": false
+        },
+        {
+          "incident_id": "held_out-immediate-02-outage",
+          "outcome": "correct",
+          "frames": 3,
+          "max_waiting_frames": 14,
+          "sensor_wait_ms": 100.0,
+          "final_frame_queue_ms": 492.8399,
+          "final_frame_service_ms": 236.1997,
+          "wall_until_decision_ms": 829.0396,
+          "sensor_time_from_cue_to_pose_ms": 100.0,
+          "publication_after_wall_deadline": false
+        },
+        {
+          "incident_id": "held_out-immediate-03-outage",
+          "outcome": "correct",
+          "frames": 3,
+          "max_waiting_frames": 15,
+          "sensor_wait_ms": 100.0,
+          "final_frame_queue_ms": 510.6037,
+          "final_frame_service_ms": 251.7461,
+          "wall_until_decision_ms": 862.3498,
+          "sensor_time_from_cue_to_pose_ms": 100.0,
+          "publication_after_wall_deadline": false
+        },
+        {
+          "incident_id": "held_out-delayed-01-outage",
+          "outcome": "correct",
+          "frames": 44,
+          "max_waiting_frames": 81,
+          "sensor_wait_ms": 2150.0,
+          "final_frame_queue_ms": 7557.5646,
+          "final_frame_service_ms": 218.2929,
+          "wall_until_decision_ms": 9925.8576,
+          "sensor_time_from_cue_to_pose_ms": 200.0,
+          "publication_after_wall_deadline": true
+        },
+        {
+          "incident_id": "held_out-delayed-02-outage",
+          "outcome": "correct",
+          "frames": 46,
+          "max_waiting_frames": 81,
+          "sensor_wait_ms": 2250.0,
+          "final_frame_queue_ms": 7834.8854,
+          "final_frame_service_ms": 227.0072,
+          "wall_until_decision_ms": 10311.8926,
+          "sensor_time_from_cue_to_pose_ms": 300.0,
+          "publication_after_wall_deadline": true
+        },
+        {
+          "incident_id": "held_out-delayed-03-outage",
+          "outcome": "correct",
+          "frames": 48,
+          "max_waiting_frames": 81,
+          "sensor_wait_ms": 2350.0,
+          "final_frame_queue_ms": 8272.9842,
+          "final_frame_service_ms": 230.2605,
+          "wall_until_decision_ms": 10853.2447,
+          "sensor_time_from_cue_to_pose_ms": 250.0,
+          "publication_after_wall_deadline": true
+        },
+        {
+          "incident_id": "held_out-unresolved-01-outage",
+          "outcome": "timeout",
+          "frames": 101,
+          "max_waiting_frames": 81,
+          "sensor_wait_ms": 5000.0,
+          "final_frame_queue_ms": 19653.7692,
+          "final_frame_service_ms": 245.3069,
+          "wall_until_decision_ms": 24899.0761,
+          "sensor_time_from_cue_to_pose_ms": null,
+          "publication_after_wall_deadline": false
+        },
+        {
+          "incident_id": "held_out-unresolved-02-outage",
+          "outcome": "timeout",
+          "frames": 101,
+          "max_waiting_frames": 81,
+          "sensor_wait_ms": 5000.0,
+          "final_frame_queue_ms": 19729.6535,
+          "final_frame_service_ms": 248.5548,
+          "wall_until_decision_ms": 24978.2083,
+          "sensor_time_from_cue_to_pose_ms": null,
+          "publication_after_wall_deadline": false
+        },
+        {
+          "incident_id": "held_out-unresolved-03-outage",
+          "outcome": "timeout",
+          "frames": 101,
+          "max_waiting_frames": 81,
+          "sensor_wait_ms": 5000.0,
+          "final_frame_queue_ms": 19734.6368,
+          "final_frame_service_ms": 245.7684,
+          "wall_until_decision_ms": 24980.4051,
+          "sensor_time_from_cue_to_pose_ms": null,
+          "publication_after_wall_deadline": false
+        }
+      ],
+      "failure_analysis": {
+        "frames_without_verified_target_pose": 0,
+        "target_pruning_with_current_geometric_support": [
+          {
+            "incident_id": "held_out-delayed-02-outage",
+            "target_region": "A",
+            "pruned_at_frame": 21,
+            "active_regions": [
+              "B"
+            ],
+            "reacquired_at_frame": 22,
+            "scores": {
+              "A": 95.0,
+              "B": 101.0
+            }
+          },
+          {
+            "incident_id": "held_out-delayed-03-outage",
+            "target_region": "B",
+            "pruned_at_frame": 26,
+            "active_regions": [
+              "A"
+            ],
+            "reacquired_at_frame": 42,
+            "scores": {
+              "A": 122.5,
+              "B": 116.0
+            }
+          },
+          {
+            "incident_id": "held_out-delayed-03-outage",
+            "target_region": "B",
+            "pruned_at_frame": 43,
+            "active_regions": [
+              "A"
+            ],
+            "reacquired_at_frame": 44,
+            "scores": {
+              "A": 243.5,
+              "B": 239.0
+            }
+          }
+        ],
+        "unresolved_tied_frames_without_publication": 303
+      }
+    },
+    {
+      "run": "week7-multi-temporal",
+      "method": "multi-temporal",
+      "timing": {
+        "processed_frames": 450,
+        "service_wall": {
+          "p50_ms": 135.94,
+          "p95_ms": 139.6434
+        },
+        "process_cpu": {
+          "p50_ms": 136.2249,
+          "p95_ms": 139.9678
+        },
+        "queue_delay": {
+          "p50_ms": 3004.0933,
+          "p95_ms": 8266.2927
+        },
+        "capture_to_ready": {
+          "p50_ms": 3121.3531,
+          "p95_ms": 8402.2932
+        },
+        "service_over_frame_period": 450,
+        "ready_after_frame_period": 450,
+        "frames_with_waiting_queue_after_processing": 447,
+        "max_waiting_frames": 66
+      },
+      "publications_after_wall_deadline": 3,
+      "episodes": [
+        {
+          "incident_id": "held_out-immediate-01-outage",
+          "outcome": "correct",
+          "frames": 3,
+          "max_waiting_frames": 14,
+          "sensor_wait_ms": 100.0,
+          "final_frame_queue_ms": 481.2288,
+          "final_frame_service_ms": 239.9582,
+          "wall_until_decision_ms": 821.187,
+          "sensor_time_from_cue_to_pose_ms": 100.0,
+          "publication_after_wall_deadline": false
+        },
+        {
+          "incident_id": "held_out-immediate-02-outage",
+          "outcome": "correct",
+          "frames": 3,
+          "max_waiting_frames": 14,
+          "sensor_wait_ms": 100.0,
+          "final_frame_queue_ms": 493.0732,
+          "final_frame_service_ms": 236.4182,
+          "wall_until_decision_ms": 829.4914,
+          "sensor_time_from_cue_to_pose_ms": 100.0,
+          "publication_after_wall_deadline": false
+        },
+        {
+          "incident_id": "held_out-immediate-03-outage",
+          "outcome": "correct",
+          "frames": 3,
+          "max_waiting_frames": 16,
+          "sensor_wait_ms": 100.0,
+          "final_frame_queue_ms": 510.6097,
+          "final_frame_service_ms": 313.6062,
+          "wall_until_decision_ms": 924.2159,
+          "sensor_time_from_cue_to_pose_ms": 100.0,
+          "publication_after_wall_deadline": false
+        },
+        {
+          "incident_id": "held_out-delayed-01-outage",
+          "outcome": "correct",
+          "frames": 44,
+          "max_waiting_frames": 61,
+          "sensor_wait_ms": 2150.0,
+          "final_frame_queue_ms": 3226.7394,
+          "final_frame_service_ms": 119.6812,
+          "wall_until_decision_ms": 5496.4206,
+          "sensor_time_from_cue_to_pose_ms": 200.0,
+          "publication_after_wall_deadline": true
+        },
+        {
+          "incident_id": "held_out-delayed-02-outage",
+          "outcome": "correct",
+          "frames": 46,
+          "max_waiting_frames": 60,
+          "sensor_wait_ms": 2250.0,
+          "final_frame_queue_ms": 3287.712,
+          "final_frame_service_ms": 125.2619,
+          "wall_until_decision_ms": 5662.9739,
+          "sensor_time_from_cue_to_pose_ms": 300.0,
+          "publication_after_wall_deadline": true
+        },
+        {
+          "incident_id": "held_out-delayed-03-outage",
+          "outcome": "correct",
+          "frames": 48,
+          "max_waiting_frames": 62,
+          "sensor_wait_ms": 2350.0,
+          "final_frame_queue_ms": 3546.0397,
+          "final_frame_service_ms": 125.5325,
+          "wall_until_decision_ms": 6021.5722,
+          "sensor_time_from_cue_to_pose_ms": 250.0,
+          "publication_after_wall_deadline": true
+        },
+        {
+          "incident_id": "held_out-unresolved-01-outage",
+          "outcome": "timeout",
+          "frames": 101,
+          "max_waiting_frames": 66,
+          "sensor_wait_ms": 5000.0,
+          "final_frame_queue_ms": 8977.4675,
+          "final_frame_service_ms": 135.0634,
+          "wall_until_decision_ms": 14112.5309,
+          "sensor_time_from_cue_to_pose_ms": null,
+          "publication_after_wall_deadline": false
+        },
+        {
+          "incident_id": "held_out-unresolved-02-outage",
+          "outcome": "timeout",
+          "frames": 101,
+          "max_waiting_frames": 65,
+          "sensor_wait_ms": 5000.0,
+          "final_frame_queue_ms": 8838.8179,
+          "final_frame_service_ms": 138.3852,
+          "wall_until_decision_ms": 13977.2031,
+          "sensor_time_from_cue_to_pose_ms": null,
+          "publication_after_wall_deadline": false
+        },
+        {
+          "incident_id": "held_out-unresolved-03-outage",
+          "outcome": "timeout",
+          "frames": 101,
+          "max_waiting_frames": 65,
+          "sensor_wait_ms": 5000.0,
+          "final_frame_queue_ms": 8810.1644,
+          "final_frame_service_ms": 135.2899,
+          "wall_until_decision_ms": 13945.4543,
+          "sensor_time_from_cue_to_pose_ms": null,
+          "publication_after_wall_deadline": false
+        }
+      ],
+      "failure_analysis": {
+        "frames_without_verified_target_pose": 0,
+        "target_pruning_with_current_geometric_support": [],
+        "unresolved_tied_frames_without_publication": 303
+      }
+    },
+    {
+      "run": "week7-multi-repeat",
+      "method": "multi-temporal",
+      "timing": {
+        "processed_frames": 450,
+        "service_wall": {
+          "p50_ms": 135.6062,
+          "p95_ms": 138.9718
+        },
+        "process_cpu": {
+          "p50_ms": 135.8766,
+          "p95_ms": 139.2126
+        },
+        "queue_delay": {
+          "p50_ms": 3033.3836,
+          "p95_ms": 8192.8239
+        },
+        "capture_to_ready": {
+          "p50_ms": 3130.7306,
+          "p95_ms": 8328.3022
+        },
+        "service_over_frame_period": 450,
+        "ready_after_frame_period": 450,
+        "frames_with_waiting_queue_after_processing": 447,
+        "max_waiting_frames": 65
+      },
+      "publications_after_wall_deadline": 3,
+      "episodes": [
+        {
+          "incident_id": "held_out-immediate-01-outage",
+          "outcome": "correct",
+          "frames": 3,
+          "max_waiting_frames": 14,
+          "sensor_wait_ms": 100.0,
+          "final_frame_queue_ms": 479.2412,
+          "final_frame_service_ms": 239.5278,
+          "wall_until_decision_ms": 818.769,
+          "sensor_time_from_cue_to_pose_ms": 100.0,
+          "publication_after_wall_deadline": false
+        },
+        {
+          "incident_id": "held_out-immediate-02-outage",
+          "outcome": "correct",
+          "frames": 3,
+          "max_waiting_frames": 14,
+          "sensor_wait_ms": 100.0,
+          "final_frame_queue_ms": 492.4764,
+          "final_frame_service_ms": 236.3245,
+          "wall_until_decision_ms": 828.8009,
+          "sensor_time_from_cue_to_pose_ms": 100.0,
+          "publication_after_wall_deadline": false
+        },
+        {
+          "incident_id": "held_out-immediate-03-outage",
+          "outcome": "correct",
+          "frames": 3,
+          "max_waiting_frames": 16,
+          "sensor_wait_ms": 100.0,
+          "final_frame_queue_ms": 509.7533,
+          "final_frame_service_ms": 313.3868,
+          "wall_until_decision_ms": 923.1402,
+          "sensor_time_from_cue_to_pose_ms": 100.0,
+          "publication_after_wall_deadline": false
+        },
+        {
+          "incident_id": "held_out-delayed-01-outage",
+          "outcome": "correct",
+          "frames": 44,
+          "max_waiting_frames": 61,
+          "sensor_wait_ms": 2150.0,
+          "final_frame_queue_ms": 3205.0324,
+          "final_frame_service_ms": 118.8447,
+          "wall_until_decision_ms": 5473.8771,
+          "sensor_time_from_cue_to_pose_ms": 200.0,
+          "publication_after_wall_deadline": true
+        },
+        {
+          "incident_id": "held_out-delayed-02-outage",
+          "outcome": "correct",
+          "frames": 46,
+          "max_waiting_frames": 62,
+          "sensor_wait_ms": 2250.0,
+          "final_frame_queue_ms": 3432.0376,
+          "final_frame_service_ms": 125.8922,
+          "wall_until_decision_ms": 5807.9298,
+          "sensor_time_from_cue_to_pose_ms": 300.0,
+          "publication_after_wall_deadline": true
+        },
+        {
+          "incident_id": "held_out-delayed-03-outage",
+          "outcome": "correct",
+          "frames": 48,
+          "max_waiting_frames": 62,
+          "sensor_wait_ms": 2350.0,
+          "final_frame_queue_ms": 3545.6911,
+          "final_frame_service_ms": 124.5105,
+          "wall_until_decision_ms": 6020.2015,
+          "sensor_time_from_cue_to_pose_ms": 250.0,
+          "publication_after_wall_deadline": true
+        },
+        {
+          "incident_id": "held_out-unresolved-01-outage",
+          "outcome": "timeout",
+          "frames": 101,
+          "max_waiting_frames": 65,
+          "sensor_wait_ms": 5000.0,
+          "final_frame_queue_ms": 8778.4015,
+          "final_frame_service_ms": 135.1704,
+          "wall_until_decision_ms": 13913.5719,
+          "sensor_time_from_cue_to_pose_ms": null,
+          "publication_after_wall_deadline": false
+        },
+        {
+          "incident_id": "held_out-unresolved-02-outage",
+          "outcome": "timeout",
+          "frames": 101,
+          "max_waiting_frames": 65,
+          "sensor_wait_ms": 5000.0,
+          "final_frame_queue_ms": 8810.3018,
+          "final_frame_service_ms": 137.7134,
+          "wall_until_decision_ms": 13948.0153,
+          "sensor_time_from_cue_to_pose_ms": null,
+          "publication_after_wall_deadline": false
+        },
+        {
+          "incident_id": "held_out-unresolved-03-outage",
+          "outcome": "timeout",
+          "frames": 101,
+          "max_waiting_frames": 65,
+          "sensor_wait_ms": 5000.0,
+          "final_frame_queue_ms": 8814.0092,
+          "final_frame_service_ms": 134.8628,
+          "wall_until_decision_ms": 13948.8721,
+          "sensor_time_from_cue_to_pose_ms": null,
+          "publication_after_wall_deadline": false
+        }
+      ],
+      "failure_analysis": {
+        "frames_without_verified_target_pose": 0,
+        "target_pruning_with_current_geometric_support": [],
+        "unresolved_tied_frames_without_publication": 303
+      }
+    }
+  ]
+}

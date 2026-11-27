@@ -1,9 +1,11 @@
 """Run and score a relocalization policy on the fixed-map benchmark."""
 
 import argparse
+from contextlib import nullcontext
 import csv
 import json
 from pathlib import Path
+import time
 
 import cv2 as cv
 import numpy as np
@@ -11,6 +13,9 @@ from scipy.spatial.transform import Rotation
 
 from benchmark import POSE_COLUMNS, sha256, write_json
 from relocalizer import POLICIES, FixedMap, Relocalizer, angle_between, read_gray
+
+
+TIMING_FIELDS = ("incident_id", "frame", "timestamp_ns", "scheduled_ns", "started_ns", "finished_ns", "cpu_ns")
 
 
 def read_rows(root, artifact):
@@ -40,7 +45,7 @@ class Gyroscope:
         return delta
 
 
-def observe(root, incident, relocalizer, log):
+def observe(root, incident, relocalizer, log, timing=None):
     frames = read_rows(root, incident["frames"])
     gyro = Gyroscope(read_rows(root, incident["imu"]))
     resume, deadline = incident["first_unmasked_ns"], incident["deadline_ns"]
@@ -48,14 +53,27 @@ def observe(root, incident, relocalizer, log):
     in_window = [row for row in frames if resume <= int(row["timestamp_ns"]) <= deadline]
     if not in_window or int(in_window[0]["timestamp_ns"]) != resume or int(in_window[-1]["timestamp_ns"]) != deadline:
         raise ValueError("incomplete relocalization window")
+    epoch = time.monotonic_ns() if timing is not None else 0
     for frame, row in enumerate(in_window):
         stamp = int(row["timestamp_ns"])
         if row["masked"] != "0" or (frame and stamp <= previous):
             raise ValueError("invalid frames in relocalization window")
+        if timing is not None:
+            scheduled = stamp - resume
+            remaining = epoch + scheduled - time.monotonic_ns()
+            while remaining > 0:
+                time.sleep(remaining / 1e9)
+                remaining = epoch + scheduled - time.monotonic_ns()
+            started = time.monotonic_ns() - epoch
+            cpu_start = time.process_time_ns()
         step = gyro.rotation(previous, stamp)
         left = read_gray(root / row["left"])
         right = read_gray(root / row["right"])
         region, trace = relocalizer.update(left, right, step)
+        if timing is not None:
+            finished = time.monotonic_ns() - epoch
+            timing.writerow((incident["incident_id"], frame, stamp, scheduled, started, finished,
+                             time.process_time_ns() - cpu_start))
         trace.update(frame=frame, timestamp_ns=stamp, published_region=region)
         log.write(json.dumps(trace) + "\n")
         if region is not None:
@@ -89,7 +107,7 @@ def score(root, incident, decision):
                 position_error_m=round(position_error, 5), rotation_error_deg=round(rotation_error, 4))
 
 
-def run(root, output, split, incident_id, method="multi-temporal"):
+def run(root, output, split, incident_id, method="multi-temporal", realtime=False):
     cv.setNumThreads(1)
     manifest_path = root / "manifest.json"
     manifest = json.loads(manifest_path.read_text())
@@ -102,12 +120,17 @@ def run(root, output, split, incident_id, method="multi-temporal"):
     policy = POLICIES[method]
     output.mkdir(parents=True, exist_ok=False)
     results = []
-    for incident in incidents:
-        with (output / f"{incident['incident_id']}.jsonl").open("w") as trace:
-            decision = observe(root, incident, Relocalizer(mapping, detector, policy), trace)
-        result = score(root, incident, decision)
-        results.append(result)
-        print(result["incident_id"], result["outcome"], result.get("recovery_ms", "–"), flush=True)
+    timing_file = (output / "timing.csv").open("w", newline="") if realtime else nullcontext()
+    with timing_file as stream:
+        timing = csv.writer(stream) if stream is not None else None
+        if timing is not None:
+            timing.writerow(TIMING_FIELDS)
+        for incident in incidents:
+            with (output / f"{incident['incident_id']}.jsonl").open("w") as trace:
+                decision = observe(root, incident, Relocalizer(mapping, detector, policy), trace, timing)
+            result = score(root, incident, decision)
+            results.append(result)
+            print(result["incident_id"], result["outcome"], result.get("recovery_ms", "–"), flush=True)
     write_json(output / "summary.json", {
         "method": "multi-hypothesis stereo PnP and gyro" if method == "multi-temporal" else method,
         "policy": method, "split": split,
@@ -121,10 +144,11 @@ def main():
     parser.add_argument("output", type=Path, help="new directory for traces and results")
     parser.add_argument("--split", choices=("development", "held_out"), default="development")
     parser.add_argument("--method", choices=POLICIES, default="multi-temporal")
+    parser.add_argument("--realtime", action="store_true", help="pace frames at sensor time and record timing.csv")
     parser.add_argument("--incident", help="run only this incident from the selected split")
     args = parser.parse_args()
     try:
-        run(args.benchmark.resolve(), args.output, args.split, args.incident, args.method)
+        run(args.benchmark.resolve(), args.output, args.split, args.incident, args.method, args.realtime)
     except (KeyError, OSError, ValueError) as error:
         parser.exit(1, f"Relocalization failed: {error}\n")
 

@@ -8,13 +8,16 @@
 #include <opencv2/imgcodecs.hpp>
 
 #include <cmath>
+#include <chrono>
 #include <cstdlib>
+#include <ctime>
 #include <fstream>
 #include <iomanip>
 #include <iostream>
 #include <memory>
 #include <stdexcept>
 #include <string>
+#include <thread>
 #include <vector>
 
 namespace {
@@ -138,11 +141,12 @@ private:
 
 int main(int argc, char** argv)
 {
-    if (argc != 4)
+    if (argc != 4 && !(argc == 5 && std::string(argv[4]) == "--realtime"))
     {
-        std::cerr << "Usage: orb_fixed_map VOCABULARY SETTINGS REQUEST.json\n";
+        std::cerr << "Usage: orb_fixed_map VOCABULARY SETTINGS REQUEST.json [--realtime]\n";
         return 2;
     }
+    const bool realtime = argc == 5;
     try
     {
         cv::setNumThreads(1);
@@ -161,6 +165,14 @@ int main(int argc, char** argv)
             throw std::runtime_error("Cannot write baseline traces");
         inventory << "keyframe_id,name,region,landmarks\n";
         results << "incident_id,frame,timestamp_ns,published,px,py,pz,qx,qy,qz,qw\n" << std::setprecision(9);
+        std::ofstream timing;
+        if (realtime)
+        {
+            timing.open("timing.csv");
+            if (!timing)
+                throw std::runtime_error("Cannot write timing.csv");
+            timing << "incident_id,frame,timestamp_ns,scheduled_ns,started_ns,finished_ns,cpu_ns\n";
+        }
         unsigned index = 0;
         for (const auto& keyframe : input["keyframes"])
             tracker.Import(keyframe, index++, inventory);
@@ -170,10 +182,35 @@ int main(int argc, char** argv)
         {
             DUtils::Random::SeedRand(42);
             const std::string incident = static_cast<std::string>(test["id"]);
+            const auto frames = test["frames"];
+            if (frames.empty())
+                throw std::runtime_error("Empty incident " + incident);
+            using Clock = std::chrono::steady_clock;
+            using Nanos = std::chrono::nanoseconds;
+            const auto epoch = Clock::now();
+            const auto resume = std::stoll(static_cast<std::string>(frames[0]["timestamp_ns"]));
             unsigned frame = 0;
-            for (const auto& observation : test["frames"])
-                if (tracker.Query(observation, incident, frame++, results))
+            for (const auto& observation : frames)
+            {
+                const auto stamp = std::stoll(static_cast<std::string>(observation["timestamp_ns"]));
+                const auto scheduled = stamp - resume;
+                if (realtime)
+                    std::this_thread::sleep_until(epoch + Nanos(scheduled));
+                const auto started = Clock::now();
+                const auto cpu_start = realtime ? std::clock() : 0;
+                const bool accepted = tracker.Query(observation, incident, frame, results);
+                const auto finished = Clock::now();
+                if (realtime)
+                {
+                    const auto cpu_ns = std::llround((std::clock() - cpu_start) * (1e9 / CLOCKS_PER_SEC));
+                    timing << incident << ',' << frame << ',' << stamp << ',' << scheduled << ','
+                           << std::chrono::duration_cast<Nanos>(started - epoch).count() << ','
+                           << std::chrono::duration_cast<Nanos>(finished - epoch).count() << ',' << cpu_ns << '\n';
+                }
+                ++frame;
+                if (accepted)
                     break;
+            }
         }
         return EXIT_SUCCESS;
     }

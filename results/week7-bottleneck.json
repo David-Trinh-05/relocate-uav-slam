@@ -1,0 +1,46 @@
+{
+  "incident_id": "development-unresolved-01-outage",
+  "total_profile_seconds": 15.52903,
+  "top_self_time": [
+    {
+      "function": "<method 'match' of 'cv2.DescriptorMatcher' objects>",
+      "calls": 1343,
+      "seconds": 12.24036
+    },
+    {
+      "function": "<method 'detectAndCompute' of 'cv2.Feature2D' objects>",
+      "calls": 244,
+      "seconds": 1.17852
+    },
+    {
+      "function": "<imread>",
+      "calls": 244,
+      "seconds": 0.55098
+    },
+    {
+      "function": "<solvePnPRansac>",
+      "calls": 808,
+      "seconds": 0.19763
+    },
+    {
+      "function": "from_matrix",
+      "calls": 5202,
+      "seconds": 0.10037
+    },
+    {
+      "function": "isclose",
+      "calls": 5202,
+      "seconds": 0.0815
+    },
+    {
+      "function": "geometry",
+      "calls": 808,
+      "seconds": 0.07779
+    },
+    {
+      "function": "stereo_matches",
+      "calls": 101,
+      "seconds": 0.03024
+    }
+  ]
+}

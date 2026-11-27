@@ -144,7 +144,7 @@ def classify(root, incident, request, frames, events, keyframes):
     return dict(score(root, incident, decision), native=diagnostic)
 
 
-def run(root, output, executable, vocabulary, split, incident_id):
+def run(root, output, executable, vocabulary, split, incident_id, realtime=False):
     manifest_path = root / "manifest.json"
     manifest = json.loads(manifest_path.read_text())
     incidents = [row for row in manifest["incidents"] if row["split"] == split and
@@ -153,8 +153,11 @@ def run(root, output, executable, vocabulary, split, incident_id):
         raise ValueError("no matching fixed-map incidents")
     output.mkdir(parents=True, exist_ok=False)
     requests, expected_keys = prepare(root, output, manifest, incidents)
+    command = [executable, vocabulary, "settings.yaml", "request.json"]
+    if realtime:
+        command.append("--realtime")
     with (output / "native.log").open("w") as log:
-        process = subprocess.run([executable, vocabulary, "settings.yaml", "request.json"], cwd=output,
+        process = subprocess.run(command, cwd=output,
                                  env=dict(os.environ, RELOCATE_TRACE_REPLAY="1"), stdout=log,
                                  stderr=subprocess.STDOUT, check=False)
     if process.returncode:
@@ -187,10 +190,11 @@ def main():
     parser.add_argument("vocabulary", type=Path)
     parser.add_argument("--split", choices=("development", "held_out"), default="development")
     parser.add_argument("--incident")
+    parser.add_argument("--realtime", action="store_true", help="pace frames at sensor time and record timing.csv")
     args = parser.parse_args()
     try:
         run(args.benchmark.resolve(), args.output.resolve(), args.executable.resolve(), args.vocabulary.resolve(),
-            args.split, args.incident)
+            args.split, args.incident, args.realtime)
     except (KeyError, OSError, TypeError, ValueError) as error:
         parser.exit(1, f"Native baseline failed: {error}\n")
 

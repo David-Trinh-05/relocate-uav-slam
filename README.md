@@ -70,3 +70,7 @@ The [comparison report](docs/week5.md) includes the three policies, the paired h
 ## Week 6 ORB-SLAM3 baseline
 
 The [native comparison](docs/week6.md) imports the 42 reference keyframes into ORB-SLAM3 Atlas and runs `Tracking::Relocalization()` with the native ORB vocabulary, candidate retrieval and pose verification. Per-frame traces show whether the correct region was retrieved when the baseline published a wrong pose.
+
+## Week 7 replay profiling and failure analysis
+
+The [20 Hz replay profile](docs/week7.md) measures processing time, queue buildup, and wall-clock time to pose publication. It includes paired failure traces and identifies descriptor matching as the main cost in the Python prototype.
