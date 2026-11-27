@@ -21,7 +21,7 @@ A diagnostic reran those three errors after importing region B's keyframes first
 
 ## Reproduce
 
-Build the pinned [ORB-SLAM3 checkout](../README.md#build-on-ubuntu) in Release and apply the [week 2 replay patch](week2.md#reproduce-the-euroc-runs) before rebuilding its library. Build the adapter with the same Release compiler settings so Eigen layouts agree across the shared-library boundary. Generate the [frozen synthetic benchmark](week3.md) and run the upstream routine.
+Build the pinned ORB-SLAM3 checkout in Release with the replay patch. Build the adapter with the same Release compiler settings so Eigen layouts agree across the shared-library boundary. Generate the frozen synthetic benchmark and run the upstream routine. [Build instructions](build.md) · [Benchmark generation](week3.md)
 
 ```bash
 cmake -S native -B runs/native-build -G Ninja -DCMAKE_BUILD_TYPE=Release \

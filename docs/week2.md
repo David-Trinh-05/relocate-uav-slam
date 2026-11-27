@@ -16,7 +16,7 @@ The three same-map recoveries used inertial prediction during the loss and reach
 
 ### Reproduce the EuRoC runs
 
-After the [week 1 build](../README.md#build-on-ubuntu), apply the replay patch once and rebuild the example. The launcher enables it only for a replay and writes `frames.csv`, `replay.json`, and `baseline.log` in a new run directory. `events.csv` is created when the tracker logs an inertial prediction after loss or a relocalization event. When the relocalization path runs, the events include the keyframe IDs, map ID, camera centers and BoW match counts, plus the accepted candidate and its inlier count.
+Build ORB-SLAM3, apply the replay patch once, and rebuild the example. The launcher enables instrumentation for a replay and writes `frames.csv`, `replay.json`, and `baseline.log` in a new run directory. `events.csv` is created when the tracker logs an inertial prediction after loss or a relocalization event. When the relocalization path runs, the events include the keyframe IDs, map ID, camera centers and BoW match counts, plus the accepted candidate and its inlier count. [ORB-SLAM3 build](build.md#build-orb-slam3)
 
 ```bash
 git -C third_party/ORB_SLAM3 apply "$PWD/patches/orb-slam3-replay.patch"
