@@ -56,3 +56,7 @@ Mask both camera images while replaying the same camera timestamps and IMU, then
 ## Week 3 fixed-map benchmark
 
 The [benchmark guide](docs/week3.md) defines 18 synthetic stereo–inertial outages across three visibility scenarios. Each method uses the same incident manifest and 42-keyframe map. Separate development and held-out flights keep threshold tuning out of the final comparison.
+
+## Week 4 multi-hypothesis relocalization
+
+The [relocalizer and development results](docs/week4.md) show how independent A/B poses are tracked using stereo reprojection and gyro measurements. The runner publishes a pose after three consecutive frames favor the same region, and records the evidence behind each decision.
