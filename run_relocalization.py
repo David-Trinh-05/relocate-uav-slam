@@ -1,4 +1,4 @@
-"""Run and score the Week 4 relocalizer on the fixed-map benchmark."""
+"""Run and score a relocalization policy on the fixed-map benchmark."""
 
 import argparse
 import csv
@@ -10,7 +10,7 @@ import numpy as np
 from scipy.spatial.transform import Rotation
 
 from benchmark import POSE_COLUMNS, sha256, write_json
-from relocalizer import FixedMap, Relocalizer, angle_between, read_gray
+from relocalizer import POLICIES, FixedMap, Relocalizer, angle_between, read_gray
 
 
 def read_rows(root, artifact):
@@ -89,7 +89,7 @@ def score(root, incident, decision):
                 position_error_m=round(position_error, 5), rotation_error_deg=round(rotation_error, 4))
 
 
-def run(root, output, split, incident_id):
+def run(root, output, split, incident_id, method="multi-temporal"):
     cv.setNumThreads(1)
     manifest_path = root / "manifest.json"
     manifest = json.loads(manifest_path.read_text())
@@ -99,16 +99,18 @@ def run(root, output, split, incident_id):
         raise ValueError("no matching fixed-map incidents")
     detector = cv.ORB_create(nfeatures=900)
     mapping = FixedMap(root, manifest["map"], manifest["calibration"], detector)
+    policy = POLICIES[method]
     output.mkdir(parents=True, exist_ok=False)
     results = []
     for incident in incidents:
         with (output / f"{incident['incident_id']}.jsonl").open("w") as trace:
-            decision = observe(root, incident, Relocalizer(mapping, detector), trace)
+            decision = observe(root, incident, Relocalizer(mapping, detector, policy), trace)
         result = score(root, incident, decision)
         results.append(result)
         print(result["incident_id"], result["outcome"], result.get("recovery_ms", "–"), flush=True)
     write_json(output / "summary.json", {
-        "method": "multi-hypothesis stereo PnP and gyro", "split": split,
+        "method": "multi-hypothesis stereo PnP and gyro" if method == "multi-temporal" else method,
+        "policy": method, "split": split,
         "manifest_sha256": sha256(manifest_path), "map_sha256": manifest["map"]["sha256"], "cases": results,
     })
 
@@ -118,10 +120,11 @@ def main():
     parser.add_argument("benchmark", type=Path)
     parser.add_argument("output", type=Path, help="new directory for traces and results")
     parser.add_argument("--split", choices=("development", "held_out"), default="development")
+    parser.add_argument("--method", choices=POLICIES, default="multi-temporal")
     parser.add_argument("--incident", help="run only this incident from the selected split")
     args = parser.parse_args()
     try:
-        run(args.benchmark.resolve(), args.output, args.split, args.incident)
+        run(args.benchmark.resolve(), args.output, args.split, args.incident, args.method)
     except (KeyError, OSError, ValueError) as error:
         parser.exit(1, f"Relocalization failed: {error}\n")
 

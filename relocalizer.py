@@ -14,6 +14,19 @@ MAX_UNOBSERVED_FRAMES = 8
 CONFIRMATION_FRAMES = 3
 
 
+@dataclass(frozen=True)
+class Policy:
+    retained_regions: int
+    confirmation_frames: int
+
+
+POLICIES = {
+    "single-frame": Policy(retained_regions=1, confirmation_frames=1),
+    "single-temporal": Policy(retained_regions=1, confirmation_frames=CONFIRMATION_FRAMES),
+    "multi-temporal": Policy(retained_regions=2, confirmation_frames=CONFIRMATION_FRAMES),
+}
+
+
 @dataclass
 class Pose:
     position: np.ndarray
@@ -115,12 +128,14 @@ class Evidence:
 class SearchResult:
     evidence: Evidence | None
     best_match_count: int
+    keyframes_compared: int
 
 
 class Relocalizer:
-    def __init__(self, mapping, detector):
+    def __init__(self, mapping, detector, policy=POLICIES["multi-temporal"]):
         self.mapping = mapping
         self.detector = detector
+        self.policy = policy
         self.matcher = cv.BFMatcher(cv.NORM_HAMMING, crossCheck=True)
         self.hypotheses = {}
         self.pending_region = None
@@ -185,7 +200,7 @@ class Relocalizer:
             ranked.sort(key=lambda item: len(item[1]), reverse=True)
             poses = [self.geometry(keyframe, matches, pixels, stereo, predicted) for keyframe, matches in ranked[:4]]
             best = max((pose for pose in poses if pose is not None), key=lambda pose: pose.score, default=None)
-            return SearchResult(best, len(ranked[0][1]))
+            return SearchResult(best, len(ranked[0][1]), len(ranked))
 
         if predicted is not None:
             shortlist = sorted(references, key=lambda keyframe: (
@@ -195,6 +210,9 @@ class Relocalizer:
             result = candidates(shortlist)
             if result.evidence is not None:
                 return result
+            fallback = candidates(references)
+            fallback.keyframes_compared += result.keyframes_compared
+            return fallback
         return candidates(references)
 
     def update(self, left, right, gyro_step):
@@ -207,7 +225,7 @@ class Relocalizer:
             predicted = None
             if track is not None:
                 predicted = Pose(track.pose.position, track.pose.rotation @ gyro_step)
-            search = SearchResult(None, 0) if descriptors is None else self.region_evidence(
+            search = SearchResult(None, 0, 0) if descriptors is None else self.region_evidence(
                 references, pixels, descriptors, stereo, predicted,
             )
             candidate = search.evidence
@@ -220,7 +238,10 @@ class Relocalizer:
                 status = "insufficient_descriptor_matches"
             else:
                 status = "geometry_rejected"
-            search_log[region] = {"status": status, "best_descriptor_matches": search.best_match_count}
+            search_log[region] = {
+                "status": status, "best_descriptor_matches": search.best_match_count,
+                "keyframes_compared": search.keyframes_compared,
+            }
             if candidate is not None and candidate.inliers >= 20 and candidate.coverage_cells >= 3:
                 self.hypotheses[region] = Hypothesis(candidate.pose)
             elif track is not None:
@@ -231,6 +252,10 @@ class Relocalizer:
                     del self.hypotheses[region]
 
         ranked = sorted(evidence, key=lambda region: evidence[region].score if evidence[region] else 0, reverse=True)
+        # A discarded region can still challenge on the next frame without a motion prior.
+        live = [region for region in ranked if region in self.hypotheses]
+        for region in live[self.policy.retained_regions:]:
+            del self.hypotheses[region]
         leader, alternative = ranked
         best, other = evidence[leader], evidence[alternative]
         runner_score = other.score if other is not None else 0
@@ -242,7 +267,7 @@ class Relocalizer:
         else:
             self.pending_region = None
             self.streak = 0
-        accepted = leader if self.streak >= CONFIRMATION_FRAMES else None
+        accepted = leader if self.streak >= self.policy.confirmation_frames else None
         reason = "accepted" if accepted else "confirming" if distinct else "ambiguous" if ready else "insufficient_geometry"
         return accepted, {
             "reason": reason, "confirmation_streak": self.streak,
