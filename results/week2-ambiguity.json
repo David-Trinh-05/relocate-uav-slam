@@ -1,0 +1,351 @@
+{
+  "scene": "two translated synthetic corridors",
+  "query_room": "A",
+  "corridor_separation_m": 6.0,
+  "stereo_baseline_m": 0.11,
+  "identical_stereo_prefix_frames": 7,
+  "frames": [
+    {
+      "frame": 0,
+      "yaw_deg": 0,
+      "different_pixels_left": 0,
+      "different_pixels_right": 0,
+      "candidates": [
+        {
+          "room": "A",
+          "ground_truth_center_m": [
+            0.05,
+            0.02,
+            2.0
+          ],
+          "matches": 183,
+          "inliers": 175,
+          "estimated_camera_center_m": [
+            0.0522,
+            0.0189,
+            1.9982
+          ]
+        },
+        {
+          "room": "B",
+          "ground_truth_center_m": [
+            6.05,
+            0.02,
+            2.0
+          ],
+          "matches": 183,
+          "inliers": 175,
+          "estimated_camera_center_m": [
+            6.0522,
+            0.0189,
+            1.9982
+          ]
+        }
+      ]
+    },
+    {
+      "frame": 1,
+      "yaw_deg": 0,
+      "different_pixels_left": 0,
+      "different_pixels_right": 0,
+      "candidates": [
+        {
+          "room": "A",
+          "ground_truth_center_m": [
+            0.05,
+            0.02,
+            2.1
+          ],
+          "matches": 243,
+          "inliers": 232,
+          "estimated_camera_center_m": [
+            0.045,
+            0.0179,
+            2.1011
+          ]
+        },
+        {
+          "room": "B",
+          "ground_truth_center_m": [
+            6.05,
+            0.02,
+            2.1
+          ],
+          "matches": 243,
+          "inliers": 232,
+          "estimated_camera_center_m": [
+            6.045,
+            0.0179,
+            2.1011
+          ]
+        }
+      ]
+    },
+    {
+      "frame": 2,
+      "yaw_deg": 0,
+      "different_pixels_left": 0,
+      "different_pixels_right": 0,
+      "candidates": [
+        {
+          "room": "A",
+          "ground_truth_center_m": [
+            0.05,
+            0.02,
+            2.2
+          ],
+          "matches": 168,
+          "inliers": 158,
+          "estimated_camera_center_m": [
+            0.0517,
+            0.0176,
+            2.1981
+          ]
+        },
+        {
+          "room": "B",
+          "ground_truth_center_m": [
+            6.05,
+            0.02,
+            2.2
+          ],
+          "matches": 168,
+          "inliers": 158,
+          "estimated_camera_center_m": [
+            6.0517,
+            0.0176,
+            2.1981
+          ]
+        }
+      ]
+    },
+    {
+      "frame": 3,
+      "yaw_deg": 25,
+      "different_pixels_left": 0,
+      "different_pixels_right": 0,
+      "candidates": [
+        {
+          "room": "A",
+          "ground_truth_center_m": [
+            0.05,
+            0.02,
+            2.3
+          ],
+          "matches": 350,
+          "inliers": 302,
+          "estimated_camera_center_m": [
+            0.0434,
+            0.0183,
+            2.3006
+          ]
+        },
+        {
+          "room": "B",
+          "ground_truth_center_m": [
+            6.05,
+            0.02,
+            2.3
+          ],
+          "matches": 350,
+          "inliers": 302,
+          "estimated_camera_center_m": [
+            6.0434,
+            0.0183,
+            2.3006
+          ]
+        }
+      ]
+    },
+    {
+      "frame": 4,
+      "yaw_deg": 55,
+      "different_pixels_left": 0,
+      "different_pixels_right": 0,
+      "candidates": [
+        {
+          "room": "A",
+          "ground_truth_center_m": [
+            0.05,
+            0.02,
+            2.4
+          ],
+          "matches": 471,
+          "inliers": 396,
+          "estimated_camera_center_m": [
+            0.048,
+            0.0172,
+            2.3991
+          ]
+        },
+        {
+          "room": "B",
+          "ground_truth_center_m": [
+            6.05,
+            0.02,
+            2.4
+          ],
+          "matches": 471,
+          "inliers": 396,
+          "estimated_camera_center_m": [
+            6.048,
+            0.0172,
+            2.3991
+          ]
+        }
+      ]
+    },
+    {
+      "frame": 5,
+      "yaw_deg": 85,
+      "different_pixels_left": 0,
+      "different_pixels_right": 0,
+      "candidates": [
+        {
+          "room": "A",
+          "ground_truth_center_m": [
+            0.05,
+            0.02,
+            2.5
+          ],
+          "matches": 429,
+          "inliers": 377,
+          "estimated_camera_center_m": [
+            0.0478,
+            0.0226,
+            2.501
+          ]
+        },
+        {
+          "room": "B",
+          "ground_truth_center_m": [
+            6.05,
+            0.02,
+            2.5
+          ],
+          "matches": 429,
+          "inliers": 377,
+          "estimated_camera_center_m": [
+            6.0478,
+            0.0227,
+            2.501
+          ]
+        }
+      ]
+    },
+    {
+      "frame": 6,
+      "yaw_deg": 115,
+      "different_pixels_left": 0,
+      "different_pixels_right": 0,
+      "candidates": [
+        {
+          "room": "A",
+          "ground_truth_center_m": [
+            0.05,
+            0.02,
+            2.6
+          ],
+          "matches": 615,
+          "inliers": 497,
+          "estimated_camera_center_m": [
+            0.0451,
+            0.0316,
+            2.5926
+          ]
+        },
+        {
+          "room": "B",
+          "ground_truth_center_m": [
+            6.05,
+            0.02,
+            2.6
+          ],
+          "matches": 615,
+          "inliers": 497,
+          "estimated_camera_center_m": [
+            6.0451,
+            0.0316,
+            2.5926
+          ]
+        }
+      ]
+    },
+    {
+      "frame": 7,
+      "yaw_deg": 145,
+      "different_pixels_left": 6332,
+      "different_pixels_right": 7194,
+      "candidates": [
+        {
+          "room": "A",
+          "ground_truth_center_m": [
+            0.05,
+            0.02,
+            2.7
+          ],
+          "matches": 516,
+          "inliers": 426,
+          "estimated_camera_center_m": [
+            0.0453,
+            0.0202,
+            2.6963
+          ]
+        },
+        {
+          "room": "B",
+          "ground_truth_center_m": [
+            6.05,
+            0.02,
+            2.7
+          ],
+          "matches": 436,
+          "inliers": 367,
+          "estimated_camera_center_m": [
+            6.0535,
+            0.0214,
+            2.697
+          ]
+        }
+      ]
+    },
+    {
+      "frame": 8,
+      "yaw_deg": 173,
+      "different_pixels_left": 7285,
+      "different_pixels_right": 7205,
+      "candidates": [
+        {
+          "room": "A",
+          "ground_truth_center_m": [
+            0.05,
+            0.02,
+            2.8
+          ],
+          "matches": 611,
+          "inliers": 501,
+          "estimated_camera_center_m": [
+            0.0563,
+            0.0279,
+            2.8001
+          ]
+        },
+        {
+          "room": "B",
+          "ground_truth_center_m": [
+            6.05,
+            0.02,
+            2.8
+          ],
+          "matches": 227,
+          "inliers": 142,
+          "estimated_camera_center_m": [
+            6.0507,
+            0.0225,
+            2.7999
+          ]
+        }
+      ]
+    }
+  ]
+}

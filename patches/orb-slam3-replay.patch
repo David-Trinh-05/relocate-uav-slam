@@ -1,0 +1,165 @@
+diff --git a/src/System.cc b/src/System.cc
+index 60d9c51..2243391 100644
+--- a/src/System.cc
++++ b/src/System.cc
+@@ -23,6 +23,8 @@
+ #include <thread>
+ #include <pangolin/pangolin.h>
+ #include <iomanip>
++#include <cstdlib>
++#include <limits>
+ #include <openssl/md5.h>
+ #include <boost/serialization/base_object.hpp>
+ #include <boost/serialization/string.hpp>
+@@ -243,6 +245,8 @@ System::System(const string &strVocFile, const string &strSettingsFile, const eS
+ 
+ Sophus::SE3f System::TrackStereo(const cv::Mat &imLeft, const cv::Mat &imRight, const double &timestamp, const vector<IMU::Point>& vImuMeas, string filename)
+ {
++    static const bool traceReplay = std::getenv("RELOCATE_TRACE_REPLAY") != nullptr;
++    static long long replayIndex = 0;
+     if(mSensor!=STEREO && mSensor!=IMU_STEREO)
+     {
+         cerr << "ERROR: you called TrackStereo but input sensor was not set to Stereo nor Stereo-Inertial." << endl;
+@@ -268,6 +272,19 @@ Sophus::SE3f System::TrackStereo(const cv::Mat &imLeft, const cv::Mat &imRight,
+         imRightToFeed = imRight.clone();
+     }
+ 
++    bool masked = false;
++    if (traceReplay)
++    {
++        static const auto firstMasked = std::atoll(std::getenv("RELOCATE_MASK_FIRST") ? std::getenv("RELOCATE_MASK_FIRST") : "0");
++        static const auto pastMasked = std::atoll(std::getenv("RELOCATE_MASK_STOP") ? std::getenv("RELOCATE_MASK_STOP") : "0");
++        masked = firstMasked <= replayIndex && replayIndex < pastMasked;
++        if (masked)
++        {
++            imLeftToFeed.setTo(cv::Scalar::all(0));
++            imRightToFeed.setTo(cv::Scalar::all(0));
++        }
++    }
++
+     // Check mode change
+     {
+         unique_lock<mutex> lock(mMutexMode);
+@@ -322,6 +339,31 @@ Sophus::SE3f System::TrackStereo(const cv::Mat &imLeft, const cv::Mat &imRight,
+     mTrackedMapPoints = mpTracker->mCurrentFrame.mvpMapPoints;
+     mTrackedKeyPointsUn = mpTracker->mCurrentFrame.mvKeysUn;
+ 
++    if (traceReplay)
++    {
++        static std::ofstream trace("frames.csv");
++        if (!trace)
++            throw std::runtime_error("Cannot write frames.csv");
++        if (replayIndex == 0)
++            trace << "frame,timestamp_ns,masked,imu_samples,state,map_id,imu_initialized,px,py,pz,qx,qy,qz,qw\n";
++        auto* map = mpAtlas->GetCurrentMap();
++        trace << replayIndex++ << ',' << std::llround(timestamp * 1e9) << ',' << masked
++              << ',' << vImuMeas.size() << ',' << mTrackingState << ',' << map->GetId()
++              << ',' << map->isImuInitialized();
++        if (mTrackingState == Tracking::OK && mpTracker->mCurrentFrame.HasPose())
++        {
++            const auto pose = mpTracker->mCurrentFrame.GetImuPose();
++            const auto p = pose.translation();
++            const auto q = pose.unit_quaternion();
++            trace << std::setprecision(std::numeric_limits<float>::max_digits10)
++                  << ',' << p.x() << ',' << p.y() << ',' << p.z()
++                  << ',' << q.x() << ',' << q.y() << ',' << q.z() << ',' << q.w();
++        }
++        else
++            trace << ",,,,,,,";
++        trace << '\n';
++    }
++
+     return Tcw;
+ }
+ 
+diff --git a/src/Tracking.cc b/src/Tracking.cc
+index 5191451..af2a478 100644
+--- a/src/Tracking.cc
++++ b/src/Tracking.cc
+@@ -33,6 +33,7 @@
+ 
+ #include <mutex>
+ #include <chrono>
++#include <cstdlib>
+ 
+ 
+ using namespace std;
+@@ -40,6 +41,33 @@ using namespace std;
+ namespace ORB_SLAM3
+ {
+ 
++namespace {
++void TraceReplayEvent(const char* event, const Frame& frame, Map* map,
++                      KeyFrame* keyframe = nullptr, int count = 0)
++{
++    static const bool enabled = std::getenv("RELOCATE_TRACE_REPLAY") != nullptr;
++    if (!enabled)
++        return;
++    static std::ofstream trace("events.csv");
++    if (!trace)
++        throw std::runtime_error("Cannot write events.csv");
++    static bool first = true;
++    if (first)
++    {
++        trace << "event,timestamp_ns,map_id,keyframe_id,count,x,y,z\n";
++        first = false;
++    }
++    trace << event << ',' << std::llround(frame.mTimeStamp * 1e9) << ',' << map->GetId() << ',';
++    if (keyframe)
++    {
++        const auto center = keyframe->GetCameraCenter();
++        trace << keyframe->mnId << ',' << count << ',' << center.x() << ',' << center.y() << ',' << center.z();
++    }
++    else
++        trace << ',' << count << ",,,";
++    trace << '\n';
++}
++}
+ 
+ Tracking::Tracking(System *pSys, ORBVocabulary* pVoc, FrameDrawer *pFrameDrawer, MapDrawer *pMapDrawer, Atlas *pAtlas, KeyFrameDatabase* pKFDB, const string &strSettingPath, const int sensor, Settings* settings, const string &_nameSeq):
+     mState(NO_IMAGES_YET), mSensor(sensor), mTrackedFr(0), mbStep(false),
+@@ -1986,7 +2014,10 @@ void Tracking::Track()
+                     if((mSensor == System::IMU_MONOCULAR || mSensor == System::IMU_STEREO || mSensor == System::IMU_RGBD))
+                     {
+                         if(pCurrentMap->isImuInitialized())
++                        {
++                            TraceReplayEvent("imu_prediction_after_loss", mCurrentFrame, pCurrentMap);
+                             PredictStateIMU();
++                        }
+                         else
+                             bOK = false;
+ 
+@@ -3614,7 +3645,9 @@ bool Tracking::Relocalization()
+ 
+     // Relocalization is performed when tracking is lost
+     // Track Lost: Query KeyFrame Database for keyframe candidates for relocalisation
+-    vector<KeyFrame*> vpCandidateKFs = mpKeyFrameDB->DetectRelocalizationCandidates(&mCurrentFrame, mpAtlas->GetCurrentMap());
++    auto* map = mpAtlas->GetCurrentMap();
++    vector<KeyFrame*> vpCandidateKFs = mpKeyFrameDB->DetectRelocalizationCandidates(&mCurrentFrame, map);
++    TraceReplayEvent("relocalization_attempt", mCurrentFrame, map, nullptr, vpCandidateKFs.size());
+ 
+     if(vpCandidateKFs.empty()) {
+         Verbose::PrintMess("There are not candidates", Verbose::VERBOSITY_NORMAL);
+@@ -3642,10 +3675,14 @@ bool Tracking::Relocalization()
+     {
+         KeyFrame* pKF = vpCandidateKFs[i];
+         if(pKF->isBad())
++        {
+             vbDiscarded[i] = true;
++            TraceReplayEvent("relocalization_candidate", mCurrentFrame, map, pKF, -1);
++        }
+         else
+         {
+             int nmatches = matcher.SearchByBoW(pKF,mCurrentFrame,vvpMapPointMatches[i]);
++            TraceReplayEvent("relocalization_candidate", mCurrentFrame, map, pKF, nmatches);
+             if(nmatches<15)
+             {
+                 vbDiscarded[i] = true;
+@@ -3756,6 +3793,7 @@ bool Tracking::Relocalization()
+                 // If the pose is supported by enough inliers stop ransacs and continue
+                 if(nGood>=50)
+                 {
++                    TraceReplayEvent("relocalization_accept", mCurrentFrame, map, vpCandidateKFs[i], nGood);
+                     bMatch = true;
+                     break;
+                 }

@@ -48,3 +48,7 @@ Extract `V1_01_easy` in ASL format to `data/V1_01_easy`, with `mav0/` directly i
 Each run writes `baseline.log`, `f_baseline.txt`, `kf_baseline.txt`, the upstream revision, input and build hashes, and `summary.json` to a new directory under `runs/`. The example paces its replay using the dataset timestamps. The audit checks finite poses, quaternion norms, camera timestamps and association with ground-truth timestamps. Its counts describe trajectory exports after SLAM optimization.
 
 The build patch replaces the three legacy post-increments of a `bool` with assignment to `true`. This preserves the C++11 effect of those statements under C++17.
+
+## Week 2 replay and visual ambiguity
+
+Mask both camera images while replaying the same camera timestamps and IMU, then inspect the live tracker decisions. The [week 2 report](docs/week2.md) includes the reproduction commands, the measured EuRoC outcomes, and an independently rendered two-corridor ambiguity case.

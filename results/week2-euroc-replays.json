@@ -1,0 +1,141 @@
+{
+  "sequence": "V1_01_easy",
+  "mode": "stereo-inertial mapping",
+  "input_frames_per_run": 850,
+  "identical_camera_timeline_and_imu": true,
+  "alignment_window_seconds": 5.0,
+  "cases": [
+    {
+      "masked_frames": 0,
+      "mask_seconds": 0.0,
+      "first_unmasked_frame": 600,
+      "target_map": 0,
+      "transitions": [],
+      "imu_prediction_after_loss_frames": 0,
+      "relocalization_attempts": 0,
+      "relocalization_candidates": 0,
+      "relocalization_accepts": 0,
+      "outcome": "control"
+    },
+    {
+      "masked_frames": 10,
+      "mask_seconds": 0.5,
+      "first_unmasked_frame": 610,
+      "target_map": 0,
+      "transitions": [
+        {
+          "frame": 600,
+          "state": "recently_lost",
+          "map_id": 0
+        },
+        {
+          "frame": 610,
+          "state": "ok",
+          "map_id": 0
+        }
+      ],
+      "imu_prediction_after_loss_frames": 10,
+      "relocalization_attempts": 0,
+      "relocalization_candidates": 0,
+      "relocalization_accepts": 0,
+      "outcome": "same_map_tracking_resumed",
+      "recovery_frame": 610,
+      "latency_ms": 0.0,
+      "position_error_m": 0.028,
+      "rotation_error_deg": 5.118,
+      "pre_outage_alignment_rmse_m": 0.0074,
+      "within_protocol_thresholds": true
+    },
+    {
+      "masked_frames": 20,
+      "mask_seconds": 1.0,
+      "first_unmasked_frame": 620,
+      "target_map": 0,
+      "transitions": [
+        {
+          "frame": 600,
+          "state": "recently_lost",
+          "map_id": 0
+        },
+        {
+          "frame": 620,
+          "state": "ok",
+          "map_id": 0
+        }
+      ],
+      "imu_prediction_after_loss_frames": 20,
+      "relocalization_attempts": 0,
+      "relocalization_candidates": 0,
+      "relocalization_accepts": 0,
+      "outcome": "same_map_tracking_resumed",
+      "recovery_frame": 620,
+      "latency_ms": 0.0,
+      "position_error_m": 0.052,
+      "rotation_error_deg": 5.18,
+      "pre_outage_alignment_rmse_m": 0.0071,
+      "within_protocol_thresholds": true
+    },
+    {
+      "masked_frames": 40,
+      "mask_seconds": 2.0,
+      "first_unmasked_frame": 640,
+      "target_map": 0,
+      "transitions": [
+        {
+          "frame": 600,
+          "state": "recently_lost",
+          "map_id": 0
+        },
+        {
+          "frame": 643,
+          "state": "ok",
+          "map_id": 0
+        }
+      ],
+      "imu_prediction_after_loss_frames": 43,
+      "relocalization_attempts": 0,
+      "relocalization_candidates": 0,
+      "relocalization_accepts": 0,
+      "outcome": "same_map_tracking_resumed",
+      "recovery_frame": 643,
+      "latency_ms": 150.0,
+      "position_error_m": 0.1053,
+      "rotation_error_deg": 4.617,
+      "pre_outage_alignment_rmse_m": 0.0087,
+      "within_protocol_thresholds": true
+    },
+    {
+      "masked_frames": 120,
+      "mask_seconds": 6.0,
+      "first_unmasked_frame": 720,
+      "target_map": 0,
+      "transitions": [
+        {
+          "frame": 600,
+          "state": "recently_lost",
+          "map_id": 0
+        },
+        {
+          "frame": 701,
+          "state": "no_images",
+          "map_id": 1
+        },
+        {
+          "frame": 702,
+          "state": "initializing",
+          "map_id": 1
+        },
+        {
+          "frame": 726,
+          "state": "ok",
+          "map_id": 1
+        }
+      ],
+      "imu_prediction_after_loss_frames": 101,
+      "relocalization_attempts": 0,
+      "relocalization_candidates": 0,
+      "relocalization_accepts": 0,
+      "outcome": "left_target_map"
+    }
+  ]
+}
