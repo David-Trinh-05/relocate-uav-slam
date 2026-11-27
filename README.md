@@ -14,6 +14,7 @@ Use a C++17 compiler, CMake, Ninja, Python 3, and development packages for OpenC
 git clone --branch v0.8 --depth 1 https://github.com/stevenlovegrove/Pangolin.git third_party/Pangolin
 git clone https://github.com/UZ-SLAMLab/ORB_SLAM3.git third_party/ORB_SLAM3
 git -C third_party/ORB_SLAM3 switch --detach 4452a3c4ab75b1cde34e5505a36ec3f9edcdc4c4
+git -C third_party/ORB_SLAM3 apply "$PWD/patches/orb-slam3-cxx17.patch"
 
 pangolin="$PWD/third_party/Pangolin"
 orb="$PWD/third_party/ORB_SLAM3"
@@ -41,4 +42,6 @@ Extract `V1_01_easy` in ASL format to `data/V1_01_easy`, with `mav0/` directly i
 ./run-euroc.sh third_party/ORB_SLAM3 data/V1_01_easy
 ```
 
-Each run writes `baseline.log`, `f_baseline.txt`, `kf_baseline.txt`, the upstream revision, input hashes and `summary.json` to a new directory under `runs/`. The example paces its replay using the dataset timestamps. The audit checks finite poses, quaternion norms, camera timestamps and association with ground-truth timestamps. Its counts describe trajectory exports after SLAM optimization.
+Each run writes `baseline.log`, `f_baseline.txt`, `kf_baseline.txt`, the upstream revision, input and build hashes, and `summary.json` to a new directory under `runs/`. The example paces its replay using the dataset timestamps. The audit checks finite poses, quaternion norms, camera timestamps and association with ground-truth timestamps. Its counts describe trajectory exports after SLAM optimization.
+
+The build patch replaces the three legacy post-increments of a `bool` with assignment to `true`. This preserves the C++11 effect of those statements under C++17.

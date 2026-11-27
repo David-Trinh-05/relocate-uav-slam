@@ -40,6 +40,8 @@ mkdir -p "$project/runs"
 run="$(mktemp -d "$project/runs/V1_01_easy.XXXXXX")"
 git -C "$orb" rev-parse HEAD > "$run/orb-slam3-commit.txt"
 sha256sum "$settings" "$timestamps" > "$run/inputs.sha256"
+git -C "$orb" diff --binary HEAD | sha256sum > "$run/orb-slam3-source-diff.sha256"
+sha256sum "$executable" > "$run/executable.sha256"
 printf 'Run directory: %s\n' "$run"
 
 cd "$run"
