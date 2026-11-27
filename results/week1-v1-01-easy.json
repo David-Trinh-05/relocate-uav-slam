@@ -1,0 +1,13 @@
+{
+  "input_stereo_pairs": 2912,
+  "frames": {
+    "poses": 2809,
+    "poses_with_ground_truth_within_20ms": 2790,
+    "max_camera_timestamp_offset_ns": 0
+  },
+  "keyframes": {
+    "poses": 107,
+    "poses_with_ground_truth_within_20ms": 105,
+    "max_camera_timestamp_offset_ns": 0
+  }
+}

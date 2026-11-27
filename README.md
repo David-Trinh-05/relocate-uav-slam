@@ -6,11 +6,14 @@ Multi-hypothesis relocalization for UAV visual–inertial SLAM. The evaluation a
 
 The baseline runs the upstream stereo–inertial EuRoC example on `V1_01_easy`. It checks the input timeline and trajectory exports so the next experiment can focus on relocalization events. The [evaluation protocol](docs/evaluation.md) defines how those events will be scored on a fixed map.
 
+The [first verified run](results/week1-v1-01-easy.json) processed 2,912 stereo pairs and exported 2,809 frame poses and 107 keyframe poses. Every exported timestamp matched the camera timeline. Ground truth was within 20 ms for 2,790 frame poses and 105 keyframe poses. These measurements validate the clean replay and its exports.
+
 ### Build on Ubuntu
 
 Use a C++17 compiler, CMake, Ninja, Python 3, and development packages for OpenCV 4.4+, Eigen3, Boost Serialization, OpenSSL, OpenGL, EGL, and X11. See the upstream dependency notes for [ORB-SLAM3](https://github.com/UZ-SLAMLab/ORB_SLAM3) and [Pangolin](https://github.com/stevenlovegrove/Pangolin). From the repository root, use these upstream revisions and limit parallel compilation to fit available memory.
 
 ```bash
+mkdir -p third_party
 git clone --branch v0.8 --depth 1 https://github.com/stevenlovegrove/Pangolin.git third_party/Pangolin
 git clone https://github.com/UZ-SLAMLab/ORB_SLAM3.git third_party/ORB_SLAM3
 git -C third_party/ORB_SLAM3 switch --detach 4452a3c4ab75b1cde34e5505a36ec3f9edcdc4c4
