@@ -1,0 +1,3993 @@
+{
+  "manifest_sha256": "26dd1a949a3e622a981d27e529e014ee15824114ca9f4946b4b90c1756fc0251",
+  "map_sha256": "47f135d18678109580f48e0626e609a03095aead5915d1842af5693bc815083c",
+  "images_sha256": "ca31a92b96395b9bfe378cc44352010fda827d8c1fca51c4a1b20d41949e5907",
+  "clips": {
+    "delayed": {
+      "id": "held_out-delayed-03-outage",
+      "true_region": "B",
+      "cue_ms": 2100.0,
+      "blackout_ms": 2000.0,
+      "native": {
+        "time_ms": 0.0,
+        "region": "A",
+        "outcome": "false",
+        "position_error_m": 6.01521,
+        "inliers": 52,
+        "xz": [
+          0.07181,
+          2.51444
+        ]
+      },
+      "proposal_outcome": "correct",
+      "samples": [
+        {
+          "time_ms": 0.0,
+          "images": {
+            "left": "delayed/000-left.png",
+            "right": "delayed/000-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.08701,
+            2.52211
+          ],
+          "candidates": {
+            "A": [
+              93.5,
+              0.0912,
+              2.51905
+            ],
+            "B": [
+              93.5,
+              6.0912,
+              2.51905
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 50.0,
+          "images": {
+            "left": "delayed/001-left.png",
+            "right": "delayed/001-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.08782,
+            2.52918
+          ],
+          "candidates": {
+            "A": [
+              89.0,
+              0.07263,
+              2.52241
+            ],
+            "B": [
+              89.0,
+              6.07263,
+              2.52241
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 100.0,
+          "images": {
+            "left": "delayed/002-left.png",
+            "right": "delayed/002-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.08876,
+            2.53651
+          ],
+          "candidates": {
+            "A": [
+              92.0,
+              0.09347,
+              2.53545
+            ],
+            "B": [
+              92.0,
+              6.09347,
+              2.53545
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 150.0,
+          "images": {
+            "left": "delayed/003-left.png",
+            "right": "delayed/003-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.08984,
+            2.54407
+          ],
+          "candidates": {
+            "A": [
+              76.0,
+              0.08498,
+              2.54096
+            ],
+            "B": [
+              76.0,
+              6.08498,
+              2.54096
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 200.0,
+          "images": {
+            "left": "delayed/004-left.png",
+            "right": "delayed/004-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.09105,
+            2.55185
+          ],
+          "candidates": {
+            "A": [
+              65.5,
+              0.09141,
+              2.55439
+            ],
+            "B": [
+              65.5,
+              6.09141,
+              2.55439
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 250.0,
+          "images": {
+            "left": "delayed/005-left.png",
+            "right": "delayed/005-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.09239,
+            2.55984
+          ],
+          "candidates": {
+            "A": [
+              69.5,
+              0.09262,
+              2.56434
+            ],
+            "B": [
+              69.5,
+              6.09262,
+              2.56434
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 300.0,
+          "images": {
+            "left": "delayed/006-left.png",
+            "right": "delayed/006-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.09387,
+            2.56803
+          ],
+          "candidates": {
+            "A": [
+              74.0,
+              0.09637,
+              2.56337
+            ],
+            "B": [
+              74.0,
+              6.09637,
+              2.56337
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 350.0,
+          "images": {
+            "left": "delayed/007-left.png",
+            "right": "delayed/007-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.09547,
+            2.5764
+          ],
+          "candidates": {
+            "A": [
+              65.0,
+              0.10305,
+              2.57263
+            ],
+            "B": [
+              65.0,
+              6.10305,
+              2.57263
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 400.0,
+          "images": {
+            "left": "delayed/008-left.png",
+            "right": "delayed/008-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.09719,
+            2.58494
+          ],
+          "candidates": {
+            "A": [
+              66.5,
+              0.09139,
+              2.58477
+            ],
+            "B": [
+              66.5,
+              6.09139,
+              2.58477
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 450.0,
+          "images": {
+            "left": "delayed/009-left.png",
+            "right": "delayed/009-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.09903,
+            2.59362
+          ],
+          "candidates": {
+            "A": [
+              89.0,
+              0.09884,
+              2.59297
+            ],
+            "B": [
+              89.0,
+              6.09884,
+              2.59297
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 500.0,
+          "images": {
+            "left": "delayed/010-left.png",
+            "right": "delayed/010-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.10099,
+            2.60245
+          ],
+          "candidates": {
+            "A": [
+              64.0,
+              0.09958,
+              2.60095
+            ],
+            "B": [
+              64.0,
+              6.09958,
+              2.60095
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 550.0,
+          "images": {
+            "left": "delayed/011-left.png",
+            "right": "delayed/011-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.10306,
+            2.61139
+          ],
+          "candidates": {
+            "A": [
+              58.0,
+              0.09465,
+              2.61863
+            ],
+            "B": [
+              58.0,
+              6.09465,
+              2.61863
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 600.0,
+          "images": {
+            "left": "delayed/012-left.png",
+            "right": "delayed/012-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.10524,
+            2.62044
+          ],
+          "candidates": {
+            "A": [
+              63.0,
+              0.11469,
+              2.62544
+            ],
+            "B": [
+              63.0,
+              6.11469,
+              2.62544
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 650.0,
+          "images": {
+            "left": "delayed/013-left.png",
+            "right": "delayed/013-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.10753,
+            2.62958
+          ],
+          "candidates": {
+            "A": [
+              53.0,
+              0.09963,
+              2.6281
+            ],
+            "B": [
+              53.0,
+              6.09963,
+              2.6281
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 700.0,
+          "images": {
+            "left": "delayed/014-left.png",
+            "right": "delayed/014-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.10991,
+            2.6388
+          ],
+          "candidates": {
+            "A": [
+              64.5,
+              0.09905,
+              2.64277
+            ],
+            "B": [
+              64.5,
+              6.09905,
+              2.64277
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 750.0,
+          "images": {
+            "left": "delayed/015-left.png",
+            "right": "delayed/015-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.11239,
+            2.64807
+          ],
+          "candidates": {
+            "A": [
+              60.0,
+              0.12105,
+              2.63299
+            ],
+            "B": [
+              60.0,
+              6.12105,
+              2.63299
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 800.0,
+          "images": {
+            "left": "delayed/016-left.png",
+            "right": "delayed/016-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.11496,
+            2.65738
+          ],
+          "candidates": {
+            "A": [
+              71.5,
+              0.10492,
+              2.6566
+            ],
+            "B": [
+              71.5,
+              6.10492,
+              2.6566
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 850.0,
+          "images": {
+            "left": "delayed/017-left.png",
+            "right": "delayed/017-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.11761,
+            2.66672
+          ],
+          "candidates": {
+            "A": [
+              58.0,
+              0.11358,
+              2.66827
+            ],
+            "B": [
+              58.0,
+              6.11358,
+              2.66827
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 900.0,
+          "images": {
+            "left": "delayed/018-left.png",
+            "right": "delayed/018-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.12035,
+            2.67607
+          ],
+          "candidates": {
+            "A": [
+              62.0,
+              0.11609,
+              2.66935
+            ],
+            "B": [
+              62.0,
+              6.11609,
+              2.66935
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 950.0,
+          "images": {
+            "left": "delayed/019-left.png",
+            "right": "delayed/019-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.12316,
+            2.68541
+          ],
+          "candidates": {
+            "A": [
+              64.5,
+              0.12324,
+              2.68436
+            ],
+            "B": [
+              64.5,
+              6.12324,
+              2.68436
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 1000.0,
+          "images": {
+            "left": "delayed/020-left.png",
+            "right": "delayed/020-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.12604,
+            2.69473
+          ],
+          "candidates": {
+            "A": [
+              80.5,
+              0.13239,
+              2.69446
+            ],
+            "B": [
+              80.5,
+              6.13239,
+              2.69446
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 1050.0,
+          "images": {
+            "left": "delayed/021-left.png",
+            "right": "delayed/021-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.12898,
+            2.70401
+          ],
+          "candidates": {
+            "A": [
+              77.5,
+              0.1172,
+              2.70257
+            ],
+            "B": [
+              77.5,
+              6.1172,
+              2.70257
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 1100.0,
+          "images": {
+            "left": "delayed/022-left.png",
+            "right": "delayed/022-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.13198,
+            2.71323
+          ],
+          "candidates": {
+            "A": [
+              91.5,
+              0.1412,
+              2.71189
+            ],
+            "B": [
+              91.5,
+              6.1412,
+              2.71189
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 1150.0,
+          "images": {
+            "left": "delayed/023-left.png",
+            "right": "delayed/023-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.13503,
+            2.72238
+          ],
+          "candidates": {
+            "A": [
+              105.0,
+              0.13538,
+              2.7283
+            ],
+            "B": [
+              105.0,
+              6.13538,
+              2.7283
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 1200.0,
+          "images": {
+            "left": "delayed/024-left.png",
+            "right": "delayed/024-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.13813,
+            2.73144
+          ],
+          "candidates": {
+            "A": [
+              94.0,
+              0.14846,
+              2.72844
+            ],
+            "B": [
+              94.0,
+              6.14846,
+              2.72844
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 1250.0,
+          "images": {
+            "left": "delayed/025-left.png",
+            "right": "delayed/025-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.14127,
+            2.7404
+          ],
+          "candidates": {
+            "A": [
+              71.5,
+              0.13773,
+              2.73867
+            ],
+            "B": [
+              71.5,
+              6.13773,
+              2.73867
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 1300.0,
+          "images": {
+            "left": "delayed/026-left.png",
+            "right": "delayed/026-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.14444,
+            2.74924
+          ],
+          "candidates": {
+            "A": [
+              122.5,
+              0.15408,
+              2.74826
+            ],
+            "B": [
+              122.5,
+              6.15408,
+              2.74826
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 1350.0,
+          "images": {
+            "left": "delayed/027-left.png",
+            "right": "delayed/027-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.14765,
+            2.75795
+          ],
+          "candidates": {
+            "A": [
+              161.5,
+              0.15833,
+              2.75921
+            ],
+            "B": [
+              161.5,
+              6.15833,
+              2.75921
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 1400.0,
+          "images": {
+            "left": "delayed/028-left.png",
+            "right": "delayed/028-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.15087,
+            2.76651
+          ],
+          "candidates": {
+            "A": [
+              189.0,
+              0.14066,
+              2.76643
+            ],
+            "B": [
+              189.0,
+              6.14066,
+              2.76643
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 1450.0,
+          "images": {
+            "left": "delayed/029-left.png",
+            "right": "delayed/029-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.15411,
+            2.7749
+          ],
+          "candidates": {
+            "A": [
+              207.5,
+              0.15544,
+              2.77484
+            ],
+            "B": [
+              207.5,
+              6.15544,
+              2.77484
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 1500.0,
+          "images": {
+            "left": "delayed/030-left.png",
+            "right": "delayed/030-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.15736,
+            2.78311
+          ],
+          "candidates": {
+            "A": [
+              241.0,
+              0.15516,
+              2.78771
+            ],
+            "B": [
+              241.0,
+              6.15516,
+              2.78771
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 1550.0,
+          "images": {
+            "left": "delayed/031-left.png",
+            "right": "delayed/031-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.16061,
+            2.79113
+          ],
+          "candidates": {
+            "A": [
+              282.5,
+              0.16488,
+              2.79399
+            ],
+            "B": [
+              282.5,
+              6.16488,
+              2.79399
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 1600.0,
+          "images": {
+            "left": "delayed/032-left.png",
+            "right": "delayed/032-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.16386,
+            2.79894
+          ],
+          "candidates": {
+            "A": [
+              231.0,
+              0.16468,
+              2.80007
+            ],
+            "B": [
+              231.0,
+              6.16468,
+              2.80007
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 1650.0,
+          "images": {
+            "left": "delayed/033-left.png",
+            "right": "delayed/033-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.1671,
+            2.80654
+          ],
+          "candidates": {
+            "A": [
+              284.0,
+              0.16215,
+              2.8128
+            ],
+            "B": [
+              284.0,
+              6.16215,
+              2.8128
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 1700.0,
+          "images": {
+            "left": "delayed/034-left.png",
+            "right": "delayed/034-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.17032,
+            2.81389
+          ],
+          "candidates": {
+            "A": [
+              265.0,
+              0.16471,
+              2.82425
+            ],
+            "B": [
+              265.0,
+              6.16471,
+              2.82425
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 1750.0,
+          "images": {
+            "left": "delayed/035-left.png",
+            "right": "delayed/035-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.17352,
+            2.821
+          ],
+          "candidates": {
+            "A": [
+              184.0,
+              0.1727,
+              2.82595
+            ],
+            "B": [
+              184.0,
+              6.1727,
+              2.82595
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 1800.0,
+          "images": {
+            "left": "delayed/036-left.png",
+            "right": "delayed/036-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.17669,
+            2.82785
+          ],
+          "candidates": {
+            "A": [
+              254.5,
+              0.18375,
+              2.83724
+            ],
+            "B": [
+              254.5,
+              6.18375,
+              2.83724
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 1850.0,
+          "images": {
+            "left": "delayed/037-left.png",
+            "right": "delayed/037-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.17983,
+            2.83443
+          ],
+          "candidates": {
+            "A": [
+              332.0,
+              0.17703,
+              2.83187
+            ],
+            "B": [
+              332.0,
+              6.17703,
+              2.83187
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 1900.0,
+          "images": {
+            "left": "delayed/038-left.png",
+            "right": "delayed/038-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.18292,
+            2.84073
+          ],
+          "candidates": {
+            "A": [
+              297.0,
+              0.17914,
+              2.83331
+            ],
+            "B": [
+              297.0,
+              6.17914,
+              2.83331
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 1950.0,
+          "images": {
+            "left": "delayed/039-left.png",
+            "right": "delayed/039-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.18597,
+            2.84673
+          ],
+          "candidates": {
+            "A": [
+              314.5,
+              0.19002,
+              2.85
+            ],
+            "B": [
+              314.5,
+              6.19002,
+              2.85
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 2000.0,
+          "images": {
+            "left": "delayed/040-left.png",
+            "right": "delayed/040-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.18897,
+            2.85243
+          ],
+          "candidates": {
+            "A": [
+              259.5,
+              0.18688,
+              2.85061
+            ],
+            "B": [
+              259.5,
+              6.18688,
+              2.85061
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 2050.0,
+          "images": {
+            "left": "delayed/041-left.png",
+            "right": "delayed/041-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.19191,
+            2.85782
+          ],
+          "candidates": {
+            "A": [
+              237.0,
+              0.19529,
+              2.85654
+            ],
+            "B": [
+              237.0,
+              6.19529,
+              2.85654
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 2100.0,
+          "images": {
+            "left": "delayed/042-left.png",
+            "right": "delayed/042-right.png"
+          },
+          "cue_boxes": {
+            "right": [
+              469,
+              96,
+              479,
+              191
+            ]
+          },
+          "truth_xz": [
+            6.19479,
+            2.86288
+          ],
+          "candidates": {
+            "A": [
+              181.5,
+              0.18702,
+              2.86008
+            ],
+            "B": [
+              182.5,
+              6.18581,
+              2.86424
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 2150.0,
+          "images": {
+            "left": "delayed/043-left.png",
+            "right": "delayed/043-right.png"
+          },
+          "cue_boxes": {
+            "left": [
+              438,
+              99,
+              479,
+              189
+            ],
+            "right": [
+              423,
+              96,
+              479,
+              189
+            ]
+          },
+          "truth_xz": [
+            6.19759,
+            2.86761
+          ],
+          "candidates": {
+            "A": [
+              243.5,
+              0.1965,
+              2.86674
+            ],
+            "B": [
+              239.0,
+              6.19735,
+              2.86495
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 2200.0,
+          "images": {
+            "left": "delayed/044-left.png",
+            "right": "delayed/044-right.png"
+          },
+          "cue_boxes": {
+            "left": [
+              400,
+              97,
+              479,
+              241
+            ],
+            "right": [
+              386,
+              97,
+              479,
+              243
+            ]
+          },
+          "truth_xz": [
+            6.20032,
+            2.872
+          ],
+          "candidates": {
+            "A": [
+              244.0,
+              0.19978,
+              2.87064
+            ],
+            "B": [
+              289.0,
+              6.19603,
+              2.86926
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 2250.0,
+          "images": {
+            "left": "delayed/045-left.png",
+            "right": "delayed/045-right.png"
+          },
+          "cue_boxes": {
+            "left": [
+              368,
+              98,
+              479,
+              241
+            ],
+            "right": [
+              354,
+              97,
+              479,
+              242
+            ]
+          },
+          "truth_xz": [
+            6.20297,
+            2.87604
+          ],
+          "candidates": {
+            "A": [
+              204.0,
+              0.20927,
+              2.8713
+            ],
+            "B": [
+              286.0,
+              6.20235,
+              2.87653
+            ]
+          },
+          "streak": 1,
+          "published": null
+        },
+        {
+          "time_ms": 2300.0,
+          "images": {
+            "left": "delayed/046-left.png",
+            "right": "delayed/046-right.png"
+          },
+          "cue_boxes": {
+            "left": [
+              341,
+              100,
+              479,
+              238
+            ],
+            "right": [
+              327,
+              97,
+              479,
+              238
+            ]
+          },
+          "truth_xz": [
+            6.20553,
+            2.87972
+          ],
+          "candidates": {
+            "A": [
+              177.5,
+              0.19539,
+              2.87385
+            ],
+            "B": [
+              292.0,
+              6.20011,
+              2.87517
+            ]
+          },
+          "streak": 2,
+          "published": null
+        },
+        {
+          "time_ms": 2350.0,
+          "images": {
+            "left": "delayed/047-left.png",
+            "right": "delayed/047-right.png"
+          },
+          "cue_boxes": {
+            "left": [
+              318,
+              100,
+              479,
+              236
+            ],
+            "right": [
+              305,
+              100,
+              478,
+              236
+            ]
+          },
+          "truth_xz": [
+            6.20801,
+            2.88304
+          ],
+          "candidates": {
+            "A": [
+              155.5,
+              0.20686,
+              2.88544
+            ],
+            "B": [
+              272.5,
+              6.21118,
+              2.88333
+            ]
+          },
+          "streak": 3,
+          "published": "B"
+        }
+      ]
+    },
+    "unresolved": {
+      "id": "held_out-unresolved-02-outage",
+      "true_region": "B",
+      "cue_ms": null,
+      "blackout_ms": 1000.0,
+      "native": {
+        "time_ms": 0.0,
+        "region": "A",
+        "outcome": "false",
+        "position_error_m": 6.00587,
+        "inliers": 294,
+        "xz": [
+          0.10353,
+          2.53061
+        ]
+      },
+      "proposal_outcome": "timeout",
+      "samples": [
+        {
+          "time_ms": 0.0,
+          "images": {
+            "left": "unresolved/000-left.png",
+            "right": "unresolved/000-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.10939,
+            2.53298
+          ],
+          "candidates": {
+            "A": [
+              82.5,
+              0.10314,
+              2.53413
+            ],
+            "B": [
+              82.5,
+              6.10314,
+              2.53413
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 50.0,
+          "images": {
+            "left": "unresolved/001-left.png",
+            "right": "unresolved/001-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.10819,
+            2.52548
+          ],
+          "candidates": {
+            "A": [
+              79.5,
+              0.10565,
+              2.52655
+            ],
+            "B": [
+              79.5,
+              6.10565,
+              2.52655
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 100.0,
+          "images": {
+            "left": "unresolved/002-left.png",
+            "right": "unresolved/002-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.10714,
+            2.51838
+          ],
+          "candidates": {
+            "A": [
+              72.5,
+              0.10128,
+              2.51694
+            ],
+            "B": [
+              72.5,
+              6.10128,
+              2.51694
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 150.0,
+          "images": {
+            "left": "unresolved/003-left.png",
+            "right": "unresolved/003-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.10624,
+            2.5117
+          ],
+          "candidates": {
+            "A": [
+              78.5,
+              0.10532,
+              2.51498
+            ],
+            "B": [
+              78.5,
+              6.10532,
+              2.51498
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 200.0,
+          "images": {
+            "left": "unresolved/004-left.png",
+            "right": "unresolved/004-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.10549,
+            2.50546
+          ],
+          "candidates": {
+            "A": [
+              97.5,
+              0.10566,
+              2.50632
+            ],
+            "B": [
+              97.5,
+              6.10566,
+              2.50632
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 250.0,
+          "images": {
+            "left": "unresolved/005-left.png",
+            "right": "unresolved/005-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.1049,
+            2.49968
+          ],
+          "candidates": {
+            "A": [
+              83.5,
+              0.10169,
+              2.50243
+            ],
+            "B": [
+              83.5,
+              6.10169,
+              2.50243
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 300.0,
+          "images": {
+            "left": "unresolved/006-left.png",
+            "right": "unresolved/006-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.10447,
+            2.49438
+          ],
+          "candidates": {
+            "A": [
+              97.0,
+              0.09469,
+              2.49455
+            ],
+            "B": [
+              97.0,
+              6.09469,
+              2.49455
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 350.0,
+          "images": {
+            "left": "unresolved/007-left.png",
+            "right": "unresolved/007-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.1042,
+            2.48956
+          ],
+          "candidates": {
+            "A": [
+              90.0,
+              0.09519,
+              2.49097
+            ],
+            "B": [
+              90.0,
+              6.09519,
+              2.49097
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 400.0,
+          "images": {
+            "left": "unresolved/008-left.png",
+            "right": "unresolved/008-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.10409,
+            2.48525
+          ],
+          "candidates": {
+            "A": [
+              90.5,
+              0.09945,
+              2.48667
+            ],
+            "B": [
+              90.5,
+              6.09945,
+              2.48667
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 450.0,
+          "images": {
+            "left": "unresolved/009-left.png",
+            "right": "unresolved/009-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.10414,
+            2.48146
+          ],
+          "candidates": {
+            "A": [
+              94.0,
+              0.10302,
+              2.48677
+            ],
+            "B": [
+              94.0,
+              6.10302,
+              2.48677
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 500.0,
+          "images": {
+            "left": "unresolved/010-left.png",
+            "right": "unresolved/010-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.10435,
+            2.4782
+          ],
+          "candidates": {
+            "A": [
+              96.5,
+              0.10278,
+              2.47987
+            ],
+            "B": [
+              96.5,
+              6.10278,
+              2.47987
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 550.0,
+          "images": {
+            "left": "unresolved/011-left.png",
+            "right": "unresolved/011-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.10473,
+            2.47547
+          ],
+          "candidates": {
+            "A": [
+              103.5,
+              0.10276,
+              2.47822
+            ],
+            "B": [
+              103.5,
+              6.10276,
+              2.47822
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 600.0,
+          "images": {
+            "left": "unresolved/012-left.png",
+            "right": "unresolved/012-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.10526,
+            2.47329
+          ],
+          "candidates": {
+            "A": [
+              91.0,
+              0.11129,
+              2.47523
+            ],
+            "B": [
+              91.0,
+              6.11129,
+              2.47523
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 650.0,
+          "images": {
+            "left": "unresolved/013-left.png",
+            "right": "unresolved/013-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.10595,
+            2.47166
+          ],
+          "candidates": {
+            "A": [
+              114.5,
+              0.09916,
+              2.47223
+            ],
+            "B": [
+              114.5,
+              6.09916,
+              2.47223
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 700.0,
+          "images": {
+            "left": "unresolved/014-left.png",
+            "right": "unresolved/014-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.1068,
+            2.47059
+          ],
+          "candidates": {
+            "A": [
+              96.5,
+              0.11369,
+              2.47248
+            ],
+            "B": [
+              96.5,
+              6.11369,
+              2.47248
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 750.0,
+          "images": {
+            "left": "unresolved/015-left.png",
+            "right": "unresolved/015-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.10779,
+            2.47008
+          ],
+          "candidates": {
+            "A": [
+              80.5,
+              0.11777,
+              2.4707
+            ],
+            "B": [
+              80.5,
+              6.11777,
+              2.4707
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 800.0,
+          "images": {
+            "left": "unresolved/016-left.png",
+            "right": "unresolved/016-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.10894,
+            2.47013
+          ],
+          "candidates": {
+            "A": [
+              107.0,
+              0.10151,
+              2.46923
+            ],
+            "B": [
+              107.0,
+              6.10151,
+              2.46923
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 850.0,
+          "images": {
+            "left": "unresolved/017-left.png",
+            "right": "unresolved/017-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.11023,
+            2.47074
+          ],
+          "candidates": {
+            "A": [
+              131.5,
+              0.09965,
+              2.4701
+            ],
+            "B": [
+              131.5,
+              6.09965,
+              2.4701
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 900.0,
+          "images": {
+            "left": "unresolved/018-left.png",
+            "right": "unresolved/018-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.11165,
+            2.47191
+          ],
+          "candidates": {
+            "A": [
+              108.0,
+              0.10723,
+              2.47211
+            ],
+            "B": [
+              108.0,
+              6.10723,
+              2.47211
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 950.0,
+          "images": {
+            "left": "unresolved/019-left.png",
+            "right": "unresolved/019-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.11321,
+            2.47364
+          ],
+          "candidates": {
+            "A": [
+              97.5,
+              0.10559,
+              2.47719
+            ],
+            "B": [
+              97.5,
+              6.10559,
+              2.47719
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 1000.0,
+          "images": {
+            "left": "unresolved/020-left.png",
+            "right": "unresolved/020-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.1149,
+            2.47592
+          ],
+          "candidates": {
+            "A": [
+              80.5,
+              0.11269,
+              2.48035
+            ],
+            "B": [
+              80.5,
+              6.11269,
+              2.48035
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 1050.0,
+          "images": {
+            "left": "unresolved/021-left.png",
+            "right": "unresolved/021-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.11671,
+            2.47874
+          ],
+          "candidates": {
+            "A": [
+              79.0,
+              0.11735,
+              2.48013
+            ],
+            "B": [
+              79.0,
+              6.11735,
+              2.48013
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 1100.0,
+          "images": {
+            "left": "unresolved/022-left.png",
+            "right": "unresolved/022-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.11863,
+            2.4821
+          ],
+          "candidates": {
+            "A": [
+              98.5,
+              0.11911,
+              2.48199
+            ],
+            "B": [
+              98.5,
+              6.11911,
+              2.48199
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 1150.0,
+          "images": {
+            "left": "unresolved/023-left.png",
+            "right": "unresolved/023-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.12066,
+            2.48599
+          ],
+          "candidates": {
+            "A": [
+              90.5,
+              0.11054,
+              2.48285
+            ],
+            "B": [
+              90.5,
+              6.11054,
+              2.48285
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 1200.0,
+          "images": {
+            "left": "unresolved/024-left.png",
+            "right": "unresolved/024-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.12279,
+            2.49039
+          ],
+          "candidates": {
+            "A": [
+              107.5,
+              0.12207,
+              2.49121
+            ],
+            "B": [
+              107.5,
+              6.12207,
+              2.49121
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 1250.0,
+          "images": {
+            "left": "unresolved/025-left.png",
+            "right": "unresolved/025-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.12501,
+            2.49529
+          ],
+          "candidates": {
+            "A": [
+              99.5,
+              0.1161,
+              2.49242
+            ],
+            "B": [
+              99.5,
+              6.1161,
+              2.49242
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 1300.0,
+          "images": {
+            "left": "unresolved/026-left.png",
+            "right": "unresolved/026-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.12731,
+            2.50068
+          ],
+          "candidates": {
+            "A": [
+              145.0,
+              0.12607,
+              2.50058
+            ],
+            "B": [
+              145.0,
+              6.12607,
+              2.50058
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 1350.0,
+          "images": {
+            "left": "unresolved/027-left.png",
+            "right": "unresolved/027-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.12969,
+            2.50654
+          ],
+          "candidates": {
+            "A": [
+              77.0,
+              0.13047,
+              2.50539
+            ],
+            "B": [
+              77.0,
+              6.13047,
+              2.50539
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 1400.0,
+          "images": {
+            "left": "unresolved/028-left.png",
+            "right": "unresolved/028-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.13213,
+            2.51286
+          ],
+          "candidates": {
+            "A": [
+              96.0,
+              0.12307,
+              2.51414
+            ],
+            "B": [
+              96.0,
+              6.12307,
+              2.51414
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 1450.0,
+          "images": {
+            "left": "unresolved/029-left.png",
+            "right": "unresolved/029-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.13463,
+            2.51962
+          ],
+          "candidates": {
+            "A": [
+              88.0,
+              0.1291,
+              2.51895
+            ],
+            "B": [
+              88.0,
+              6.1291,
+              2.51895
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 1500.0,
+          "images": {
+            "left": "unresolved/030-left.png",
+            "right": "unresolved/030-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.13717,
+            2.52679
+          ],
+          "candidates": {
+            "A": [
+              77.5,
+              0.13342,
+              2.52885
+            ],
+            "B": [
+              77.5,
+              6.13342,
+              2.52885
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 1550.0,
+          "images": {
+            "left": "unresolved/031-left.png",
+            "right": "unresolved/031-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.13975,
+            2.53437
+          ],
+          "candidates": {
+            "A": [
+              86.5,
+              0.14432,
+              2.53619
+            ],
+            "B": [
+              86.5,
+              6.14432,
+              2.53619
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 1600.0,
+          "images": {
+            "left": "unresolved/032-left.png",
+            "right": "unresolved/032-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.14236,
+            2.54231
+          ],
+          "candidates": {
+            "A": [
+              86.5,
+              0.13241,
+              2.5427
+            ],
+            "B": [
+              86.5,
+              6.13241,
+              2.5427
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 1650.0,
+          "images": {
+            "left": "unresolved/033-left.png",
+            "right": "unresolved/033-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.14498,
+            2.55061
+          ],
+          "candidates": {
+            "A": [
+              82.0,
+              0.13703,
+              2.5554
+            ],
+            "B": [
+              82.0,
+              6.13703,
+              2.5554
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 1700.0,
+          "images": {
+            "left": "unresolved/034-left.png",
+            "right": "unresolved/034-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.14761,
+            2.55924
+          ],
+          "candidates": {
+            "A": [
+              66.5,
+              0.14668,
+              2.56519
+            ],
+            "B": [
+              66.5,
+              6.14668,
+              2.56519
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 1750.0,
+          "images": {
+            "left": "unresolved/035-left.png",
+            "right": "unresolved/035-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.15024,
+            2.56817
+          ],
+          "candidates": {
+            "A": [
+              74.5,
+              0.14503,
+              2.57341
+            ],
+            "B": [
+              74.5,
+              6.14503,
+              2.57341
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 1800.0,
+          "images": {
+            "left": "unresolved/036-left.png",
+            "right": "unresolved/036-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.15285,
+            2.57737
+          ],
+          "candidates": {
+            "A": [
+              78.5,
+              0.1495,
+              2.58086
+            ],
+            "B": [
+              78.5,
+              6.1495,
+              2.58086
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 1850.0,
+          "images": {
+            "left": "unresolved/037-left.png",
+            "right": "unresolved/037-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.15545,
+            2.58683
+          ],
+          "candidates": {
+            "A": [
+              57.5,
+              0.13827,
+              2.58379
+            ],
+            "B": [
+              57.5,
+              6.13827,
+              2.58379
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 1900.0,
+          "images": {
+            "left": "unresolved/038-left.png",
+            "right": "unresolved/038-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.158,
+            2.59651
+          ],
+          "candidates": {
+            "A": [
+              63.0,
+              0.15049,
+              2.5986
+            ],
+            "B": [
+              63.0,
+              6.15049,
+              2.5986
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 1950.0,
+          "images": {
+            "left": "unresolved/039-left.png",
+            "right": "unresolved/039-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.16052,
+            2.60638
+          ],
+          "candidates": {
+            "A": [
+              71.0,
+              0.15964,
+              2.60497
+            ],
+            "B": [
+              71.0,
+              6.15964,
+              2.60497
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 2000.0,
+          "images": {
+            "left": "unresolved/040-left.png",
+            "right": "unresolved/040-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.16299,
+            2.61642
+          ],
+          "candidates": {
+            "A": [
+              56.0,
+              0.17464,
+              2.61198
+            ],
+            "B": [
+              56.0,
+              6.17464,
+              2.61198
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 2050.0,
+          "images": {
+            "left": "unresolved/041-left.png",
+            "right": "unresolved/041-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.16539,
+            2.6266
+          ],
+          "candidates": {
+            "A": [
+              54.0,
+              0.16031,
+              2.62535
+            ],
+            "B": [
+              54.0,
+              6.16031,
+              2.62535
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 2100.0,
+          "images": {
+            "left": "unresolved/042-left.png",
+            "right": "unresolved/042-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.16773,
+            2.63688
+          ],
+          "candidates": {
+            "A": [
+              67.5,
+              0.16849,
+              2.64102
+            ],
+            "B": [
+              67.5,
+              6.16849,
+              2.64102
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 2150.0,
+          "images": {
+            "left": "unresolved/043-left.png",
+            "right": "unresolved/043-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.16998,
+            2.64724
+          ],
+          "candidates": {
+            "A": [
+              59.5,
+              0.16402,
+              2.64275
+            ],
+            "B": [
+              59.5,
+              6.16402,
+              2.64275
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 2200.0,
+          "images": {
+            "left": "unresolved/044-left.png",
+            "right": "unresolved/044-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.17215,
+            2.65765
+          ],
+          "candidates": {
+            "A": [
+              64.5,
+              0.15746,
+              2.66123
+            ],
+            "B": [
+              64.5,
+              6.15746,
+              2.66123
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 2250.0,
+          "images": {
+            "left": "unresolved/045-left.png",
+            "right": "unresolved/045-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.17422,
+            2.66808
+          ],
+          "candidates": {
+            "A": [
+              59.5,
+              0.17903,
+              2.66239
+            ],
+            "B": [
+              59.5,
+              6.17903,
+              2.66239
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 2300.0,
+          "images": {
+            "left": "unresolved/046-left.png",
+            "right": "unresolved/046-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.17619,
+            2.67849
+          ],
+          "candidates": {
+            "A": [
+              60.0,
+              0.16973,
+              2.67652
+            ],
+            "B": [
+              60.0,
+              6.16973,
+              2.67652
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 2350.0,
+          "images": {
+            "left": "unresolved/047-left.png",
+            "right": "unresolved/047-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.17805,
+            2.68886
+          ],
+          "candidates": {
+            "A": [
+              55.5,
+              0.15255,
+              2.68335
+            ],
+            "B": [
+              55.5,
+              6.15255,
+              2.68335
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 2400.0,
+          "images": {
+            "left": "unresolved/048-left.png",
+            "right": "unresolved/048-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.17979,
+            2.69916
+          ],
+          "candidates": {
+            "A": [
+              81.5,
+              0.17703,
+              2.70108
+            ],
+            "B": [
+              81.5,
+              6.17703,
+              2.70108
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 2450.0,
+          "images": {
+            "left": "unresolved/049-left.png",
+            "right": "unresolved/049-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.1814,
+            2.70936
+          ],
+          "candidates": {
+            "A": [
+              69.0,
+              0.17371,
+              2.70386
+            ],
+            "B": [
+              69.0,
+              6.17371,
+              2.70386
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 2500.0,
+          "images": {
+            "left": "unresolved/050-left.png",
+            "right": "unresolved/050-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.18289,
+            2.71942
+          ],
+          "candidates": {
+            "A": [
+              60.5,
+              0.1846,
+              2.72137
+            ],
+            "B": [
+              60.5,
+              6.1846,
+              2.72137
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 2550.0,
+          "images": {
+            "left": "unresolved/051-left.png",
+            "right": "unresolved/051-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.18423,
+            2.72932
+          ],
+          "candidates": {
+            "A": [
+              67.0,
+              0.18768,
+              2.72446
+            ],
+            "B": [
+              67.0,
+              6.18768,
+              2.72446
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 2600.0,
+          "images": {
+            "left": "unresolved/052-left.png",
+            "right": "unresolved/052-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.18544,
+            2.73903
+          ],
+          "candidates": {
+            "A": [
+              65.0,
+              0.17769,
+              2.73439
+            ],
+            "B": [
+              65.0,
+              6.17769,
+              2.73439
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 2650.0,
+          "images": {
+            "left": "unresolved/053-left.png",
+            "right": "unresolved/053-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.1865,
+            2.74852
+          ],
+          "candidates": {
+            "A": [
+              65.5,
+              0.18062,
+              2.74297
+            ],
+            "B": [
+              65.5,
+              6.18062,
+              2.74297
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 2700.0,
+          "images": {
+            "left": "unresolved/054-left.png",
+            "right": "unresolved/054-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.18741,
+            2.75777
+          ],
+          "candidates": {
+            "A": [
+              57.0,
+              0.16951,
+              2.75185
+            ],
+            "B": [
+              57.0,
+              6.16951,
+              2.75185
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 2750.0,
+          "images": {
+            "left": "unresolved/055-left.png",
+            "right": "unresolved/055-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.18817,
+            2.76674
+          ],
+          "candidates": {
+            "A": [
+              65.5,
+              0.19438,
+              2.76924
+            ],
+            "B": [
+              65.5,
+              6.19438,
+              2.76924
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 2800.0,
+          "images": {
+            "left": "unresolved/056-left.png",
+            "right": "unresolved/056-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.18877,
+            2.77542
+          ],
+          "candidates": {
+            "A": [
+              63.5,
+              0.20159,
+              2.76377
+            ],
+            "B": [
+              63.5,
+              6.20159,
+              2.76377
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 2850.0,
+          "images": {
+            "left": "unresolved/057-left.png",
+            "right": "unresolved/057-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.18921,
+            2.78377
+          ],
+          "candidates": {
+            "A": [
+              55.5,
+              0.19394,
+              2.77384
+            ],
+            "B": [
+              55.5,
+              6.19394,
+              2.77384
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 2900.0,
+          "images": {
+            "left": "unresolved/058-left.png",
+            "right": "unresolved/058-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.18949,
+            2.79177
+          ],
+          "candidates": {
+            "A": [
+              60.0,
+              0.18426,
+              2.7992
+            ],
+            "B": [
+              60.0,
+              6.18426,
+              2.7992
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 2950.0,
+          "images": {
+            "left": "unresolved/059-left.png",
+            "right": "unresolved/059-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.18961,
+            2.7994
+          ],
+          "candidates": {
+            "A": [
+              62.5,
+              0.18833,
+              2.79311
+            ],
+            "B": [
+              62.5,
+              6.18833,
+              2.79311
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 3000.0,
+          "images": {
+            "left": "unresolved/060-left.png",
+            "right": "unresolved/060-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.18957,
+            2.80664
+          ],
+          "candidates": {
+            "A": [
+              58.5,
+              0.17003,
+              2.80639
+            ],
+            "B": [
+              58.5,
+              6.17003,
+              2.80639
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 3050.0,
+          "images": {
+            "left": "unresolved/061-left.png",
+            "right": "unresolved/061-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.18936,
+            2.81346
+          ],
+          "candidates": {
+            "A": [
+              50.0,
+              0.20266,
+              2.808
+            ],
+            "B": [
+              50.0,
+              6.20266,
+              2.808
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 3100.0,
+          "images": {
+            "left": "unresolved/062-left.png",
+            "right": "unresolved/062-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.189,
+            2.81985
+          ],
+          "candidates": {
+            "A": [
+              68.5,
+              0.18982,
+              2.80901
+            ],
+            "B": [
+              68.5,
+              6.18982,
+              2.80901
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 3150.0,
+          "images": {
+            "left": "unresolved/063-left.png",
+            "right": "unresolved/063-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.18847,
+            2.82578
+          ],
+          "candidates": {
+            "A": [
+              58.0,
+              0.18648,
+              2.82305
+            ],
+            "B": [
+              58.0,
+              6.18648,
+              2.82305
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 3200.0,
+          "images": {
+            "left": "unresolved/064-left.png",
+            "right": "unresolved/064-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.18779,
+            2.83125
+          ],
+          "candidates": {
+            "A": [
+              70.0,
+              0.17883,
+              2.82665
+            ],
+            "B": [
+              70.0,
+              6.17883,
+              2.82665
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 3250.0,
+          "images": {
+            "left": "unresolved/065-left.png",
+            "right": "unresolved/065-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.18695,
+            2.83623
+          ],
+          "candidates": {
+            "A": [
+              66.5,
+              0.18454,
+              2.83191
+            ],
+            "B": [
+              66.5,
+              6.18454,
+              2.83191
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 3300.0,
+          "images": {
+            "left": "unresolved/066-left.png",
+            "right": "unresolved/066-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.18597,
+            2.8407
+          ],
+          "candidates": {
+            "A": [
+              69.0,
+              0.18052,
+              2.83989
+            ],
+            "B": [
+              69.0,
+              6.18052,
+              2.83989
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 3350.0,
+          "images": {
+            "left": "unresolved/067-left.png",
+            "right": "unresolved/067-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.18483,
+            2.84467
+          ],
+          "candidates": {
+            "A": [
+              69.0,
+              0.18398,
+              2.84264
+            ],
+            "B": [
+              69.0,
+              6.18398,
+              2.84264
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 3400.0,
+          "images": {
+            "left": "unresolved/068-left.png",
+            "right": "unresolved/068-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.18355,
+            2.84811
+          ],
+          "candidates": {
+            "A": [
+              71.0,
+              0.18228,
+              2.8445
+            ],
+            "B": [
+              71.0,
+              6.18228,
+              2.8445
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 3450.0,
+          "images": {
+            "left": "unresolved/069-left.png",
+            "right": "unresolved/069-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.18213,
+            2.85101
+          ],
+          "candidates": {
+            "A": [
+              60.0,
+              0.1799,
+              2.85146
+            ],
+            "B": [
+              60.0,
+              6.1799,
+              2.85146
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 3500.0,
+          "images": {
+            "left": "unresolved/070-left.png",
+            "right": "unresolved/070-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.18058,
+            2.85338
+          ],
+          "candidates": {
+            "A": [
+              82.5,
+              0.18463,
+              2.85932
+            ],
+            "B": [
+              82.5,
+              6.18463,
+              2.85932
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 3550.0,
+          "images": {
+            "left": "unresolved/071-left.png",
+            "right": "unresolved/071-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.1789,
+            2.85519
+          ],
+          "candidates": {
+            "A": [
+              73.5,
+              0.18607,
+              2.854
+            ],
+            "B": [
+              73.5,
+              6.18607,
+              2.854
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 3600.0,
+          "images": {
+            "left": "unresolved/072-left.png",
+            "right": "unresolved/072-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.17709,
+            2.85644
+          ],
+          "candidates": {
+            "A": [
+              78.0,
+              0.18485,
+              2.8535
+            ],
+            "B": [
+              78.0,
+              6.18485,
+              2.8535
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 3650.0,
+          "images": {
+            "left": "unresolved/073-left.png",
+            "right": "unresolved/073-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.17518,
+            2.85714
+          ],
+          "candidates": {
+            "A": [
+              84.0,
+              0.17127,
+              2.85435
+            ],
+            "B": [
+              84.0,
+              6.17127,
+              2.85435
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 3700.0,
+          "images": {
+            "left": "unresolved/074-left.png",
+            "right": "unresolved/074-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.17315,
+            2.85728
+          ],
+          "candidates": {
+            "A": [
+              76.5,
+              0.16724,
+              2.85417
+            ],
+            "B": [
+              76.5,
+              6.16724,
+              2.85417
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 3750.0,
+          "images": {
+            "left": "unresolved/075-left.png",
+            "right": "unresolved/075-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.17103,
+            2.85685
+          ],
+          "candidates": {
+            "A": [
+              72.0,
+              0.17829,
+              2.85592
+            ],
+            "B": [
+              72.0,
+              6.17829,
+              2.85592
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 3800.0,
+          "images": {
+            "left": "unresolved/076-left.png",
+            "right": "unresolved/076-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.16882,
+            2.85587
+          ],
+          "candidates": {
+            "A": [
+              76.5,
+              0.17322,
+              2.85869
+            ],
+            "B": [
+              76.5,
+              6.17322,
+              2.85869
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 3850.0,
+          "images": {
+            "left": "unresolved/077-left.png",
+            "right": "unresolved/077-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.16652,
+            2.85433
+          ],
+          "candidates": {
+            "A": [
+              88.5,
+              0.17637,
+              2.84863
+            ],
+            "B": [
+              88.5,
+              6.17637,
+              2.84863
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 3900.0,
+          "images": {
+            "left": "unresolved/078-left.png",
+            "right": "unresolved/078-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.16415,
+            2.85223
+          ],
+          "candidates": {
+            "A": [
+              85.0,
+              0.1712,
+              2.85091
+            ],
+            "B": [
+              85.0,
+              6.1712,
+              2.85091
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 3950.0,
+          "images": {
+            "left": "unresolved/079-left.png",
+            "right": "unresolved/079-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.16171,
+            2.84959
+          ],
+          "candidates": {
+            "A": [
+              93.5,
+              0.166,
+              2.84633
+            ],
+            "B": [
+              93.5,
+              6.166,
+              2.84633
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 4000.0,
+          "images": {
+            "left": "unresolved/080-left.png",
+            "right": "unresolved/080-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.15922,
+            2.84641
+          ],
+          "candidates": {
+            "A": [
+              91.5,
+              0.15577,
+              2.84861
+            ],
+            "B": [
+              91.5,
+              6.15577,
+              2.84861
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 4050.0,
+          "images": {
+            "left": "unresolved/081-left.png",
+            "right": "unresolved/081-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.15668,
+            2.8427
+          ],
+          "candidates": {
+            "A": [
+              86.5,
+              0.15619,
+              2.84288
+            ],
+            "B": [
+              86.5,
+              6.15619,
+              2.84288
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 4100.0,
+          "images": {
+            "left": "unresolved/082-left.png",
+            "right": "unresolved/082-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.1541,
+            2.83847
+          ],
+          "candidates": {
+            "A": [
+              81.0,
+              0.15951,
+              2.83713
+            ],
+            "B": [
+              81.0,
+              6.15951,
+              2.83713
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 4150.0,
+          "images": {
+            "left": "unresolved/083-left.png",
+            "right": "unresolved/083-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.15149,
+            2.83373
+          ],
+          "candidates": {
+            "A": [
+              76.5,
+              0.14289,
+              2.83075
+            ],
+            "B": [
+              76.5,
+              6.14289,
+              2.83075
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 4200.0,
+          "images": {
+            "left": "unresolved/084-left.png",
+            "right": "unresolved/084-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.14887,
+            2.8285
+          ],
+          "candidates": {
+            "A": [
+              77.5,
+              0.14637,
+              2.82649
+            ],
+            "B": [
+              77.5,
+              6.14637,
+              2.82649
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 4250.0,
+          "images": {
+            "left": "unresolved/085-left.png",
+            "right": "unresolved/085-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.14624,
+            2.82279
+          ],
+          "candidates": {
+            "A": [
+              61.0,
+              0.15147,
+              2.81958
+            ],
+            "B": [
+              61.0,
+              6.15147,
+              2.81958
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 4300.0,
+          "images": {
+            "left": "unresolved/086-left.png",
+            "right": "unresolved/086-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.14361,
+            2.81662
+          ],
+          "candidates": {
+            "A": [
+              79.0,
+              0.14527,
+              2.81639
+            ],
+            "B": [
+              79.0,
+              6.14527,
+              2.81639
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 4350.0,
+          "images": {
+            "left": "unresolved/087-left.png",
+            "right": "unresolved/087-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.14099,
+            2.81001
+          ],
+          "candidates": {
+            "A": [
+              59.5,
+              0.13733,
+              2.80357
+            ],
+            "B": [
+              59.5,
+              6.13733,
+              2.80357
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 4400.0,
+          "images": {
+            "left": "unresolved/088-left.png",
+            "right": "unresolved/088-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.1384,
+            2.80297
+          ],
+          "candidates": {
+            "A": [
+              96.5,
+              0.12846,
+              2.80306
+            ],
+            "B": [
+              96.5,
+              6.12846,
+              2.80306
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 4450.0,
+          "images": {
+            "left": "unresolved/089-left.png",
+            "right": "unresolved/089-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.13584,
+            2.79553
+          ],
+          "candidates": {
+            "A": [
+              74.5,
+              0.12995,
+              2.78889
+            ],
+            "B": [
+              74.5,
+              6.12995,
+              2.78889
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 4500.0,
+          "images": {
+            "left": "unresolved/090-left.png",
+            "right": "unresolved/090-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.13332,
+            2.7877
+          ],
+          "candidates": {
+            "A": [
+              65.5,
+              0.12217,
+              2.79016
+            ],
+            "B": [
+              65.5,
+              6.12217,
+              2.79016
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 4550.0,
+          "images": {
+            "left": "unresolved/091-left.png",
+            "right": "unresolved/091-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.13085,
+            2.77952
+          ],
+          "candidates": {
+            "A": [
+              66.5,
+              0.13363,
+              2.78601
+            ],
+            "B": [
+              66.5,
+              6.13363,
+              2.78601
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 4600.0,
+          "images": {
+            "left": "unresolved/092-left.png",
+            "right": "unresolved/092-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.12844,
+            2.771
+          ],
+          "candidates": {
+            "A": [
+              55.5,
+              0.1358,
+              2.77348
+            ],
+            "B": [
+              55.5,
+              6.1358,
+              2.77348
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 4650.0,
+          "images": {
+            "left": "unresolved/093-left.png",
+            "right": "unresolved/093-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.1261,
+            2.76217
+          ],
+          "candidates": {
+            "A": [
+              60.5,
+              0.13536,
+              2.77114
+            ],
+            "B": [
+              60.5,
+              6.13536,
+              2.77114
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 4700.0,
+          "images": {
+            "left": "unresolved/094-left.png",
+            "right": "unresolved/094-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.12384,
+            2.75305
+          ],
+          "candidates": {
+            "A": [
+              76.5,
+              0.11467,
+              2.74746
+            ],
+            "B": [
+              76.5,
+              6.11467,
+              2.74746
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 4750.0,
+          "images": {
+            "left": "unresolved/095-left.png",
+            "right": "unresolved/095-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.12167,
+            2.74368
+          ],
+          "candidates": {
+            "A": [
+              58.5,
+              0.1273,
+              2.75251
+            ],
+            "B": [
+              58.5,
+              6.1273,
+              2.75251
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 4800.0,
+          "images": {
+            "left": "unresolved/096-left.png",
+            "right": "unresolved/096-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.11959,
+            2.73407
+          ],
+          "candidates": {
+            "A": [
+              64.0,
+              0.11979,
+              2.73145
+            ],
+            "B": [
+              64.0,
+              6.11979,
+              2.73145
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 4850.0,
+          "images": {
+            "left": "unresolved/097-left.png",
+            "right": "unresolved/097-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.11762,
+            2.72426
+          ],
+          "candidates": {
+            "A": [
+              57.0,
+              0.11614,
+              2.72119
+            ],
+            "B": [
+              57.0,
+              6.11614,
+              2.72119
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 4900.0,
+          "images": {
+            "left": "unresolved/098-left.png",
+            "right": "unresolved/098-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.11575,
+            2.71427
+          ],
+          "candidates": {
+            "A": [
+              71.5,
+              0.12548,
+              2.72103
+            ],
+            "B": [
+              71.5,
+              6.12548,
+              2.72103
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 4950.0,
+          "images": {
+            "left": "unresolved/099-left.png",
+            "right": "unresolved/099-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.11401,
+            2.70413
+          ],
+          "candidates": {
+            "A": [
+              53.5,
+              0.1148,
+              2.70356
+            ],
+            "B": [
+              53.5,
+              6.1148,
+              2.70356
+            ]
+          },
+          "streak": 0,
+          "published": null
+        },
+        {
+          "time_ms": 5000.0,
+          "images": {
+            "left": "unresolved/100-left.png",
+            "right": "unresolved/100-right.png"
+          },
+          "cue_boxes": {},
+          "truth_xz": [
+            6.11238,
+            2.69388
+          ],
+          "candidates": {
+            "A": [
+              58.0,
+              0.1084,
+              2.6891
+            ],
+            "B": [
+              58.0,
+              6.1084,
+              2.6891
+            ]
+          },
+          "streak": 0,
+          "published": null
+        }
+      ]
+    }
+  }
+}

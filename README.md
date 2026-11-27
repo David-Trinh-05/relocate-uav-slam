@@ -4,6 +4,19 @@ Multi-hypothesis relocalization for UAV visual–inertial SLAM. The evaluation a
 
 On nine held-out synthetic outages, the upstream ORB-SLAM3 relocalization routine published three wrong poses. ReLocate recovered correctly in two of those cases and withheld a pose in the third. Both were evaluated on the same frozen corridor snapshot and incident list. [Native baseline and paired results](docs/week6.md)
 
+## Demo and reproduction
+
+[![ReLocate demo at the first pose confirmation](demo/preview.png)](demo/relocate.mp4)
+
+The 76-second demo follows the same stereo frames through both relocalizers. It shows a late cue and a case that remains ambiguous for five seconds. [Download the captioned MP4](https://raw.githubusercontent.com/David-Trinh-05/relocate-uav-slam/main/demo/relocate.mp4)
+
+```bash
+python3 -m demo.render
+./run-portfolio-benchmark.sh
+```
+
+The first command renders the recorded demo with Pillow, FFmpeg, and DejaVu Sans. The second runs all four methods from the frozen benchmark and prints the results table. The full run uses the [pinned ORB-SLAM3 build](docs/week6.md#reproduce). [Portfolio guide and CV wording](docs/portfolio.md)
+
 ## Week 1 baseline
 
 The baseline runs the upstream stereo–inertial EuRoC example on `V1_01_easy`. It checks the input timeline and trajectory exports so the next experiment can focus on relocalization events. The [evaluation protocol](docs/evaluation.md) defines how those events will be scored on a fixed map.
