@@ -8,10 +8,15 @@ import numpy as np
 from scipy.spatial.transform import Rotation
 
 from benchmark import sha256
+from orb_matcher import bounded_matches
 
 
 MAX_UNOBSERVED_FRAMES = 8
 CONFIRMATION_FRAMES = 3
+RETRIEVAL_INDEX_MIN_KEYFRAMES = 32
+RETRIEVAL_SHORTLIST_SIZE = 6
+WORD_BINS = 4096
+WORD_BYTES = np.arange(0, 32, 4)
 
 
 @dataclass(frozen=True)
@@ -45,6 +50,7 @@ class Keyframe:
     pose: Pose
     descriptors: np.ndarray
     optical_points: np.ndarray
+    descriptor_id: int
 
 
 @dataclass
@@ -69,13 +75,22 @@ def read_gray(path):
     return image
 
 
+def descriptor_histogram(descriptors):
+    # Eight fixed 12-bit projections of each 256-bit ORB descriptor.
+    values = descriptors.astype(np.int32)
+    words = (values[:, WORD_BYTES] << 4) | (values[:, WORD_BYTES + 1] & 15)
+    words += WORD_BINS * np.arange(len(WORD_BYTES))
+    return np.sqrt(np.bincount(words.ravel(), minlength=WORD_BINS * len(WORD_BYTES))).astype(np.float32)
+
+
 class FixedMap:
-    def __init__(self, root, map_file, calibration, detector):
+    def __init__(self, root, map_file, calibration, detector, use_index=True):
         self.intrinsics = np.array(calibration["camera_intrinsics"])
         self.image_size = tuple(calibration["image_size"])
         self.baseline = -calibration["right_from_left_translation_m"][0]
         inverse_intrinsics = np.linalg.inv(self.intrinsics)
         self.regions = {}
+        descriptor_ids = {}
         for record in json.loads(self.artifact(root, map_file).read_text())["keyframes"]:
             image = read_gray(self.artifact(root, record["left"]))
             depth = np.load(self.artifact(root, record["left_optical_z_m"]), allow_pickle=False)
@@ -84,12 +99,34 @@ class FixedMap:
                 continue
             x, y = pixels.round().astype(int).T
             rays = np.column_stack((pixels, np.ones(len(pixels)))) @ inverse_intrinsics.T
+            z = depth[y, x]
+            valid = np.isfinite(z) & (z > 0)
+            if not valid.any():
+                continue
+            descriptors = descriptors[valid]
+            descriptor_id = descriptor_ids.setdefault(descriptors.tobytes(), len(descriptor_ids))
             pose = Pose(np.array(record["world_position_m"]),
                         Rotation.from_quat(record["world_from_body_xyzw"]).as_matrix())
-            entry = Keyframe(record["keyframe_id"], pose, descriptors, rays * depth[y, x, None])
+            entry = Keyframe(record["keyframe_id"], pose, descriptors, rays[valid] * z[valid, None], descriptor_id)
             self.regions.setdefault(record["region"], []).append(entry)
-        if len(self.regions) != 2:
-            raise ValueError("the corridor benchmark requires two feature-bearing map regions")
+        if len(self.regions) < 2:
+            raise ValueError("the relocalizer requires at least two feature-bearing map regions")
+        self.appearance = {}
+        for region, references in self.regions.items():
+            if use_index and len(references) >= RETRIEVAL_INDEX_MIN_KEYFRAMES:
+                vectors = np.stack([descriptor_histogram(key.descriptors) for key in references])
+                weights = np.log1p(len(references) / (1 + np.count_nonzero(vectors, axis=0))).astype(np.float32)
+                vectors *= weights
+                self.appearance[region] = (vectors / np.linalg.norm(vectors, axis=1, keepdims=True), weights)
+
+    def global_references(self, region, query_histogram):
+        references = self.regions[region]
+        if region not in self.appearance:
+            return references
+        vectors, weights = self.appearance[region]
+        scores = np.einsum("ij,j->i", vectors, query_histogram * weights)
+        ranks = np.argsort(-scores, kind="stable")[:RETRIEVAL_SHORTLIST_SIZE]
+        return [references[index] for index in ranks]
 
     @staticmethod
     def artifact(root, record):
@@ -132,11 +169,12 @@ class SearchResult:
 
 
 class Relocalizer:
-    def __init__(self, mapping, detector, policy=POLICIES["multi-temporal"]):
+    def __init__(self, mapping, detector, policy=POLICIES["multi-temporal"], matcher=None, cache_matches=True):
         self.mapping = mapping
         self.detector = detector
         self.policy = policy
-        self.matcher = cv.BFMatcher(cv.NORM_HAMMING, crossCheck=True)
+        self.matcher = matcher if matcher is not None else cv.BFMatcher(cv.NORM_HAMMING, crossCheck=True)
+        self.cache_matches = cache_matches
         self.hypotheses = {}
         self.pending_region = None
         self.streak = 0
@@ -146,9 +184,9 @@ class Relocalizer:
         paired = np.full((len(pixels), 2), np.nan)
         if right_descriptors is None:
             return paired
-        for match in self.matcher.match(descriptors, right_descriptors):
+        for match in bounded_matches(self.matcher, descriptors, right_descriptors, 40):
             left_point, right_point = pixels[match.queryIdx], right_pixels[match.trainIdx]
-            if match.distance <= 40 and abs(left_point[1] - right_point[1]) <= 2 and left_point[0] > right_point[0]:
+            if abs(left_point[1] - right_point[1]) <= 2 and left_point[0] > right_point[0]:
                 paired[match.queryIdx] = right_point
         return paired
 
@@ -191,11 +229,11 @@ class Relocalizer:
             len(np.unique(cells, axis=0)), float(np.median(errors)), gyro_error,
         )
 
-    def region_evidence(self, references, pixels, descriptors, stereo, predicted):
+    def region_evidence(self, region, pixels, match_reference, stereo, predicted, query_histogram):
         def candidates(keyframes):
             ranked = []
             for keyframe in keyframes:
-                matches = [match for match in self.matcher.match(keyframe.descriptors, descriptors) if match.distance <= 40]
+                matches = match_reference(keyframe)
                 ranked.append((keyframe, matches))
             ranked.sort(key=lambda item: len(item[1]), reverse=True)
             poses = [self.geometry(keyframe, matches, pixels, stereo, predicted) for keyframe, matches in ranked[:4]]
@@ -203,30 +241,46 @@ class Relocalizer:
             return SearchResult(best, len(ranked[0][1]), len(ranked))
 
         if predicted is not None:
-            shortlist = sorted(references, key=lambda keyframe: (
+            shortlist = sorted(self.mapping.regions[region], key=lambda keyframe: (
                 angle_between(predicted.rotation, keyframe.pose.rotation)
                 + 5 * np.linalg.norm(keyframe.pose.position - predicted.position)
             ))[:6]
             result = candidates(shortlist)
             if result.evidence is not None:
                 return result
-            fallback = candidates(references)
+            fallback = candidates(self.mapping.global_references(region, query_histogram))
             fallback.keyframes_compared += result.keyframes_compared
             return fallback
-        return candidates(references)
+        return candidates(self.mapping.global_references(region, query_histogram))
 
     def update(self, left, right, gyro_step):
         pixels, descriptors = features(self.detector, left)
         stereo = self.stereo_matches(pixels, descriptors, right) if descriptors is not None else None
+        query_histogram = descriptor_histogram(descriptors) if descriptors is not None and self.mapping.appearance else None
         evidence = {}
         search_log = {}
-        for region, references in self.mapping.regions.items():
+        match_cache = {}
+        match_calls = 0
+
+        def match_reference(keyframe):
+            nonlocal match_calls
+            identity = keyframe.descriptor_id
+            if identity in match_cache:
+                return match_cache[identity]
+            matches = bounded_matches(self.matcher, keyframe.descriptors, descriptors, 40)
+            match_calls += 1
+            if self.cache_matches:
+                match_cache[identity] = matches
+            return matches
+
+        for region in self.mapping.regions:
             track = self.hypotheses.get(region)
             predicted = None
             if track is not None:
                 predicted = Pose(track.pose.position, track.pose.rotation @ gyro_step)
+            before = match_calls
             search = SearchResult(None, 0, 0) if descriptors is None else self.region_evidence(
-                references, pixels, descriptors, stereo, predicted,
+                region, pixels, match_reference, stereo, predicted, query_histogram,
             )
             candidate = search.evidence
             evidence[region] = candidate
@@ -241,6 +295,7 @@ class Relocalizer:
             search_log[region] = {
                 "status": status, "best_descriptor_matches": search.best_match_count,
                 "keyframes_compared": search.keyframes_compared,
+                "descriptor_match_calls": match_calls - before,
             }
             if candidate is not None and candidate.inliers >= 20 and candidate.coverage_cells >= 3:
                 self.hypotheses[region] = Hypothesis(candidate.pose)
@@ -256,7 +311,7 @@ class Relocalizer:
         live = [region for region in ranked if region in self.hypotheses]
         for region in live[self.policy.retained_regions:]:
             del self.hypotheses[region]
-        leader, alternative = ranked
+        leader, alternative = ranked[:2]
         best, other = evidence[leader], evidence[alternative]
         runner_score = other.score if other is not None else 0
         ready = best is not None and best.inliers >= 30 and best.stereo_inliers >= 10 and best.coverage_cells >= 4

@@ -1,0 +1,170 @@
+{
+  "benchmark": "EuRoC MAV V1_01_easy",
+  "manifest_sha256": "f4132a58db52b2d03e1aa6c3c305040d951cffaa9ceec062b841b200da4a290a",
+  "map_sha256": "d125d9b6ac6e0bf4612586d7bf2980de6988c841f414a959c372cc002f218479",
+  "split": "held_out",
+  "runtime": {
+    "matcher": "native",
+    "opencv_threads": 1,
+    "cache_matches": true,
+    "indexed_regions": [
+      "lower-y",
+      "upper-y"
+    ]
+  },
+  "host": {
+    "cpu": "13th Gen Intel(R) Core(TM) i7-13700H",
+    "logical_cpus": 20,
+    "kernel": "7.0.0-43-generic",
+    "cpu0_governor": "powersave",
+    "python": "3.12.3",
+    "opencv_python": "5.0.0",
+    "opencv_system": "4.6.0",
+    "numpy": "2.5.3",
+    "scipy": "1.18.1",
+    "openblas_num_threads": "1",
+    "omp_num_threads": "1"
+  },
+  "timing": {
+    "processed_frames": 320,
+    "service_wall": {
+      "p50_ms": 33.2159,
+      "p95_ms": 44.8869
+    },
+    "process_cpu": {
+      "p50_ms": 33.2275,
+      "p95_ms": 44.9683
+    },
+    "queue_delay": {
+      "p50_ms": 0.2486,
+      "p95_ms": 0.3236
+    },
+    "capture_to_ready": {
+      "p50_ms": 33.5142,
+      "p95_ms": 45.1061
+    },
+    "service_over_frame_period": 0,
+    "ready_after_frame_period": 0,
+    "frames_with_waiting_queue_after_processing": 0,
+    "max_waiting_frames": 0
+  },
+  "outcomes": {
+    "timeout": 3,
+    "correct": 4
+  },
+  "keyframe_comparisons": 3876,
+  "descriptor_match_calls": 3876,
+  "cases": [
+    {
+      "incident_id": "V1_01_easy-frame-1630-outage",
+      "scenario": "recorded_replay",
+      "target_region": null,
+      "outcome": "timeout",
+      "frames": 101,
+      "max_waiting_frames": 0,
+      "wall_until_decision_ms": 5013.2885,
+      "strongest_unpublished_candidate": {
+        "frame": 1,
+        "keyframe": "euroc-135",
+        "inliers": 14,
+        "stereo_inliers": 3,
+        "coverage_cells": 2,
+        "score": 15.5
+      }
+    },
+    {
+      "incident_id": "V1_01_easy-frame-1810-outage",
+      "scenario": "recorded_replay",
+      "target_region": null,
+      "outcome": "correct",
+      "published_region": "upper-y",
+      "publication_frame": 5,
+      "recovery_ms": 250.000128,
+      "visual_cue_ms": null,
+      "position_error_m": 0.05066,
+      "rotation_error_deg": 0.176,
+      "frames": 6,
+      "max_waiting_frames": 0,
+      "wall_until_decision_ms": 283.3413
+    },
+    {
+      "incident_id": "V1_01_easy-frame-1990-outage",
+      "scenario": "recorded_replay",
+      "target_region": null,
+      "outcome": "correct",
+      "published_region": "lower-y",
+      "publication_frame": 2,
+      "recovery_ms": 100.0,
+      "visual_cue_ms": null,
+      "position_error_m": 0.0694,
+      "rotation_error_deg": 0.6399,
+      "frames": 3,
+      "max_waiting_frames": 0,
+      "wall_until_decision_ms": 134.6225
+    },
+    {
+      "incident_id": "V1_01_easy-frame-2170-outage",
+      "scenario": "recorded_replay",
+      "target_region": null,
+      "outcome": "correct",
+      "published_region": "upper-y",
+      "publication_frame": 2,
+      "recovery_ms": 100.0,
+      "visual_cue_ms": null,
+      "position_error_m": 0.17448,
+      "rotation_error_deg": 2.3438,
+      "frames": 3,
+      "max_waiting_frames": 0,
+      "wall_until_decision_ms": 145.4816
+    },
+    {
+      "incident_id": "V1_01_easy-frame-2350-outage",
+      "scenario": "recorded_replay",
+      "target_region": null,
+      "outcome": "correct",
+      "published_region": "upper-y",
+      "publication_frame": 4,
+      "recovery_ms": 200.0,
+      "visual_cue_ms": null,
+      "position_error_m": 0.06574,
+      "rotation_error_deg": 0.4134,
+      "frames": 5,
+      "max_waiting_frames": 0,
+      "wall_until_decision_ms": 242.7462
+    },
+    {
+      "incident_id": "V1_01_easy-frame-2530-outage",
+      "scenario": "recorded_replay",
+      "target_region": null,
+      "outcome": "timeout",
+      "frames": 101,
+      "max_waiting_frames": 0,
+      "wall_until_decision_ms": 5028.5178,
+      "strongest_unpublished_candidate": {
+        "frame": 96,
+        "keyframe": "euroc-450",
+        "inliers": 29,
+        "stereo_inliers": 21,
+        "coverage_cells": 4,
+        "score": 39.5
+      }
+    },
+    {
+      "incident_id": "V1_01_easy-frame-2710-outage",
+      "scenario": "recorded_replay",
+      "target_region": null,
+      "outcome": "timeout",
+      "frames": 101,
+      "max_waiting_frames": 0,
+      "wall_until_decision_ms": 5040.2963,
+      "strongest_unpublished_candidate": {
+        "frame": 49,
+        "keyframe": "euroc-165",
+        "inliers": 139,
+        "stereo_inliers": 84,
+        "coverage_cells": 3,
+        "score": 181.0
+      }
+    }
+  ]
+}

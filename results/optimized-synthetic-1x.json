@@ -1,0 +1,197 @@
+{
+  "benchmark": "synthetic corridors",
+  "manifest_sha256": "26dd1a949a3e622a981d27e529e014ee15824114ca9f4946b4b90c1756fc0251",
+  "map_sha256": "47f135d18678109580f48e0626e609a03095aead5915d1842af5693bc815083c",
+  "split": "held_out",
+  "runtime": {
+    "matcher": "native",
+    "opencv_threads": 1,
+    "cache_matches": true,
+    "indexed_regions": []
+  },
+  "host": {
+    "cpu": "13th Gen Intel(R) Core(TM) i7-13700H",
+    "logical_cpus": 20,
+    "kernel": "7.0.0-43-generic",
+    "cpu0_governor": "powersave",
+    "python": "3.12.3",
+    "opencv_python": "5.0.0",
+    "opencv_system": "4.6.0",
+    "numpy": "2.5.3",
+    "scipy": "1.18.1",
+    "openblas_num_threads": "1",
+    "omp_num_threads": "1"
+  },
+  "timing": {
+    "processed_frames": 450,
+    "service_wall": {
+      "p50_ms": 16.8088,
+      "p95_ms": 22.9064
+    },
+    "process_cpu": {
+      "p50_ms": 16.8222,
+      "p95_ms": 22.9273
+    },
+    "queue_delay": {
+      "p50_ms": 0.2442,
+      "p95_ms": 0.3348
+    },
+    "capture_to_ready": {
+      "p50_ms": 17.0244,
+      "p95_ms": 22.9078
+    },
+    "service_over_frame_period": 1,
+    "ready_after_frame_period": 1,
+    "frames_with_waiting_queue_after_processing": 1,
+    "max_waiting_frames": 1
+  },
+  "outcomes": {
+    "correct": 6,
+    "timeout": 3
+  },
+  "keyframe_comparisons": 5766,
+  "descriptor_match_calls": 3116,
+  "cases": [
+    {
+      "incident_id": "held_out-immediate-01-outage",
+      "scenario": "immediate",
+      "target_region": "A",
+      "outcome": "correct",
+      "published_region": "A",
+      "publication_frame": 2,
+      "recovery_ms": 100.0,
+      "visual_cue_ms": 0.0,
+      "position_error_m": 0.01133,
+      "rotation_error_deg": 0.3139,
+      "frames": 3,
+      "max_waiting_frames": 0,
+      "wall_until_decision_ms": 143.063
+    },
+    {
+      "incident_id": "held_out-immediate-02-outage",
+      "scenario": "immediate",
+      "target_region": "B",
+      "outcome": "correct",
+      "published_region": "B",
+      "publication_frame": 2,
+      "recovery_ms": 100.0,
+      "visual_cue_ms": 0.0,
+      "position_error_m": 0.01083,
+      "rotation_error_deg": 0.2417,
+      "frames": 3,
+      "max_waiting_frames": 0,
+      "wall_until_decision_ms": 140.0343
+    },
+    {
+      "incident_id": "held_out-immediate-03-outage",
+      "scenario": "immediate",
+      "target_region": "A",
+      "outcome": "correct",
+      "published_region": "A",
+      "publication_frame": 2,
+      "recovery_ms": 100.0,
+      "visual_cue_ms": 0.0,
+      "position_error_m": 0.09943,
+      "rotation_error_deg": 2.1705,
+      "frames": 3,
+      "max_waiting_frames": 1,
+      "wall_until_decision_ms": 151.0732
+    },
+    {
+      "incident_id": "held_out-delayed-01-outage",
+      "scenario": "delayed",
+      "target_region": "B",
+      "outcome": "correct",
+      "published_region": "B",
+      "publication_frame": 43,
+      "recovery_ms": 2150.0,
+      "visual_cue_ms": 1950.0,
+      "position_error_m": 0.01182,
+      "rotation_error_deg": 0.2681,
+      "frames": 44,
+      "max_waiting_frames": 0,
+      "wall_until_decision_ms": 2179.1658
+    },
+    {
+      "incident_id": "held_out-delayed-02-outage",
+      "scenario": "delayed",
+      "target_region": "A",
+      "outcome": "correct",
+      "published_region": "A",
+      "publication_frame": 45,
+      "recovery_ms": 2250.0,
+      "visual_cue_ms": 1950.0,
+      "position_error_m": 0.0129,
+      "rotation_error_deg": 0.289,
+      "frames": 46,
+      "max_waiting_frames": 0,
+      "wall_until_decision_ms": 2284.6247
+    },
+    {
+      "incident_id": "held_out-delayed-03-outage",
+      "scenario": "delayed",
+      "target_region": "B",
+      "outcome": "correct",
+      "published_region": "B",
+      "publication_frame": 47,
+      "recovery_ms": 2350.0,
+      "visual_cue_ms": 2100.0,
+      "position_error_m": 0.00336,
+      "rotation_error_deg": 0.067,
+      "frames": 48,
+      "max_waiting_frames": 0,
+      "wall_until_decision_ms": 2380.1571
+    },
+    {
+      "incident_id": "held_out-unresolved-01-outage",
+      "scenario": "unresolved",
+      "target_region": "A",
+      "outcome": "timeout",
+      "frames": 101,
+      "max_waiting_frames": 0,
+      "wall_until_decision_ms": 5016.587,
+      "strongest_unpublished_candidate": {
+        "frame": 83,
+        "keyframe": "A-1-000",
+        "inliers": 77,
+        "stereo_inliers": 43,
+        "coverage_cells": 11,
+        "score": 98.5
+      }
+    },
+    {
+      "incident_id": "held_out-unresolved-02-outage",
+      "scenario": "unresolved",
+      "target_region": "B",
+      "outcome": "timeout",
+      "frames": 101,
+      "max_waiting_frames": 0,
+      "wall_until_decision_ms": 5016.9577,
+      "strongest_unpublished_candidate": {
+        "frame": 26,
+        "keyframe": "A-1-000",
+        "inliers": 116,
+        "stereo_inliers": 58,
+        "coverage_cells": 12,
+        "score": 145.0
+      }
+    },
+    {
+      "incident_id": "held_out-unresolved-03-outage",
+      "scenario": "unresolved",
+      "target_region": "A",
+      "outcome": "timeout",
+      "frames": 101,
+      "max_waiting_frames": 0,
+      "wall_until_decision_ms": 5016.8083,
+      "strongest_unpublished_candidate": {
+        "frame": 22,
+        "keyframe": "A-1-000",
+        "inliers": 146,
+        "stereo_inliers": 61,
+        "coverage_cells": 12,
+        "score": 176.5
+      }
+    }
+  ]
+}

@@ -12,6 +12,7 @@ import numpy as np
 from scipy.spatial.transform import Rotation
 
 from benchmark import POSE_COLUMNS, sha256, write_json
+from orb_matcher import NativeMatcher, make_matcher
 from relocalizer import POLICIES, FixedMap, Relocalizer, angle_between, read_gray
 
 
@@ -99,7 +100,8 @@ def score(root, incident, decision):
     position_error = float(np.linalg.norm(np.array(values[:3]) - pose["position_m"]))
     rotation_error = float(angle_between(Rotation.from_quat(values[3:]).as_matrix(),
                                          Rotation.from_quat(pose["quaternion_xyzw"]).as_matrix()))
-    correct = region == incident["target_region"] and position_error <= 0.30 and rotation_error <= 10
+    target = incident["target_region"]
+    correct = (target is None or region == target) and position_error <= 0.30 and rotation_error <= 10
     cue = incident["first_visual_cue_ns"]
     return dict(result, outcome="correct" if correct else "false", published_region=region,
                 publication_frame=decision["frame"], recovery_ms=(stamp - resume) / 1e6,
@@ -107,8 +109,15 @@ def score(root, incident, decision):
                 position_error_m=round(position_error, 5), rotation_error_deg=round(rotation_error, 4))
 
 
-def run(root, output, split, incident_id, method="multi-temporal", realtime=False):
-    cv.setNumThreads(1)
+def run(root, output, split, incident_id, method="multi-temporal", realtime=False, opencv_threads=None,
+        matcher_mode="auto", cache_matches=True, use_index=True):
+    matcher = make_matcher(matcher_mode)
+    backend = "native" if isinstance(matcher, NativeMatcher) else "opencv"
+    if opencv_threads is None:
+        opencv_threads = 1 if backend == "native" else 4
+    if opencv_threads < 1:
+        raise ValueError("OpenCV thread count must be positive")
+    cv.setNumThreads(opencv_threads)
     manifest_path = root / "manifest.json"
     manifest = json.loads(manifest_path.read_text())
     incidents = [row for row in manifest["incidents"] if row["split"] == split and
@@ -116,7 +125,7 @@ def run(root, output, split, incident_id, method="multi-temporal", realtime=Fals
     if not incidents or any(row["map_sha256"] != manifest["map"]["sha256"] for row in incidents):
         raise ValueError("no matching fixed-map incidents")
     detector = cv.ORB_create(nfeatures=900)
-    mapping = FixedMap(root, manifest["map"], manifest["calibration"], detector)
+    mapping = FixedMap(root, manifest["map"], manifest["calibration"], detector, use_index)
     policy = POLICIES[method]
     output.mkdir(parents=True, exist_ok=False)
     results = []
@@ -127,15 +136,19 @@ def run(root, output, split, incident_id, method="multi-temporal", realtime=Fals
             timing.writerow(TIMING_FIELDS)
         for incident in incidents:
             with (output / f"{incident['incident_id']}.jsonl").open("w") as trace:
-                decision = observe(root, incident, Relocalizer(mapping, detector, policy), trace, timing)
+                decision = observe(root, incident, Relocalizer(mapping, detector, policy, matcher, cache_matches), trace, timing)
             result = score(root, incident, decision)
             results.append(result)
             print(result["incident_id"], result["outcome"], result.get("recovery_ms", "–"), flush=True)
-    write_json(output / "summary.json", {
+    summary = {
         "method": "multi-hypothesis stereo PnP and gyro" if method == "multi-temporal" else method,
         "policy": method, "split": split,
         "manifest_sha256": sha256(manifest_path), "map_sha256": manifest["map"]["sha256"], "cases": results,
-    })
+    }
+    if realtime:
+        summary["runtime"] = {"matcher": backend, "opencv_threads": opencv_threads,
+                              "cache_matches": cache_matches, "indexed_regions": sorted(mapping.appearance)}
+    write_json(output / "summary.json", summary)
 
 
 def main():
@@ -145,10 +158,15 @@ def main():
     parser.add_argument("--split", choices=("development", "held_out"), default="development")
     parser.add_argument("--method", choices=POLICIES, default="multi-temporal")
     parser.add_argument("--realtime", action="store_true", help="pace frames at sensor time and record timing.csv")
+    parser.add_argument("--opencv-threads", type=int, help="OpenCV worker limit (native 1, OpenCV 4 by default)")
+    parser.add_argument("--matcher", choices=("auto", "native", "opencv"), default="auto")
+    parser.add_argument("--no-match-cache", action="store_true", help="recompute identical descriptor matches")
+    parser.add_argument("--exhaustive-retrieval", action="store_true", help="scan all reference keyframes in a global search")
     parser.add_argument("--incident", help="run only this incident from the selected split")
     args = parser.parse_args()
     try:
-        run(args.benchmark.resolve(), args.output, args.split, args.incident, args.method, args.realtime)
+        run(args.benchmark.resolve(), args.output, args.split, args.incident, args.method, args.realtime,
+            args.opencv_threads, args.matcher, not args.no_match_cache, not args.exhaustive_retrieval)
     except (KeyError, OSError, ValueError) as error:
         parser.exit(1, f"Relocalization failed: {error}\n")
 

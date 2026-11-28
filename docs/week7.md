@@ -1,5 +1,7 @@
 # Week 7 replay profiling and failure analysis
 
+These measurements describe the original Python/OpenCV matcher. [Optimized replay measurements](recorded-replay.md)
+
 The nine held-out clips were replayed at their original 20 Hz on an Intel Core i7-13700H with 20 logical CPUs, Ubuntu 24.04.4, Python 3.12.3, OpenCV 5.0.0 for Python and OpenCV 4.6.0 for native ORB-SLAM3. The runs executed sequentially with the OpenCV worker limit and OpenBLAS and OMP limits set to one. ORB-SLAM3's stereo frame constructor still launches separate left and right extraction threads. Map initialization takes place before the per-incident clock begins.
 
 Each method consumes an in-order FIFO without dropping frames. The replay clock releases each observation at its recorded offset from the first unmasked pair. A frame can wait after release while the previous frame is processed. The reported queue depth counts unprocessed frames that have reached their release time. Processing time includes stereo image decoding and estimation, plus gyro integration for the Python policies. Process CPU time counts work on all threads in the process. Wall time to a pose is the sensor offset of its decisive frame plus that frame's queue delay and processing time.
@@ -34,11 +36,11 @@ cmake --build runs/native-build
 python3 run_orb_baseline.py runs/week3-benchmark runs/week7-native \
     runs/native-build/orb_fixed_map third_party/ORB_SLAM3/Vocabulary/ORBvoc.txt --split held_out --realtime
 python3 run_relocalization.py runs/week3-benchmark runs/week7-single-temporal \
-    --split held_out --method single-temporal --realtime
+    --split held_out --method single-temporal --realtime --matcher opencv --opencv-threads 1 --no-match-cache
 python3 run_relocalization.py runs/week3-benchmark runs/week7-multi-temporal \
-    --split held_out --method multi-temporal --realtime
+    --split held_out --method multi-temporal --realtime --matcher opencv --opencv-threads 1 --no-match-cache
 python3 run_relocalization.py runs/week3-benchmark runs/week7-multi-repeat \
-    --split held_out --method multi-temporal --realtime
+    --split held_out --method multi-temporal --realtime --matcher opencv --opencv-threads 1 --no-match-cache
 python3 profile_replay.py runs/week3-benchmark runs/week7-native runs/week7-single-temporal \
     runs/week7-multi-temporal runs/week7-multi-repeat
 ```
@@ -47,5 +49,6 @@ Each timed run writes `timing.csv` alongside its pose and candidate traces. The 
 
 ```bash
 python3 -m cProfile -s tottime run_relocalization.py runs/week3-benchmark runs/week7-multi-dev-profile \
-    --method multi-temporal --incident development-unresolved-01-outage
+    --method multi-temporal --incident development-unresolved-01-outage \
+    --matcher opencv --opencv-threads 1 --no-match-cache
 ```

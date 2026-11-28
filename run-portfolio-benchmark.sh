@@ -20,6 +20,7 @@ python3 audit_benchmark.py "$benchmark" > "$output/audit.json"
 cmake -S native -B "$native" -G Ninja -DCMAKE_BUILD_TYPE=Release \
     -DORB_SLAM3_ROOT="$orb" -DPangolin_DIR="$project/third_party/Pangolin/build"
 cmake --build "$native" --parallel 2
+./build-native-matcher.sh
 
 python3 run_orb_baseline.py "$benchmark" "$output/orb-slam3" \
     "$native/orb_fixed_map" "$orb/Vocabulary/ORBvoc.txt" --split held_out

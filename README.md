@@ -26,7 +26,9 @@ The benchmark has 18 synthetic stereo–inertial outages across two corridors 6 
 
 ReLocate recovered correctly in two of the baseline's three false-pose cases and withheld a pose in the third. All three baseline errors were about 6 m even though the correct region was in the candidate list. [Paired outcomes and candidate traces](docs/week6.md)
 
-With the same three-frame confirmation rule, keeping two poses reduced keyframe matching calls by **53.1%** versus keeping one, with identical outcomes and publication timestamps. Frame processing on the tested i7-13700H measured **139.64 ms p95**, exceeding the **50 ms** budget for 20 Hz. These measurements describe synthetic fixed-map relocalization. [Controlled comparison](docs/week5.md) · [Wall-clock profiling](docs/week7.md)
+With the same three-frame confirmation rule, keeping two poses reduced keyframe comparisons by **53.1%** versus keeping one, with identical outcomes and publication timestamps. [Controlled comparison](docs/week5.md)
+
+The native Hamming matcher and per-frame match cache brought 1× replay processing from **139.64 to 22.91 ms/frame p95** on the tested i7-13700H. All 450 synthetic pose traces and publication decisions matched the original implementation. In a separate replay of recorded EuRoC UAV data, the optimized implementation measured **45.62 ms/frame p95** and published four correct poses, zero false poses and three timeouts across seven query segments. Both measured p95 values are within the **50 ms** frame budget at 20 Hz. [Throughput and recorded replay](docs/recorded-replay.md)
 
 ## Run locally
 

@@ -37,7 +37,7 @@ STORY = (
     (17, 35, "delayed", 0, 42, "ReLocate carries both poses while the stereo views provide similar support for A and B."),
     (35, 41, "delayed", 42, 42, "At 2.10 s, the first distinguishing wall pixels appear at the right edge of the right camera."),
     (41, 47, "delayed", 42, 47, "As the wall marker enters view, B gains enough support for three consecutive frames."),
-    (47, 54, "delayed", 47, 47, "ReLocate publishes B at sensor time 2.35 s. On the timed replay, the pose was ready at 6.02 s."),
+    (47, 54, "delayed", 47, 47, "ReLocate publishes B at sensor time 2.35 s. On the optimized replay, the pose was ready at {wall_ready_s:.2f} s."),
     (54, 64, "unresolved", 0, 100, "In this incident, both regions explain every stereo pair in the five-second window."),
     (64, 68, "unresolved", 100, 100, "ReLocate withholds a pose at the deadline. ORB-SLAM3's first pose was in the wrong corridor."),
     (68, 76, "summary", 0, 0, ""),
@@ -76,7 +76,8 @@ class Demo:
     def __init__(self, archive):
         replay = json.loads((HERE / "replay.json").read_text())
         expected = json.loads((ROOT / "results/week6-comparison.json").read_text())
-        profile = json.loads((ROOT / "results/week7-profile.json").read_text())
+        profile = json.loads((ROOT / "results/optimized-synthetic-1x.json").read_text())
+        euroc = json.loads((ROOT / "results/euroc-v1-01-replay.json").read_text())
         with (HERE / "observations.zip").open("rb") as stream:
             image_hash = hashlib.file_digest(stream, "sha256").hexdigest()
         if image_hash != replay["images_sha256"] or any(
@@ -87,8 +88,12 @@ class Demo:
         self.archive = archive
         self.baseline = expected["orb_slam3_relocalization"]
         self.proposal = expected["policies"]["multi-temporal"]
-        self.service_p95 = next(run["timing"]["service_wall"]["p95_ms"] for run in profile["runs"]
-                                if run["run"] == "week7-multi-temporal")
+        self.service_p95 = profile["timing"]["service_wall"]["p95_ms"]
+        self.euroc_p95 = euroc["timing"]["service_wall"]["p95_ms"]
+        self.euroc_correct = euroc["outcomes"]["correct"]
+        self.euroc_cases = len(euroc["cases"])
+        self.wall_ready_s = next(case["wall_until_decision_ms"] / 1000 for case in profile["cases"]
+                                 if case["incident_id"] == self.clips["delayed"]["id"])
 
     def image(self, sample, eye):
         return Image.open(BytesIO(self.archive.read(sample["images"][eye]))).convert("RGB")
@@ -226,7 +231,8 @@ class Demo:
                 label(draw, x, y, str(value[key]), 43, color, True, anchor="mt")
         draw.line((74, 353, 1206, 353), fill=LINE)
         label(draw, 52, 506, "Measured processing budget", 24, TEXT, True)
-        label(draw, 52, 550, f"{self.service_p95:.1f} ms/frame p95 on i7-13700H · 50 ms available at 20 Hz", 22, YELLOW)
+        label(draw, 52, 550, f"Synthetic replay: {self.service_p95:.1f} ms/frame p95 · 50 ms budget at 20 Hz", 22, GREEN)
+        label(draw, 52, 581, f"Recorded EuRoC: {self.euroc_p95:.1f} ms/frame p95 · {self.euroc_correct}/{self.euroc_cases} correct", 22, MUTED)
         label(draw, 52, 636, "Code, benchmark and traces", 20, MUTED)
         label(draw, 52, 671, "github.com/David-Trinh-05/relocate-uav-slam", 20, BLUE)
 
@@ -257,7 +263,7 @@ def write_video(output, demo):
                 for frame in range(frames):
                     index = first + round((last - first) * frame / max(1, frames - 1))
                     if cached != index:
-                        pixels = demo.render(mode, index, caption).tobytes()
+                        pixels = demo.render(mode, index, caption.format(wall_ready_s=demo.wall_ready_s)).tobytes()
                         cached = index
                     encoder.stdin.write(pixels)
             encoder.stdin.close()
